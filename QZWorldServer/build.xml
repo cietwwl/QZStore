@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="QZWorldServer-1.0.0">
+
+	<!-- properies -->
+	<property name="src.dir" value="src/main/java" />
+	<property name="classes.dir" value="bin" />
+	<property name="lib.dir" value="../QZComm/lib" />
+	<property name="dist.dir" value="dist" />
+	<property name="report.dir" value="report" />
+	<property name="jar.name" value="${ant.project.name}.jar" />
+
+	<!-- 定义classpath -->
+	<path id="master-classpath">
+		<fileset file="${lib.dir}/*.jar" />
+		<pathelement path="${classes.dir}" />
+	</path>
+
+	<!-- 初始化任务 -->
+	<target name="init">
+	</target>
+
+	<!-- 编译 -->
+	<target name="compile" depends="init" description="compile the source files">
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" target="1.7" includeAntRuntime="false">
+			<classpath refid="master-classpath" />
+		</javac>
+	</target>
+
+
+	<!-- 打包成jar -->
+	<target name="build" depends="compile" description="make .jar file">
+		<mkdir dir="${report.dir}" />
+		<jar destfile="${report.dir}/${jar.name}" basedir="${classes.dir}"></jar>
+	</target>
+</project>

@@ -1,0 +1,522 @@
+[2015-12-10 16:14:04:826] [INFO ] [main] [Application] init server info
+[2015-12-10 16:14:04:829] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-10 16:14:04:845] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-10 16:14:05:820] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-10 16:14:05:823] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-10 16:14:05:826] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-10 16:14:05:830] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-10 16:14:05:835] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-10 16:14:05:839] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-10 16:14:05:842] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-10 16:14:05:844] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-10 16:14:05:844] [INFO ] [main] [QZLoginServerKernel] init application
+[2015-12-10 16:14:05:849] [INFO ] [main] [QZLoginServerKernel] start server
+[2015-12-10 16:14:05:963] [INFO ] [main] [QZLoginServerKernel] server port:6789
+[2015-12-10 16:14:42:388] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client connected login server
+[2015-12-10 16:14:42:403] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55143] 
+[2015-12-10 16:14:42:476] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-10 16:14:42:481] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-10 16:14:42:483] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-10 16:14:42:485] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-10 16:14:42:486] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-10 16:14:42:488] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-10 16:14:42:490] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-10 16:14:42:492] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-10 16:14:42:572] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:166
+[2015-12-10 16:14:44:003] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:1431
+[2015-12-10 16:14:44:016] [DEBUG] [pool-2-thread-1] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:14d3271f-4d3b-4404-8b67-632ba5453cbb
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:14d3271f-4d3b-4404-8b67-632ba5453cbb
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:14:44:017] [DEBUG] [pool-2-thread-1] [ServerEngine] send buff length -------->113
+[2015-12-10 16:14:44:019] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:14:44:034] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:16
+[2015-12-10 16:15:59:272] [INFO ] [New I/O  worker #2] [LoginServerHandler] Client connected login server
+[2015-12-10 16:15:59:277] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55263] 
+[2015-12-10 16:15:59:290] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:13
+[2015-12-10 16:15:59:301] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:11
+[2015-12-10 16:15:59:302] [DEBUG] [pool-2-thread-2] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:5d08ad6b-5135-4bf9-8267-ba7474f9f4d1
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:5d08ad6b-5135-4bf9-8267-ba7474f9f4d1
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:15:59:302] [DEBUG] [pool-2-thread-2] [ServerEngine] send buff length -------->113
+[2015-12-10 16:15:59:302] [INFO ] [New I/O  worker #2] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:15:59:307] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-10 16:17:03:371] [INFO ] [New I/O  worker #3] [LoginServerHandler] Client connected login server
+[2015-12-10 16:17:03:375] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55277] 
+[2015-12-10 16:17:03:384] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:9
+[2015-12-10 16:17:03:393] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:9
+[2015-12-10 16:17:03:394] [DEBUG] [pool-2-thread-3] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:b063c06c-46dd-4856-89af-cb420f86db66
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:b063c06c-46dd-4856-89af-cb420f86db66
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:17:03:394] [DEBUG] [pool-2-thread-3] [ServerEngine] send buff length -------->113
+[2015-12-10 16:17:03:394] [INFO ] [New I/O  worker #3] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:17:03:397] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:17:55:572] [INFO ] [New I/O  worker #4] [LoginServerHandler] Client connected login server
+[2015-12-10 16:17:55:574] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55281] 
+[2015-12-10 16:17:55:583] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:8
+[2015-12-10 16:17:55:591] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:8
+[2015-12-10 16:17:55:592] [DEBUG] [pool-2-thread-4] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:bee55538-7266-4825-ac48-45a45de2ed47
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:bee55538-7266-4825-ac48-45a45de2ed47
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:17:55:592] [DEBUG] [pool-2-thread-4] [ServerEngine] send buff length -------->113
+[2015-12-10 16:17:55:592] [INFO ] [New I/O  worker #4] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:17:55:596] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-10 16:21:47:622] [INFO ] [New I/O  worker #5] [LoginServerHandler] Client connected login server
+[2015-12-10 16:21:47:627] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55301] 
+[2015-12-10 16:21:47:642] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:15
+[2015-12-10 16:21:47:651] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:8
+[2015-12-10 16:21:47:651] [DEBUG] [pool-2-thread-5] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:3790ef32-997f-4af4-a8e0-d27b5622fa24
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:3790ef32-997f-4af4-a8e0-d27b5622fa24
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:21:47:651] [DEBUG] [pool-2-thread-5] [ServerEngine] send buff length -------->113
+[2015-12-10 16:21:47:652] [INFO ] [New I/O  worker #5] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:21:47:654] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:25:53:973] [INFO ] [New I/O  worker #6] [LoginServerHandler] Client connected login server
+[2015-12-10 16:25:53:978] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55536] 
+[2015-12-10 16:25:54:365] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:386
+[2015-12-10 16:25:54:378] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:13
+[2015-12-10 16:25:54:379] [DEBUG] [pool-2-thread-6] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:85512b3d-20a4-4706-ac4f-ceee99f9babf
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:85512b3d-20a4-4706-ac4f-ceee99f9babf
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:25:54:379] [DEBUG] [pool-2-thread-6] [ServerEngine] send buff length -------->113
+[2015-12-10 16:25:54:379] [INFO ] [New I/O  worker #6] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:25:54:383] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-10 16:27:22:222] [INFO ] [New I/O  worker #7] [LoginServerHandler] Client connected login server
+[2015-12-10 16:27:22:227] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55566] 
+[2015-12-10 16:27:22:238] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:10
+[2015-12-10 16:27:22:246] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:7
+[2015-12-10 16:27:22:246] [DEBUG] [pool-2-thread-7] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:cc8b70c2-c0a4-422d-8255-b1e8afc7f188
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:cc8b70c2-c0a4-422d-8255-b1e8afc7f188
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:27:22:246] [DEBUG] [pool-2-thread-7] [ServerEngine] send buff length -------->113
+[2015-12-10 16:27:22:247] [INFO ] [New I/O  worker #7] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:27:22:250] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:29:37:475] [INFO ] [New I/O  worker #8] [LoginServerHandler] Client connected login server
+[2015-12-10 16:29:37:480] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55572] 
+[2015-12-10 16:29:37:491] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:11
+[2015-12-10 16:29:37:499] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:8
+[2015-12-10 16:29:37:499] [DEBUG] [pool-2-thread-8] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:0f5ee4d0-a5be-43e2-905d-e380696b1a5d
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:0f5ee4d0-a5be-43e2-905d-e380696b1a5d
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:29:37:500] [DEBUG] [pool-2-thread-8] [ServerEngine] send buff length -------->113
+[2015-12-10 16:29:37:500] [INFO ] [New I/O  worker #8] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:29:37:502] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-10 16:30:36:303] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client connected login server
+[2015-12-10 16:30:36:308] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55578] 
+[2015-12-10 16:30:36:315] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:7
+[2015-12-10 16:30:36:323] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:8
+[2015-12-10 16:30:36:323] [DEBUG] [pool-2-thread-1] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:91792ebd-39e3-44d5-8747-1c15eee6a28a
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:91792ebd-39e3-44d5-8747-1c15eee6a28a
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:30:36:323] [DEBUG] [pool-2-thread-1] [ServerEngine] send buff length -------->113
+[2015-12-10 16:30:36:324] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:30:36:326] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:31:50:692] [INFO ] [New I/O  worker #2] [LoginServerHandler] Client connected login server
+[2015-12-10 16:31:50:697] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55584] 
+[2015-12-10 16:31:50:707] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:10
+[2015-12-10 16:31:50:714] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:7
+[2015-12-10 16:31:50:714] [DEBUG] [pool-2-thread-2] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:2ab22d62-1e37-4adf-85b9-7bccc77a5cfe
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:2ab22d62-1e37-4adf-85b9-7bccc77a5cfe
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:31:50:714] [DEBUG] [pool-2-thread-2] [ServerEngine] send buff length -------->113
+[2015-12-10 16:31:50:715] [INFO ] [New I/O  worker #2] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:31:50:717] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-10 16:35:43:486] [INFO ] [New I/O  worker #3] [LoginServerHandler] Client connected login server
+[2015-12-10 16:35:43:490] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55838] 
+[2015-12-10 16:35:43:499] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:9
+[2015-12-10 16:35:43:527] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:28
+[2015-12-10 16:35:43:527] [DEBUG] [pool-2-thread-3] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:0c2be991-7c98-4be5-a39c-83c3d9ea8fe7
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:0c2be991-7c98-4be5-a39c-83c3d9ea8fe7
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:35:43:527] [DEBUG] [pool-2-thread-3] [ServerEngine] send buff length -------->113
+[2015-12-10 16:35:43:528] [INFO ] [New I/O  worker #3] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:35:43:530] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:36:40:984] [INFO ] [New I/O  worker #4] [LoginServerHandler] Client connected login server
+[2015-12-10 16:36:40:989] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55842] 
+[2015-12-10 16:36:40:996] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:7
+[2015-12-10 16:36:41:005] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:8
+[2015-12-10 16:36:41:005] [DEBUG] [pool-2-thread-4] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:2fb457ff-695d-436b-8d33-cdee8ddda216
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:2fb457ff-695d-436b-8d33-cdee8ddda216
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:36:41:005] [DEBUG] [pool-2-thread-4] [ServerEngine] send buff length -------->113
+[2015-12-10 16:36:41:006] [INFO ] [New I/O  worker #4] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:36:41:009] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:38:08:595] [INFO ] [New I/O  worker #5] [LoginServerHandler] Client connected login server
+[2015-12-10 16:38:08:600] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55846] 
+[2015-12-10 16:38:08:607] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:7
+[2015-12-10 16:38:08:614] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:7
+[2015-12-10 16:38:08:615] [DEBUG] [pool-2-thread-5] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:4f1863ab-7519-4545-ab67-97941b0ae6bb
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:4f1863ab-7519-4545-ab67-97941b0ae6bb
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:38:08:615] [DEBUG] [pool-2-thread-5] [ServerEngine] send buff length -------->113
+[2015-12-10 16:38:08:615] [INFO ] [New I/O  worker #5] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:38:08:618] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:40:48:888] [INFO ] [New I/O  worker #6] [LoginServerHandler] Client connected login server
+[2015-12-10 16:40:48:893] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55858] 
+[2015-12-10 16:40:48:902] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:9
+[2015-12-10 16:40:48:910] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:7
+[2015-12-10 16:40:48:910] [DEBUG] [pool-2-thread-6] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:7b5ba967-34aa-48a6-ad42-2818c937412e
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:7b5ba967-34aa-48a6-ad42-2818c937412e
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:40:48:910] [DEBUG] [pool-2-thread-6] [ServerEngine] send buff length -------->113
+[2015-12-10 16:40:48:911] [INFO ] [New I/O  worker #6] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:40:48:913] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:42:43:581] [INFO ] [New I/O  worker #7] [LoginServerHandler] Client connected login server
+[2015-12-10 16:42:43:586] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55866] 
+[2015-12-10 16:42:43:595] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:9
+[2015-12-10 16:42:43:603] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:7
+[2015-12-10 16:42:43:603] [DEBUG] [pool-2-thread-7] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:024845f6-ab42-446b-8180-ff8a4a8b1111
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:024845f6-ab42-446b-8180-ff8a4a8b1111
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:42:43:603] [DEBUG] [pool-2-thread-7] [ServerEngine] send buff length -------->113
+[2015-12-10 16:42:43:604] [INFO ] [New I/O  worker #7] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:42:43:606] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-10 16:47:18:986] [INFO ] [New I/O  worker #8] [LoginServerHandler] Client connected login server
+[2015-12-10 16:47:18:990] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55906] 
+[2015-12-10 16:47:19:000] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:10
+[2015-12-10 16:47:19:009] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:9
+[2015-12-10 16:47:19:009] [DEBUG] [pool-2-thread-8] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:521a024e-92ea-4246-9fa7-3ea708a44a89
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:521a024e-92ea-4246-9fa7-3ea708a44a89
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:47:19:009] [DEBUG] [pool-2-thread-8] [ServerEngine] send buff length -------->113
+[2015-12-10 16:47:19:010] [INFO ] [New I/O  worker #8] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:47:19:013] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-10 16:49:46:322] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client connected login server
+[2015-12-10 16:49:46:327] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55915] 
+[2015-12-10 16:49:46:338] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:11
+[2015-12-10 16:49:46:345] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:7
+[2015-12-10 16:49:46:345] [DEBUG] [pool-2-thread-1] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:4e20b01a-2432-4715-9a75-ee3e387831e2
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:4e20b01a-2432-4715-9a75-ee3e387831e2
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:49:46:345] [DEBUG] [pool-2-thread-1] [ServerEngine] send buff length -------->113
+[2015-12-10 16:49:46:346] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:49:46:348] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-10 16:50:56:029] [INFO ] [New I/O  worker #2] [LoginServerHandler] Client connected login server
+[2015-12-10 16:50:56:035] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55925] 
+[2015-12-10 16:50:56:062] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:27
+[2015-12-10 16:50:56:072] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:10
+[2015-12-10 16:50:56:072] [DEBUG] [pool-2-thread-2] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:3473a41e-b8fd-4f96-ab65-5e4f3be94904
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:3473a41e-b8fd-4f96-ab65-5e4f3be94904
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:50:56:072] [DEBUG] [pool-2-thread-2] [ServerEngine] send buff length -------->113
+[2015-12-10 16:50:56:073] [INFO ] [New I/O  worker #2] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:50:56:076] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-10 16:52:42:723] [INFO ] [New I/O  worker #3] [LoginServerHandler] Client connected login server
+[2015-12-10 16:52:42:728] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55931] 
+[2015-12-10 16:52:42:737] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:9
+[2015-12-10 16:52:42:744] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:6
+[2015-12-10 16:52:42:745] [DEBUG] [pool-2-thread-3] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:67f67164-791b-4921-a5a6-a423e0f8c53b
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:67f67164-791b-4921-a5a6-a423e0f8c53b
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:52:42:745] [DEBUG] [pool-2-thread-3] [ServerEngine] send buff length -------->113
+[2015-12-10 16:52:42:746] [INFO ] [New I/O  worker #3] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:52:42:748] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-10 16:53:34:135] [INFO ] [New I/O  worker #4] [LoginServerHandler] Client connected login server
+[2015-12-10 16:53:34:142] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:55938] 
+[2015-12-10 16:53:34:154] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:12
+[2015-12-10 16:53:34:161] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:7
+[2015-12-10 16:53:34:161] [DEBUG] [pool-2-thread-4] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:c2d1eb6c-ea22-4909-8a2e-c3a7e01768f1
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:c2d1eb6c-ea22-4909-8a2e-c3a7e01768f1
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-10 16:53:34:161] [DEBUG] [pool-2-thread-4] [ServerEngine] send buff length -------->113
+[2015-12-10 16:53:34:162] [INFO ] [New I/O  worker #4] [LoginServerHandler] Client disconnected login server
+[2015-12-10 16:53:34:164] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2

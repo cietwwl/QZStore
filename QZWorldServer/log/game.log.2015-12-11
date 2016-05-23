@@ -1,0 +1,1040 @@
+[2015-12-11 10:27:01:944] [INFO ] [main] [Application] init server info
+[2015-12-11 10:27:01:947] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 10:27:01:961] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 10:27:02:161] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.GameFightAction
+[2015-12-11 10:27:02:192] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.GameServerAction
+[2015-12-11 10:27:02:206] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.LoginGameAction
+[2015-12-11 10:27:02:342] [WARN ] [main] [ServerEngine] can not find : com.ks.world.action.WorldServerActionImpl$1
+[2015-12-11 10:27:02:389] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.AdminAction
+[2015-12-11 10:27:02:396] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.ArenaAction
+[2015-12-11 10:27:02:406] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FightAction
+[2015-12-11 10:27:02:411] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FriendAction
+[2015-12-11 10:27:02:418] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.GuildAction
+[2015-12-11 10:27:02:421] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 10:27:02:425] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MailAction
+[2015-12-11 10:27:02:428] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MallAction
+[2015-12-11 10:27:02:433] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MartialWayAction
+[2015-12-11 10:27:02:441] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.PlayerAction
+[2015-12-11 10:27:02:445] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.TaskAction
+[2015-12-11 10:27:02:448] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 10:27:02:452] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAction
+[2015-12-11 10:27:02:455] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserBuffAction
+[2015-12-11 10:27:02:458] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 10:27:02:464] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEternalAction
+[2015-12-11 10:27:02:470] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserHeroAction
+[2015-12-11 10:27:02:473] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserPropAction
+[2015-12-11 10:27:02:476] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserTeamAction
+[2015-12-11 10:27:02:479] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserZoneAction
+[2015-12-11 10:27:02:520] [INFO ] [main] [TimerController] timer register : TestTask
+[2015-12-11 10:27:02:602] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 00:00:00.0
+[2015-12-11 10:27:02:602] [INFO ] [main] [TimerController] timer register : ArenaCleanRankJob
+[2015-12-11 10:27:02:619] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 09:00:00.0
+[2015-12-11 10:27:02:619] [INFO ] [main] [TimerController] timer register : ArenaRefShoppingJob
+[2015-12-11 10:27:02:633] [INFO ] [main] [BaseJob] next run job time--------->2015-12-14 00:00:00.0
+[2015-12-11 10:27:02:634] [INFO ] [main] [TimerController] timer register : GuildRankAwardJob
+[2015-12-11 10:27:02:652] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 09:00:00.0
+[2015-12-11 10:27:02:652] [INFO ] [main] [TimerController] timer register : MartialWayAwardJob
+[2015-12-11 10:27:02:735] [INFO ] [main] [TimerController] timer register : OnlineReportTask
+[2015-12-11 10:27:09:422] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51186
+[2015-12-11 10:27:09:434] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51190
+[2015-12-11 10:27:09:422] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51189
+[2015-12-11 10:27:09:434] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51192
+[2015-12-11 10:27:09:434] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51191
+[2015-12-11 10:27:09:435] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51193
+[2015-12-11 10:27:09:435] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51194
+[2015-12-11 10:27:09:435] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51195
+[2015-12-11 10:27:09:551] [INFO ] [pool-2-thread-1] [WorldServerAction] logic server connected……
+[2015-12-11 10:27:09:571] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.GameFightAction
+[2015-12-11 10:27:09:571] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.LoginGameAction
+[2015-12-11 10:27:09:571] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.GameServerAction
+[2015-12-11 10:27:20:398] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51232
+[2015-12-11 10:27:20:408] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51235
+[2015-12-11 10:27:20:409] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51236
+[2015-12-11 10:27:20:411] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51237
+[2015-12-11 10:27:20:413] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51238
+[2015-12-11 10:27:20:415] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51239
+[2015-12-11 10:27:20:417] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51240
+[2015-12-11 10:27:20:433] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51241
+[2015-12-11 10:27:20:468] [INFO ] [pool-2-thread-2] [WorldServerAction] game server connected……
+[2015-12-11 10:27:20:469] [INFO ] [pool-2-thread-2] [WorldServerAction] clear qz_game_test_1 players...
+[2015-12-11 10:27:20:470] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.GameFightAction
+[2015-12-11 10:27:20:470] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.LoginGameAction
+[2015-12-11 10:27:20:471] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.GameServerAction
+[2015-12-11 10:27:20:561] [INFO ] [New I/O  worker #17] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 10:27:20:563] [INFO ] [New I/O  worker #18] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 10:27:20:564] [INFO ] [New I/O  worker #19] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 10:27:20:567] [INFO ] [New I/O  worker #20] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 10:27:20:569] [INFO ] [New I/O  worker #21] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 10:27:20:570] [INFO ] [New I/O  worker #22] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 10:27:20:572] [INFO ] [New I/O  worker #23] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 10:27:20:573] [INFO ] [New I/O  worker #24] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 10:27:20:610] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<GameServerAction.addLogicServerRPC--->time:136
+[2015-12-11 10:27:45:870] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51326
+[2015-12-11 10:27:45:883] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51329
+[2015-12-11 10:27:45:885] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51330
+[2015-12-11 10:27:45:887] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51331
+[2015-12-11 10:27:45:888] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51332
+[2015-12-11 10:27:45:890] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51333
+[2015-12-11 10:27:45:892] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51334
+[2015-12-11 10:27:45:894] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51335
+[2015-12-11 10:27:45:929] [INFO ] [New I/O  worker #17] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:45:931] [INFO ] [New I/O  worker #18] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:45:936] [INFO ] [New I/O  worker #19] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:45:939] [INFO ] [New I/O  worker #20] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:45:942] [INFO ] [New I/O  worker #21] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:45:945] [INFO ] [New I/O  worker #22] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:45:948] [INFO ] [New I/O  worker #23] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:45:950] [INFO ] [New I/O  worker #24] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:45:960] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserAction.findUserIdByUsername--->time:36
+[2015-12-11 10:27:46:558] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.userLogin--->time:524
+[2015-12-11 10:27:46:729] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.addOnlinePlayer--->time:50
+[2015-12-11 10:27:46:729] [INFO ] [pool-2-thread-4] [WorldServerCache] 游戏服务器：qz_game_test_1增加人数1
+[2015-12-11 10:30:00:738] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 10:30:00:739] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 10:30:08:964] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<UserAction.findUserIdByUsername--->time:12
+[2015-12-11 10:30:08:973] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<PlayerAction.userLogin--->time:6
+[2015-12-11 10:30:08:976] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.addOnlinePlayer--->time:2
+[2015-12-11 10:30:08:976] [INFO ] [pool-2-thread-5] [WorldServerCache] 游戏服务器：qz_game_test_1增加人数2
+[2015-12-11 10:33:00:740] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 10:33:00:741] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:1
+[2015-12-11 10:36:00:742] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 10:36:00:743] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:1
+[2015-12-11 10:39:00:744] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 10:39:00:746] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:2
+[2015-12-11 10:39:38:711] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<UserAction.findUserIdByUsername--->time:7
+[2015-12-11 10:39:38:717] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.repeatLogin--->time:2
+[2015-12-11 10:39:38:717] [INFO ] [pool-2-thread-1] [WorldServerCache] 游戏服务器：qz_game_test_1减少人数1
+[2015-12-11 10:39:38:720] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.addOnlinePlayer--->time:2
+[2015-12-11 10:39:38:720] [INFO ] [pool-2-thread-1] [WorldServerCache] 游戏服务器：qz_game_test_1增加人数2
+[2015-12-11 10:42:00:746] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 10:42:00:746] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 10:45:00:748] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 10:45:00:749] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:1
+[2015-12-11 10:45:26:825] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<UserAction.findUserIdByUsername--->time:4
+[2015-12-11 10:45:26:831] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.repeatLogin--->time:2
+[2015-12-11 10:45:26:831] [INFO ] [pool-2-thread-3] [WorldServerCache] 游戏服务器：qz_game_test_1减少人数1
+[2015-12-11 10:45:26:834] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.addOnlinePlayer--->time:2
+[2015-12-11 10:45:26:834] [INFO ] [pool-2-thread-3] [WorldServerCache] 游戏服务器：qz_game_test_1增加人数2
+[2015-12-11 10:46:33:120] [WARN ] [New I/O  worker #16] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 10:46:33:127] [WARN ] [New I/O  worker #10] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 10:46:33:128] [WARN ] [New I/O  worker #9] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 10:46:33:128] [WARN ] [New I/O  worker #14] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 10:46:33:130] [WARN ] [New I/O  worker #12] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 10:46:33:130] [WARN ] [New I/O  worker #15] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 10:46:33:130] [WARN ] [New I/O  worker #11] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 10:46:33:133] [WARN ] [New I/O  worker #13] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 10:46:33:138] [ERROR] [New I/O  worker #23] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:33:141] [ERROR] [New I/O  worker #17] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:33:141] [ERROR] [New I/O  worker #19] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:33:139] [ERROR] [New I/O  worker #21] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:33:139] [ERROR] [New I/O  worker #20] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:33:138] [ERROR] [New I/O  worker #24] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:33:138] [ERROR] [New I/O  worker #18] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:33:138] [ERROR] [New I/O  worker #22] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:46:49:791] [INFO ] [main] [Application] init server info
+[2015-12-11 13:46:49:792] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 13:46:49:806] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 13:46:50:046] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.GameFightAction
+[2015-12-11 13:46:50:199] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.GameServerAction
+[2015-12-11 13:46:50:264] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.LoginGameAction
+[2015-12-11 13:46:50:769] [WARN ] [main] [ServerEngine] can not find : com.ks.world.action.WorldServerActionImpl$1
+[2015-12-11 13:46:50:968] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.AdminAction
+[2015-12-11 13:46:50:976] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.ArenaAction
+[2015-12-11 13:46:50:987] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FightAction
+[2015-12-11 13:46:50:992] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FriendAction
+[2015-12-11 13:46:50:999] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.GuildAction
+[2015-12-11 13:46:51:002] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 13:46:51:006] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MailAction
+[2015-12-11 13:46:51:011] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MallAction
+[2015-12-11 13:46:51:016] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MartialWayAction
+[2015-12-11 13:46:51:025] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.PlayerAction
+[2015-12-11 13:46:51:029] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.TaskAction
+[2015-12-11 13:46:51:033] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 13:46:51:037] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAction
+[2015-12-11 13:46:51:040] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserBuffAction
+[2015-12-11 13:46:51:053] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 13:46:51:058] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEternalAction
+[2015-12-11 13:46:51:064] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserHeroAction
+[2015-12-11 13:46:51:068] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserPropAction
+[2015-12-11 13:46:51:071] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserTeamAction
+[2015-12-11 13:46:51:077] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserZoneAction
+[2015-12-11 13:46:51:236] [INFO ] [main] [TimerController] timer register : TestTask
+[2015-12-11 13:46:51:454] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 00:00:00.0
+[2015-12-11 13:46:51:454] [INFO ] [main] [TimerController] timer register : ArenaCleanRankJob
+[2015-12-11 13:46:51:504] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 09:00:00.0
+[2015-12-11 13:46:51:504] [INFO ] [main] [TimerController] timer register : ArenaRefShoppingJob
+[2015-12-11 13:46:51:587] [INFO ] [main] [BaseJob] next run job time--------->2015-12-14 00:00:00.0
+[2015-12-11 13:46:51:588] [INFO ] [main] [TimerController] timer register : GuildRankAwardJob
+[2015-12-11 13:46:51:655] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 09:00:00.0
+[2015-12-11 13:46:51:656] [INFO ] [main] [TimerController] timer register : MartialWayAwardJob
+[2015-12-11 13:46:51:867] [INFO ] [main] [TimerController] timer register : OnlineReportTask
+[2015-12-11 13:47:25:823] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57524
+[2015-12-11 13:47:25:823] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57527
+[2015-12-11 13:47:25:823] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57528
+[2015-12-11 13:47:25:823] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57529
+[2015-12-11 13:47:25:823] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57530
+[2015-12-11 13:47:25:823] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57531
+[2015-12-11 13:47:25:823] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57532
+[2015-12-11 13:47:25:823] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57533
+[2015-12-11 13:47:25:871] [INFO ] [pool-2-thread-1] [WorldServerAction] logic server connected……
+[2015-12-11 13:47:25:886] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.GameFightAction
+[2015-12-11 13:47:25:886] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.LoginGameAction
+[2015-12-11 13:47:25:886] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.GameServerAction
+[2015-12-11 13:47:38:031] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57595
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57598
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57599
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57600
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57601
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57602
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57603
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57604
+[2015-12-11 13:47:38:095] [INFO ] [pool-2-thread-2] [WorldServerAction] game server connected……
+[2015-12-11 13:47:38:095] [INFO ] [pool-2-thread-2] [WorldServerAction] clear qz_game_test_1 players...
+[2015-12-11 13:47:38:095] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.GameFightAction
+[2015-12-11 13:47:38:095] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.LoginGameAction
+[2015-12-11 13:47:38:095] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.GameServerAction
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #17] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #18] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #19] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #20] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #21] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #22] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #23] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:47:38:204] [INFO ] [New I/O  worker #24] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<GameServerAction.addLogicServerRPC--->time:140
+[2015-12-11 13:47:59:512] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57688
+[2015-12-11 13:47:59:521] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57691
+[2015-12-11 13:47:59:523] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57692
+[2015-12-11 13:47:59:525] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57693
+[2015-12-11 13:47:59:527] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57694
+[2015-12-11 13:47:59:529] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57695
+[2015-12-11 13:47:59:531] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57696
+[2015-12-11 13:47:59:533] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57697
+[2015-12-11 13:47:59:569] [INFO ] [New I/O  worker #17] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:47:59:571] [INFO ] [New I/O  worker #18] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:47:59:573] [INFO ] [New I/O  worker #19] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:47:59:575] [INFO ] [New I/O  worker #20] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:47:59:577] [INFO ] [New I/O  worker #21] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:47:59:578] [INFO ] [New I/O  worker #22] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:47:59:580] [INFO ] [New I/O  worker #23] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:47:59:581] [INFO ] [New I/O  worker #24] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:47:59:995] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserAction.findUserIdByUsername--->time:432
+[2015-12-11 13:48:00:125] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.userLogin--->time:33
+[2015-12-11 13:48:00:246] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.addOnlinePlayer--->time:29
+[2015-12-11 13:48:00:247] [INFO ] [pool-2-thread-4] [WorldServerCache] 游戏服务器：qz_game_test_1增加人数1
+[2015-12-11 13:48:00:869] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 13:48:00:872] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:3
+[2015-12-11 13:51:00:870] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 13:51:00:871] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:1
+[2015-12-11 13:53:20:042] [WARN ] [New I/O  worker #12] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 13:53:20:044] [WARN ] [New I/O  worker #16] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 13:53:20:047] [WARN ] [New I/O  worker #9] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 13:53:20:048] [WARN ] [New I/O  worker #13] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 13:53:20:049] [WARN ] [New I/O  worker #10] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 13:53:20:050] [WARN ] [New I/O  worker #14] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 13:53:20:050] [ERROR] [New I/O  worker #23] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:051] [WARN ] [New I/O  worker #11] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 13:53:20:051] [WARN ] [New I/O  worker #15] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 13:53:20:056] [ERROR] [New I/O  worker #21] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:056] [ERROR] [New I/O  worker #17] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:054] [ERROR] [New I/O  worker #22] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:053] [ERROR] [New I/O  worker #18] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:052] [ERROR] [New I/O  worker #19] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:050] [ERROR] [New I/O  worker #24] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:050] [ERROR] [New I/O  worker #20] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:31:858] [INFO ] [main] [Application] init server info
+[2015-12-11 13:53:31:859] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 13:53:31:876] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 13:53:32:113] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.GameFightAction
+[2015-12-11 13:53:32:121] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.GameServerAction
+[2015-12-11 13:53:32:128] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.LoginGameAction
+[2015-12-11 13:53:32:147] [WARN ] [main] [ServerEngine] can not find : com.ks.world.action.WorldServerActionImpl$1
+[2015-12-11 13:53:32:162] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.AdminAction
+[2015-12-11 13:53:32:170] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.ArenaAction
+[2015-12-11 13:53:32:185] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FightAction
+[2015-12-11 13:53:32:191] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FriendAction
+[2015-12-11 13:53:32:199] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.GuildAction
+[2015-12-11 13:53:32:202] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 13:53:32:205] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MailAction
+[2015-12-11 13:53:32:208] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MallAction
+[2015-12-11 13:53:32:213] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MartialWayAction
+[2015-12-11 13:53:32:220] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.PlayerAction
+[2015-12-11 13:53:32:224] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.TaskAction
+[2015-12-11 13:53:32:227] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 13:53:32:232] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAction
+[2015-12-11 13:53:32:235] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserBuffAction
+[2015-12-11 13:53:32:239] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 13:53:32:244] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEternalAction
+[2015-12-11 13:53:32:249] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserHeroAction
+[2015-12-11 13:53:32:253] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserPropAction
+[2015-12-11 13:53:32:255] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserTeamAction
+[2015-12-11 13:53:32:259] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserZoneAction
+[2015-12-11 13:53:32:274] [INFO ] [main] [TimerController] timer register : TestTask
+[2015-12-11 13:53:32:283] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 00:00:00.0
+[2015-12-11 13:53:32:283] [INFO ] [main] [TimerController] timer register : ArenaCleanRankJob
+[2015-12-11 13:53:32:284] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 09:00:00.0
+[2015-12-11 13:53:32:285] [INFO ] [main] [TimerController] timer register : ArenaRefShoppingJob
+[2015-12-11 13:53:32:286] [INFO ] [main] [BaseJob] next run job time--------->2015-12-14 00:00:00.0
+[2015-12-11 13:53:32:286] [INFO ] [main] [TimerController] timer register : GuildRankAwardJob
+[2015-12-11 13:53:32:287] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 09:00:00.0
+[2015-12-11 13:53:32:287] [INFO ] [main] [TimerController] timer register : MartialWayAwardJob
+[2015-12-11 13:53:32:296] [INFO ] [main] [TimerController] timer register : OnlineReportTask
+[2015-12-11 13:54:00:297] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 13:54:00:298] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 13:54:11:283] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57890
+[2015-12-11 13:54:11:283] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57891
+[2015-12-11 13:54:11:283] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57887
+[2015-12-11 13:54:11:284] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57892
+[2015-12-11 13:54:11:284] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57893
+[2015-12-11 13:54:11:284] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57894
+[2015-12-11 13:54:11:285] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57895
+[2015-12-11 13:54:11:285] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57896
+[2015-12-11 13:54:11:328] [INFO ] [pool-2-thread-1] [WorldServerAction] logic server connected……
+[2015-12-11 13:54:11:336] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.GameFightAction
+[2015-12-11 13:54:11:336] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.LoginGameAction
+[2015-12-11 13:54:11:336] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.GameServerAction
+[2015-12-11 13:54:15:445] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57935
+[2015-12-11 13:54:15:454] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57938
+[2015-12-11 13:54:15:455] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57939
+[2015-12-11 13:54:15:457] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57940
+[2015-12-11 13:54:15:458] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57941
+[2015-12-11 13:54:15:459] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57942
+[2015-12-11 13:54:15:461] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57943
+[2015-12-11 13:54:15:462] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57944
+[2015-12-11 13:54:15:498] [INFO ] [pool-2-thread-2] [WorldServerAction] game server connected……
+[2015-12-11 13:54:15:499] [INFO ] [pool-2-thread-2] [WorldServerAction] clear qz_game_test_1 players...
+[2015-12-11 13:54:15:500] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.GameFightAction
+[2015-12-11 13:54:15:500] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.LoginGameAction
+[2015-12-11 13:54:15:500] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.GameServerAction
+[2015-12-11 13:54:15:591] [INFO ] [New I/O  worker #17] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:54:15:593] [INFO ] [New I/O  worker #18] [RPCClientChannelHandler] connect null success.
+[2015-12-11 13:54:15:595] [INFO ] [New I/O  worker #19] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:54:15:597] [INFO ] [New I/O  worker #20] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:54:15:599] [INFO ] [New I/O  worker #21] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:54:15:601] [INFO ] [New I/O  worker #22] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:54:15:602] [INFO ] [New I/O  worker #23] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:54:15:603] [INFO ] [New I/O  worker #24] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 13:54:15:641] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<GameServerAction.addLogicServerRPC--->time:138
+[2015-12-11 13:54:35:878] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58028
+[2015-12-11 13:54:35:886] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58031
+[2015-12-11 13:54:35:888] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58032
+[2015-12-11 13:54:35:890] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58033
+[2015-12-11 13:54:35:892] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58034
+[2015-12-11 13:54:35:893] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58035
+[2015-12-11 13:54:35:895] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58036
+[2015-12-11 13:54:35:897] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58037
+[2015-12-11 13:54:35:933] [INFO ] [New I/O  worker #17] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:35:935] [INFO ] [New I/O  worker #18] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:35:936] [INFO ] [New I/O  worker #19] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:35:937] [INFO ] [New I/O  worker #20] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:35:939] [INFO ] [New I/O  worker #21] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:35:940] [INFO ] [New I/O  worker #22] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:35:941] [INFO ] [New I/O  worker #23] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:35:943] [INFO ] [New I/O  worker #24] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:35:950] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserAction.findUserIdByUsername--->time:23
+[2015-12-11 13:54:36:399] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.userLogin--->time:429
+[2015-12-11 13:54:36:474] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.addOnlinePlayer--->time:15
+[2015-12-11 13:54:36:474] [INFO ] [pool-2-thread-4] [WorldServerCache] 游戏服务器：qz_game_test_1增加人数1
+[2015-12-11 13:55:52:304] [WARN ] [Thread-0] [KeyLockManager] lock[17] time out!
+[2015-12-11 13:57:00:300] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 13:57:00:300] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:00:00:302] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 14:00:00:302] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:01:43:324] [WARN ] [Thread-0] [KeyLockManager] lock[19] time out!
+[2015-12-11 14:03:00:303] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 14:03:00:303] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:06:00:306] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 14:06:00:306] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:09:00:307] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 14:09:00:307] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:12:00:309] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 14:12:00:309] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:15:00:312] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 14:15:00:312] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:18:00:313] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 14:18:00:313] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:21:00:315] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 14:21:00:315] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:21:44:719] [WARN ] [New I/O  worker #12] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 14:21:44:720] [WARN ] [New I/O  worker #13] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 14:21:44:720] [WARN ] [New I/O  worker #16] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 14:21:44:721] [ERROR] [New I/O  worker #23] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:44:719] [WARN ] [New I/O  worker #9] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 14:21:44:733] [WARN ] [New I/O  worker #14] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 14:21:44:731] [ERROR] [New I/O  worker #21] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:44:731] [WARN ] [New I/O  worker #10] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 14:21:44:726] [WARN ] [New I/O  worker #15] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[[2015-12-11 14:21:44:725] [ERROR] [2015-12-11 14:21:44:725New I/O  worker #24] [] [WARN ] [RPCClientChannelHandlerNew I/O  worker #11] ] [
+RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 14:21:44:732] [ERROR] [New I/O  worker #24] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:44:732] [ERROR] [New I/O  worker #20] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:44:727] [ERROR] [New I/O  worker #17] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:44:724] [ERROR] [New I/O  worker #19] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:44:723] [ERROR] [New I/O  worker #22] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:44:722] [ERROR] [New I/O  worker #18] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:55:51:102] [INFO ] [main] [Application] init server info
+[2015-12-11 14:55:51:103] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 14:55:51:119] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 14:55:51:286] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.GameFightAction
+[2015-12-11 14:55:51:291] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.GameServerAction
+[2015-12-11 14:55:51:296] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.game.LoginGameAction
+[2015-12-11 14:55:51:309] [WARN ] [main] [ServerEngine] can not find : com.ks.world.action.WorldServerActionImpl$1
+[2015-12-11 14:55:51:320] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.AdminAction
+[2015-12-11 14:55:51:327] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.ArenaAction
+[2015-12-11 14:55:51:338] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FightAction
+[2015-12-11 14:55:51:345] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FriendAction
+[2015-12-11 14:55:51:353] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.GuildAction
+[2015-12-11 14:55:51:356] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 14:55:51:359] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MailAction
+[2015-12-11 14:55:51:362] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MallAction
+[2015-12-11 14:55:51:368] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MartialWayAction
+[2015-12-11 14:55:51:376] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.PlayerAction
+[2015-12-11 14:55:51:380] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.TaskAction
+[2015-12-11 14:55:51:383] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 14:55:51:387] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAction
+[2015-12-11 14:55:51:390] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserBuffAction
+[2015-12-11 14:55:51:393] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 14:55:51:398] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEternalAction
+[2015-12-11 14:55:51:403] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserHeroAction
+[2015-12-11 14:55:51:407] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserPropAction
+[2015-12-11 14:55:51:411] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserTeamAction
+[2015-12-11 14:55:51:416] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserZoneAction
+[2015-12-11 14:55:51:430] [INFO ] [main] [TimerController] timer register : TestTask
+[2015-12-11 14:55:51:440] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 00:00:00.0
+[2015-12-11 14:55:51:441] [INFO ] [main] [TimerController] timer register : ArenaCleanRankJob
+[2015-12-11 14:55:51:442] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 09:00:00.0
+[2015-12-11 14:55:51:443] [INFO ] [main] [TimerController] timer register : ArenaRefShoppingJob
+[2015-12-11 14:55:51:444] [INFO ] [main] [BaseJob] next run job time--------->2015-12-14 00:00:00.0
+[2015-12-11 14:55:51:444] [INFO ] [main] [TimerController] timer register : GuildRankAwardJob
+[2015-12-11 14:55:51:445] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 09:00:00.0
+[2015-12-11 14:55:51:445] [INFO ] [main] [TimerController] timer register : MartialWayAwardJob
+[2015-12-11 14:55:51:453] [INFO ] [main] [TimerController] timer register : OnlineReportTask
+[2015-12-11 14:56:05:529] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58712
+[2015-12-11 14:56:05:529] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58713
+[2015-12-11 14:56:05:529] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58709
+[2015-12-11 14:56:05:530] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58714
+[2015-12-11 14:56:05:530] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58715
+[2015-12-11 14:56:05:531] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58716
+[2015-12-11 14:56:05:531] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58717
+[2015-12-11 14:56:05:532] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58718
+[2015-12-11 14:56:05:577] [INFO ] [pool-2-thread-1] [WorldServerAction] logic server connected……
+[2015-12-11 14:56:05:585] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.GameFightAction
+[2015-12-11 14:56:05:585] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.LoginGameAction
+[2015-12-11 14:56:05:585] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.game.GameServerAction
+[2015-12-11 14:56:15:243] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58755
+[2015-12-11 14:56:15:255] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58758
+[2015-12-11 14:56:15:257] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58759
+[2015-12-11 14:56:15:258] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58760
+[2015-12-11 14:56:15:260] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58761
+[2015-12-11 14:56:15:261] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58762
+[2015-12-11 14:56:15:263] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58763
+[2015-12-11 14:56:15:265] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58764
+[2015-12-11 14:56:15:301] [INFO ] [pool-2-thread-2] [WorldServerAction] game server connected……
+[2015-12-11 14:56:15:302] [INFO ] [pool-2-thread-2] [WorldServerAction] clear qz_game_test_1 players...
+[2015-12-11 14:56:15:303] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.GameFightAction
+[2015-12-11 14:56:15:303] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.LoginGameAction
+[2015-12-11 14:56:15:304] [INFO ] [pool-2-thread-2] [RPCKernel] add id remote : qz_game_test_1:interface com.ks.action.game.GameServerAction
+[2015-12-11 14:56:15:402] [INFO ] [New I/O  worker #17] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 14:56:15:408] [INFO ] [New I/O  worker #18] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 14:56:15:410] [INFO ] [New I/O  worker #19] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 14:56:15:413] [INFO ] [New I/O  worker #20] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 14:56:15:415] [INFO ] [New I/O  worker #21] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 14:56:15:417] [INFO ] [New I/O  worker #22] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 14:56:15:418] [INFO ] [New I/O  worker #23] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 14:56:15:420] [INFO ] [New I/O  worker #24] [RPCClientChannelHandler] connect qz_game_test_1 success.
+[2015-12-11 14:56:15:459] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<GameServerAction.addLogicServerRPC--->time:152
+[2015-12-11 14:57:00:455] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 14:57:00:460] [INFO ] [New I/O  worker #17] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:00:462] [INFO ] [New I/O  worker #18] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:00:463] [INFO ] [New I/O  worker #19] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:00:464] [INFO ] [New I/O  worker #20] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:00:466] [INFO ] [New I/O  worker #21] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:00:468] [INFO ] [New I/O  worker #22] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:00:469] [INFO ] [New I/O  worker #23] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:00:470] [INFO ] [New I/O  worker #24] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:00:471] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:16
+[2015-12-11 14:57:32:524] [INFO ] [New I/O  worker #9] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58888
+[2015-12-11 14:57:32:534] [INFO ] [New I/O  worker #10] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58891
+[2015-12-11 14:57:32:536] [INFO ] [New I/O  worker #11] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58892
+[2015-12-11 14:57:32:538] [INFO ] [New I/O  worker #12] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58893
+[2015-12-11 14:57:32:540] [INFO ] [New I/O  worker #13] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58894
+[2015-12-11 14:57:32:542] [INFO ] [New I/O  worker #14] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58895
+[2015-12-11 14:57:32:543] [INFO ] [New I/O  worker #15] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58896
+[2015-12-11 14:57:32:545] [INFO ] [New I/O  worker #16] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58897
+[2015-12-11 14:57:32:586] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserAction.findUserIdByUsername--->time:12
+[2015-12-11 14:57:32:651] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.userLogin--->time:43
+[2015-12-11 14:57:44:474] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.userRegister--->time:273
+[2015-12-11 14:57:44:512] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<UserAction.findUserIdByUsername--->time:16
+[2015-12-11 14:57:44:526] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<PlayerAction.userLogin--->time:8
+[2015-12-11 14:57:44:596] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginGameAction.addOnlinePlayer--->time:16
+[2015-12-11 14:57:44:597] [INFO ] [pool-2-thread-1] [WorldServerCache] 游戏服务器：qz_game_test_1增加人数1
+[2015-12-11 15:00:00:456] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 15:00:00:457] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:1
+[2015-12-11 15:03:00:458] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:03:00:458] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:06:00:461] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:06:00:461] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:09:00:462] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:09:00:462] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:12:00:464] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:12:00:464] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:15:00:466] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:15:00:466] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:16:15:007] [INFO ] [pool-2-thread-1] [WorldServerCache] 游戏服务器：qz_game_test_1减少人数0
+[2015-12-11 15:18:00:468] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:18:00:468] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:21:00:470] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:21:00:470] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:24:00:471] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:24:00:471] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:27:00:474] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:27:00:474] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:30:00:476] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:30:00:476] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:33:00:477] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:33:00:477] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:36:00:480] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:36:00:480] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:39:00:482] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:39:00:483] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:1
+[2015-12-11 15:42:00:483] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:42:00:483] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:45:00:485] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:45:00:485] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:48:00:487] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:48:00:488] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:1
+[2015-12-11 15:51:00:489] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:51:00:489] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:54:00:491] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:54:00:491] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:57:00:493] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 15:57:00:493] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:00:00:495] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 16:00:00:495] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:03:00:496] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:03:00:496] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:06:00:499] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:06:00:499] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:09:00:501] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:09:00:501] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:12:00:502] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:12:00:503] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 16:15:00:504] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:15:00:504] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:18:00:507] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:18:00:507] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:21:00:507] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:21:00:508] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 16:24:00:510] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:24:00:510] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:27:00:513] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:27:00:513] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:30:00:514] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:30:00:514] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:33:00:516] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:33:00:516] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:36:00:521] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:36:00:522] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 16:39:00:520] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 16:39:00:520] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:42:00:522] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 16:42:00:522] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:45:00:523] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 16:45:00:524] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:1
+[2015-12-11 16:48:00:526] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 16:48:00:526] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:51:00:527] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 16:51:00:527] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:54:00:529] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 16:54:00:529] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:57:00:532] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 16:57:00:532] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:00:00:533] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:00:00:533] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:03:00:535] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:03:00:535] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:06:00:537] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:06:00:537] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:09:00:539] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:09:00:539] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:12:00:541] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:12:00:541] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:15:00:542] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:15:00:542] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:18:00:545] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:18:00:545] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:21:00:547] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:21:00:547] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:24:00:548] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:24:00:548] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:27:00:550] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:27:00:550] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:30:00:553] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:30:00:553] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:33:00:554] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:33:00:554] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:36:00:556] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:36:00:556] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:39:00:558] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:39:00:558] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:42:00:560] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:42:00:560] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:45:00:562] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:45:00:562] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:48:00:564] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:48:00:564] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:51:00:566] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:51:00:566] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:54:00:567] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:54:00:567] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:57:00:569] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 17:57:00:569] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:00:00:572] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 18:00:00:572] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:03:00:575] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 18:03:00:577] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:2
+[2015-12-11 18:06:00:575] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 18:06:00:575] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:09:00:578] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 18:09:00:578] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:12:00:579] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 18:12:00:580] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:1
+[2015-12-11 18:15:00:581] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 18:15:00:581] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:18:00:583] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 18:18:00:583] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:21:00:585] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 18:21:00:585] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:21:26:552] [ERROR] [New I/O  worker #21] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:26:552] [WARN ] [New I/O  worker #15] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 18:21:26:556] [ERROR] [New I/O  worker #20] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:26:556] [ERROR] [New I/O  worker #24] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:26:556] [WARN ] [New I/O  worker #14] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 18:21:26:556] [ERROR] [New I/O  worker #23] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:26:556] [WARN ] [New I/O  worker #10] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 18:21:26:556] [WARN ] [2015-12-11 18:21:26:556] [New I/O  worker #11ERROR] [] [New I/O  worker #19] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:26:556] [WARN ] [New I/O  worker #11] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 18:21:26:555] [ERROR] [New I/O  worker #18] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:26:555] [WARN ] [New I/O  worker #13] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 18:21:26:555] [ERROR] [New I/O  worker #22] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:26:555] [WARN ] [New I/O  worker #12] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 18:21:26:554] [WARN ] [New I/O  worker #9] [RPCServer] 远程主机强迫关闭了一个现有的连接。
+[2015-12-11 18:21:26:551] [ERROR] [New I/O  worker #17] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:26:553] [WARN ] [New I/O  worker #16] [RPCServer] 远程主机强迫关闭了一个现有的连接。

@@ -1,0 +1,749 @@
+[2015-12-11 10:27:25:373] [INFO ] [main] [Application] init server info
+[2015-12-11 10:27:25:377] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 10:27:25:408] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 10:27:27:450] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-11 10:27:27:453] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-11 10:27:27:456] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-11 10:27:27:459] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-11 10:27:27:468] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-11 10:27:27:488] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-11 10:27:27:508] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-11 10:27:27:510] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-11 10:27:27:510] [INFO ] [main] [QZLoginServerKernel] init application
+[2015-12-11 10:27:27:528] [INFO ] [main] [QZLoginServerKernel] start server
+[2015-12-11 10:27:27:669] [INFO ] [main] [QZLoginServerKernel] server port:6789
+[2015-12-11 10:27:45:792] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client connected login server
+[2015-12-11 10:27:45:814] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:51309] 
+[2015-12-11 10:27:45:880] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:45:882] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:45:885] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:45:887] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:45:889] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:45:891] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:45:892] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:45:894] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:46:018] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:201
+[2015-12-11 10:27:46:737] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:718
+[2015-12-11 10:27:46:754] [DEBUG] [pool-2-thread-1] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:0763650e-a5e6-4f73-90d2-0f2831ae3e6c
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:0763650e-a5e6-4f73-90d2-0f2831ae3e6c
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-11 10:27:46:755] [DEBUG] [pool-2-thread-1] [ServerEngine] send buff length -------->113
+[2015-12-11 10:27:46:755] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client disconnected login server
+[2015-12-11 10:27:46:761] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:30:08:944] [INFO ] [New I/O  worker #2] [LoginServerHandler] Client connected login server
+[2015-12-11 10:30:08:949] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.136:54185] 
+[2015-12-11 10:30:08:965] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:16
+[2015-12-11 10:30:08:978] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:12
+[2015-12-11 10:30:08:978] [DEBUG] [pool-2-thread-2] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:7c833f01-f9cc-444a-a261-61b41e9d33f3
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:363
+		playerName:null
+		sessionId:7c833f01-f9cc-444a-a261-61b41e9d33f3
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-11 10:30:08:978] [DEBUG] [pool-2-thread-2] [ServerEngine] send buff length -------->113
+[2015-12-11 10:30:08:979] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+2015-12-11 10:30:08:979] [INFO ] [New I/O  worker #2] [LoginServerHandler] Client disconnected login server
+[2015-12-11 10:30:08:982] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:39:38:699] [INFO ] [New I/O  worker #3] [LoginServerHandler] Client connected login server
+[2015-12-11 10:39:38:701] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.136:55056] 
+[2015-12-11 10:39:38:713] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:12
+[2015-12-11 10:39:38:721] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:8
+[2015-12-11 10:39:38:722] [DEBUG] [pool-2-thread-3] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:0598ec3b-371a-49a2-bfd0-f5f73abd5169
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:363
+		playerName:null
+		sessionId:0598ec3b-371a-49a2-bfd0-f5f73abd5169
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-11 10:39:38:722] [DEBUG] [pool-2-thread-3] [ServerEngine] send buff length -------->113
+[2015-12-11 10:39:38:722] [INFO ] [New I/O  worker #3] [LoginServerHandler] Client disconnected login server
+[2015-12-11 10:39:38:725] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:45:26:812] [INFO ] [New I/O  worker #4] [LoginServerHandler] Client connected login server
+[2015-12-11 10:45:26:818] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:52531] 
+[2015-12-11 10:45:26:827] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:9
+[2015-12-11 10:45:26:835] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:8
+[2015-12-11 10:45:26:835] [DEBUG] [pool-2-thread-4] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:05923aac-999c-4f6b-85a8-80c4a5477e19
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:44
+		playerName:null
+		sessionId:05923aac-999c-4f6b-85a8-80c4a5477e19
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-11 10:45:26:836] [DEBUG] [pool-2-thread-4] [ServerEngine] send buff length -------->113
+[2015-12-11 10:45:26:836] [INFO ] [New I/O  worker #4] [LoginServerHandler] Client disconnected login server
+[2015-12-11 10:45:26:839] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:46:34:183] [ERROR] [New I/O  worker #9] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:34:196] [ERROR] [New I/O  worker #16] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:34:196] [ERROR] [New I/O  worker #12] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:34:189] [ERROR] [New I/O  worker #14] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:34:189] [ERROR] [New I/O  worker #10] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:34:186] [ERROR] [New I/O  worker #13] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:34:183] [ERROR] [New I/O  worker #11] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 10:46:34:183] [ERROR] [New I/O  worker #15] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:47:41:636] [INFO ] [main] [Application] init server info
+[2015-12-11 13:47:41:636] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 13:47:41:652] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 13:47:42:556] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-11 13:47:42:556] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-11 13:47:42:556] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-11 13:47:42:572] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-11 13:47:42:572] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-11 13:47:42:572] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-11 13:47:42:572] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-11 13:47:42:572] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-11 13:47:42:572] [INFO ] [main] [QZLoginServerKernel] init application
+[2015-12-11 13:47:42:589] [INFO ] [main] [QZLoginServerKernel] start server
+[2015-12-11 13:47:42:698] [INFO ] [main] [QZLoginServerKernel] server port:6789
+[2015-12-11 13:47:59:434] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client connected login server
+[2015-12-11 13:47:59:457] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:57671] 
+[2015-12-11 13:47:59:519] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:59:522] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:59:524] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:59:525] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:59:527] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:59:529] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:59:531] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:59:533] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:48:00:040] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:580
+[2015-12-11 13:48:00:270] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:230
+[2015-12-11 13:48:00:279] [DEBUG] [pool-2-thread-1] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:96be67ab-e0d2-4410-aa03-6a0caac03fdd
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:1
+		playerName:null
+		sessionId:96be67ab-e0d2-4410-aa03-6a0caac03fdd
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-11 13:48:00:280] [DEBUG] [pool-2-thread-1] [ServerEngine] send buff length -------->113
+[2015-12-11 13:48:00:281] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client disconnected login server
+[2015-12-11 13:48:00:285] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:53:20:709] [ERROR] [New I/O  worker #12] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:711] [ERROR] [New I/O  worker #16] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:737] [ERROR] [New I/O  worker #15] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:736] [ERROR] [New I/O  worker #11] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:728] [ERROR] [New I/O  worker #13] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:727] [ERROR] [New I/O  worker #9] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:712] [ERROR] [New I/O  worker #14] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:53:20:711] [ERROR] [New I/O  worker #10] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:54:18:698] [INFO ] [main] [Application] init server info
+[2015-12-11 13:54:18:699] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 13:54:18:716] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 13:54:19:700] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-11 13:54:19:704] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-11 13:54:19:706] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-11 13:54:19:710] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-11 13:54:19:714] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-11 13:54:19:718] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-11 13:54:19:721] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-11 13:54:19:723] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-11 13:54:19:723] [INFO ] [main] [QZLoginServerKernel] init application
+[2015-12-11 13:54:19:727] [INFO ] [main] [QZLoginServerKernel] start server
+[2015-12-11 13:54:19:850] [INFO ] [main] [QZLoginServerKernel] server port:6789
+[2015-12-11 13:54:35:811] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client connected login server
+[2015-12-11 13:54:35:824] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:58011] 
+[2015-12-11 13:54:35:885] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:35:887] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:35:889] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:35:890] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:35:892] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:35:894] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:35:895] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:35:897] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:35:960] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:134
+[2015-12-11 13:54:36:479] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:518
+[2015-12-11 13:54:36:480] [DEBUG] [pool-2-thread-1] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:2f8a67e0-0fa7-4de0-8bd7-37122b04d17a
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:1
+		playerName:null
+		sessionId:2f8a67e0-0fa7-4de0-8bd7-37122b04d17a
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-11 13:54:36:481] [DEBUG] [pool-2-thread-1] [ServerEngine] send buff length -------->113
+[2015-12-11 13:54:36:481] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client disconnected login server
+[2015-12-11 13:54:36:487] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 14:21:45:064] [ERROR] [New I/O  worker #9] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:45:083] [ERROR] [New I/O  worker #15] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:45:082] [ERROR] [New I/O  worker #11] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:45:078] [ERROR] [New I/O  worker #16] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:45:077] [ERROR] [New I/O  worker #13] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:45:075] [ERROR] [New I/O  worker #12] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:45:072] [ERROR] [New I/O  worker #14] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:21:45:067] [ERROR] [New I/O  worker #10] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 14:56:21:755] [INFO ] [main] [Application] init server info
+[2015-12-11 14:56:21:756] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 14:56:21:771] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 14:56:22:797] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-11 14:56:22:800] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-11 14:56:22:803] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-11 14:56:22:807] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-11 14:56:22:812] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-11 14:56:22:816] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-11 14:56:22:819] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-11 14:56:22:821] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-11 14:56:22:821] [INFO ] [main] [QZLoginServerKernel] init application
+[2015-12-11 14:56:22:826] [INFO ] [main] [QZLoginServerKernel] start server
+[2015-12-11 14:56:22:954] [INFO ] [main] [QZLoginServerKernel] server port:6789
+[2015-12-11 14:57:32:453] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client connected login server
+[2015-12-11 14:57:32:466] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:58871] 
+[2015-12-11 14:57:32:532] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:57:32:534] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:57:32:536] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:57:32:538] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:57:32:540] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:57:32:542] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:57:32:543] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:57:32:545] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:57:32:597] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:129
+[2015-12-11 14:57:32:655] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:58
+[2015-12-11 14:57:32:656] [DEBUG] [pool-2-thread-1] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:                                    
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:0
+		playerName:null
+		sessionId:null
+		gameServerHost:null
+		gameServerPort:0
+	]
+-------------------------------------------
+
+[2015-12-11 14:57:32:657] [DEBUG] [pool-2-thread-1] [ServerEngine] send buff length -------->62
+[2015-12-11 14:57:32:664] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:6
+[2015-12-11 14:57:44:179] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 1-2】[null@/192.168.100.124:58871] 
+[2015-12-11 14:57:44:475] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LoginAction.userRegister--->time:295
+[2015-12-11 14:57:44:476] [DEBUG] [pool-2-thread-2] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:2
+		sessionId:                                    
+		checkVal:0
+		compressed:false
+	]-------------------------------------------
+
+[2015-12-11 14:57:44:476] [DEBUG] [pool-2-thread-2] [ServerEngine] send buff length -------->47
+[2015-12-11 14:57:44:492] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 1-1】[null@/192.168.100.124:58871] 
+[2015-12-11 14:57:44:515] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockUserKey--->time:23
+[2015-12-11 14:57:44:599] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LoginAction.userLogin--->time:84
+[2015-12-11 14:57:44:599] [DEBUG] [pool-2-thread-3] [ServerEngine] data trace:
+-------------------------------------------
+head:Head[
+		length:0
+		mainCmd:1
+		subCmd:1
+		sessionId:e89e3c99-4eeb-48d1-8505-a75f5f83abb8
+		checkVal:0
+		compressed:false
+	]args[0] : LoginResultVO[
+		userId:1074
+		playerName:null
+		sessionId:e89e3c99-4eeb-48d1-8505-a75f5f83abb8
+		gameServerHost:192.168.100.124
+		gameServerPort:6987
+	]
+-------------------------------------------
+
+[2015-12-11 14:57:44:600] [DEBUG] [pool-2-thread-3] [ServerEngine] send buff length -------->113
+[2015-12-11 14:57:44:601] [INFO ] [New I/O  worker #1] [LoginServerHandler] Client disconnected login server
+[2015-12-11 14:57:44:607] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:7
+[2015-12-11 18:21:27:682] [ERROR] [New I/O  worker #12] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:27:688] [ERROR] [New I/O  worker #13] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:27:687] [ERROR] [New I/O  worker #14] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:27:687] [ERROR] [New I/O  worker #9] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:27:687] [ERROR] [New I/O  worker #10] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:27:686] [ERROR] [New I/O  worker #15] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:27:686] [ERROR] [New I/O  worker #11] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 18:21:27:685] [ERROR] [New I/O  worker #16] [RPCClientChannelHandler] 
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:59)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:471)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)

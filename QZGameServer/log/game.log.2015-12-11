@@ -1,0 +1,1128 @@
+[2015-12-11 10:27:16:510] [INFO ] [main] [Application] init server info
+[2015-12-11 10:27:16:526] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 10:27:16:553] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 10:27:19:981] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.AdminAction
+[2015-12-11 10:27:19:986] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.ArenaAction
+[2015-12-11 10:27:20:005] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FightAction
+[2015-12-11 10:27:20:010] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FriendAction
+[2015-12-11 10:27:20:037] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.GuildAction
+[2015-12-11 10:27:20:040] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 10:27:20:044] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MailAction
+[2015-12-11 10:27:20:047] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MallAction
+[2015-12-11 10:27:20:053] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MartialWayAction
+[2015-12-11 10:27:20:061] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.PlayerAction
+[2015-12-11 10:27:20:065] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.TaskAction
+[2015-12-11 10:27:20:067] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 10:27:20:084] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAction
+[2015-12-11 10:27:20:086] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserBuffAction
+[2015-12-11 10:27:20:090] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 10:27:20:098] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEternalAction
+[2015-12-11 10:27:20:102] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserHeroAction
+[2015-12-11 10:27:20:104] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserPropAction
+[2015-12-11 10:27:20:107] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserTeamAction
+[2015-12-11 10:27:20:111] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserZoneAction
+[2015-12-11 10:27:20:115] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-11 10:27:20:118] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-11 10:27:20:120] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-11 10:27:20:123] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-11 10:27:20:128] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-11 10:27:20:132] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-11 10:27:20:136] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-11 10:27:20:138] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-11 10:27:20:165] [INFO ] [main] [TimerController] timer register : UserTask
+[2015-12-11 10:27:20:175] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 00:00:00.0
+[2015-12-11 10:27:20:175] [INFO ] [main] [TimerController] timer register : ZeroPointJob
+[2015-12-11 10:27:20:175] [INFO ] [main] [QZGameServerKernel] init application
+[2015-12-11 10:27:20:175] [INFO ] [main] [QZGameServerKernel] application init finish....
+[2015-12-11 10:27:20:175] [INFO ] [main] [QZGameServerKernel] connect world server....
+[2015-12-11 10:27:20:191] [INFO ] [main] [QZGameServerKernel] start rpc server——>3325
+[2015-12-11 10:27:20:335] [INFO ] [main] [QZGameServerKernel] start rpc server finish ...
+[2015-12-11 10:27:20:406] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:20:408] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:20:410] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:20:412] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:20:414] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:20:415] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:20:431] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:20:433] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-11 10:27:20:554] [INFO ] [New I/O  worker #1] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51258
+[2015-12-11 10:27:20:562] [INFO ] [New I/O  worker #2] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51261
+[2015-12-11 10:27:20:565] [INFO ] [New I/O  worker #3] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51262
+[2015-12-11 10:27:20:566] [INFO ] [New I/O  worker #4] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51263
+[2015-12-11 10:27:20:569] [INFO ] [New I/O  worker #5] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51264
+[2015-12-11 10:27:20:570] [INFO ] [New I/O  worker #6] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51265
+[2015-12-11 10:27:20:572] [INFO ] [New I/O  worker #7] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51266
+[2015-12-11 10:27:20:573] [INFO ] [New I/O  worker #8] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:51267
+[2015-12-11 10:27:20:604] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MallAction
+[2015-12-11 10:27:20:605] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.PlayerAction
+[2015-12-11 10:27:20:605] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.ArenaAction
+[2015-12-11 10:27:20:605] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.FightAction
+[2015-12-11 10:27:20:605] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 10:27:20:605] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserBuffAction
+[2015-12-11 10:27:20:605] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.GuildAction
+[2015-12-11 10:27:20:606] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.FriendAction
+[2015-12-11 10:27:20:606] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 10:27:20:606] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserTeamAction
+[2015-12-11 10:27:20:606] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserAction
+[2015-12-11 10:27:20:606] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MartialWayAction
+[2015-12-11 10:27:20:606] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserPropAction
+[2015-12-11 10:27:20:607] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserEternalAction
+[2015-12-11 10:27:20:607] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MailAction
+[2015-12-11 10:27:20:607] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserHeroAction
+[2015-12-11 10:27:20:607] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.TaskAction
+[2015-12-11 10:27:20:607] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserZoneAction
+[2015-12-11 10:27:20:607] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 10:27:20:608] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.AdminAction
+[2015-12-11 10:27:20:611] [INFO ] [main] [ClientRPCHandler] return method <<<<<<<<WorldServerAction.gameServerConnected--->time:273
+[2015-12-11 10:27:20:632] [INFO ] [main] [QZGameServerKernel] start server
+[2015-12-11 10:27:20:667] [INFO ] [main] [QZGameServerKernel] start server finish....
+[2015-12-11 10:27:20:667] [INFO ] [main] [QZGameServerKernel] server port：6987
+[2015-12-11 10:27:20:667] [INFO ] [main] [QZGameServerKernel] RPC address：127.0.0.1
+[2015-12-11 10:27:20:667] [INFO ] [main] [QZGameServerKernel] RPC port：3325
+[2015-12-11 10:27:51:794] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 5-1】[Player [userId=44,playerName=null, checkVal=0, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:51:811] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:27:51:816] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:51:817] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:51:819] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:51:820] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:51:822] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:51:824] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:51:825] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:51:827] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 10:27:51:920] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserTeamAction.queryUserTeam--->time:108
+[2015-12-11 10:27:51:924] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-1】[Player [userId=44,playerName=null, checkVal=1, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:51:925] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:27:51:930] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:27:52:967] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserInfo--->time:1036
+[2015-12-11 10:27:52:974] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<FightAction.checkFight--->time:7
+[2015-12-11 10:27:53:026] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.setUserOnline--->time:10
+[2015-12-11 10:27:53:036] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 2-2】[Player [userId=44,playerName=null, checkVal=2, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:037] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:11
+[2015-12-11 10:27:53:042] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 2-5】[Player [userId=44,playerName=null, checkVal=3, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:209] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:171
+[2015-12-11 10:27:53:232] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:20
+[2015-12-11 10:27:53:238] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:27:53:244] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:5
+[2015-12-11 10:27:53:269] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserStat--->time:25
+[2015-12-11 10:27:53:273] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:27:53:337] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 13-1】[Player [userId=44,playerName=null, checkVal=4, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:338] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 7-1】[Player [userId=44,playerName=null, checkVal=5, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:339] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 19-1】[Player [userId=44,playerName=null, checkVal=5, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:339] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 19-2】[Player [userId=44,playerName=null, checkVal=5, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:339] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 12-1】[Player [userId=44,playerName=null, checkVal=5, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:341] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:27:53:375] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 14-1】[Player [userId=44,playerName=null, checkVal=5, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:379] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 18-2】[Player [userId=44,playerName=null, checkVal=5, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:476] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<UserAchieveAction.queryUserAchieve--->time:135
+[2015-12-11 10:27:53:479] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:27:53:482] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:27:53:508] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 6-1】[Player [userId=44,playerName=null, checkVal=6, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:53:579] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<MailAction.queryMail--->time:97
+[2015-12-11 10:27:53:583] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:27:53:586] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:27:53:766] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<TaskAction.getDailyTaskInfo--->time:179
+[2015-12-11 10:27:53:770] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:27:53:775] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:27:53:888] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<TaskAction.getRenownTaskInfo--->time:113
+[2015-12-11 10:27:53:892] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:27:53:895] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:27:53:945] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<MallAction.gainMall--->time:50
+[2015-12-11 10:27:53:952] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:27:53:956] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:27:54:053] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriends--->time:97
+[2015-12-11 10:27:54:059] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:27:54:059] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 14-2】[Player [userId=44,playerName=null, checkVal=10, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:27:54:072] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<WorldChatAction.gainChatMessages--->time:13
+[2015-12-11 10:27:54:077] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:27:54:142] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryCurrZone--->time:65
+[2015-12-11 10:27:54:146] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:27:54:149] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:27:54:203] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriendApply--->time:53
+[2015-12-11 10:27:54:210] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:6
+[2015-12-11 10:30:14:242] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 5-1】[Player [userId=363,playerName=null, checkVal=0, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:245] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:14:253] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserTeamAction.queryUserTeam--->time:8
+[2015-12-11 10:30:14:257] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:30:14:260] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 2-1】[Player [userId=363,playerName=null, checkVal=1, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:264] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:14:628] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserInfo--->time:364
+[2015-12-11 10:30:14:637] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<FightAction.checkFight--->time:8
+[2015-12-11 10:30:14:647] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<PlayerAction.setUserOnline--->time:6
+[2015-12-11 10:30:14:649] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-2】[Player [userId=363,playerName=null, checkVal=2, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:651] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:30:14:675] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:23
+[2015-12-11 10:30:14:681] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:6
+[2015-12-11 10:30:14:685] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 2-5】[Player [userId=363,playerName=null, checkVal=3, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:686] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:30:14:691] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:30:14:701] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserStat--->time:9
+[2015-12-11 10:30:14:705] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:30:14:935] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 13-1】[Player [userId=363,playerName=null, checkVal=4, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:938] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:14:957] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<UserAchieveAction.queryUserAchieve--->time:19
+[2015-12-11 10:30:14:959] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 7-1】[Player [userId=363,playerName=null, checkVal=5, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:959] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 12-1】[Player [userId=363,playerName=null, checkVal=5, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:959] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 19-2】[Player [userId=363,playerName=null, checkVal=5, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:959] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 19-1】[Player [userId=363,playerName=null, checkVal=5, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:14:961] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:30:14:963] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 10:30:14:978] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<MailAction.queryMail--->time:14
+[2015-12-11 10:30:14:982] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 14-1】[Player [userId=363,playerName=null, checkVal=6, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 2015-12-11 10:30:14:982
+] [[2015-12-11 10:30:14:982] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:30:14:986] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:15:027] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<MallAction.gainMall--->time:41
+[2015-12-11 10:30:15:034] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 18-2】[Player [userId=363,playerName=null, checkVal=7, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:15:034] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 6-1】[Player [userId=363,playerName=null, checkVal=7, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:15:036] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:30:15:040] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:15:127] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<TaskAction.getRenownTaskInfo--->time:86
+[2015-12-11 10:30:15:132] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:30:15:135] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:15:194] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<TaskAction.getDailyTaskInfo--->time:58
+[2015-12-11 10:30:15:199] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:30:15:203] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:30:15:269] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriends--->time:66
+[2015-12-11 10:30:15:273] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:30:15:276] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<WorldChatAction.gainChatMessages--->time:3
+[2015-12-11 10:30:15:278] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 14-2】[Player [userId=363,playerName=null, checkVal=12, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:15:280] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:15:292] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryCurrZone--->time:12
+[2015-12-11 10:30:15:296] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:30:15:299] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:15:304] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriendApply--->time:5
+[2015-12-11 10:30:15:307] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:30:17:666] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 19-3】[Player [userId=363,playerName=null, checkVal=13, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:17:669] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:17:928] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<TaskAction.receieveDailyTaskReward--->time:259
+[2015-12-11 10:30:17:935] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 2-3】[Player [userId=363,playerName=null, checkVal=14, sessionId=7c833f01-f9cc-444a-a261-61b41e9d33f3]@/192.168.100.136:54186] 
+[2015-12-11 10:30:17:937] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:30:17:941] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:30:17:949] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserSimpleInfo--->time:8
+[2015-12-11 10:30:17:953] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:32:20:171] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 10:32:20:173] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:2
+[2015-12-11 10:32:58:726] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 2-2】[Player [userId=44,playerName=null, checkVal=13, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:32:58:731] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:32:58:744] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:13
+[2015-12-11 10:32:58:747] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:37:20:177] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 10:37:20:177] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 10:38:05:125] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 2-2】[Player [userId=44,playerName=null, checkVal=14, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:38:05:129] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:38:05:141] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:12
+[2015-12-11 10:38:05:146] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:39:38:738] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 5-1】[Player [userId=363,playerName=null, checkVal=0, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:38:741] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:39:38:747] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserTeamAction.queryUserTeam--->time:6
+[2015-12-11 10:39:38:749] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-1】[Player [userId=363,playerName=null, checkVal=1, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:38:750] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:39:38:753] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:39:39:065] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserInfo--->time:312
+[2015-12-11 10:39:39:072] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<FightAction.checkFight--->time:7
+[2015-12-11 10:39:39:079] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 2-2】[Player [userId=363,playerName=null, checkVal=2, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:082] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.setUserOnline--->time:7
+[2015-12-11 10:39:39:086] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:39:39:109] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:23
+[2015-12-11 10:39:39:117] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:8
+[2015-12-11 10:39:39:118] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 2-5】[Player [userId=363,playerName=null, checkVal=3, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:122] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:39:39:125] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:39:39:134] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserStat--->time:9
+[2015-12-11 10:39:39:138] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:39:39:460] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 13-1】[Player [userId=363,playerName=null, checkVal=4, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:463] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:39:39:468] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<UserAchieveAction.queryUserAchieve--->time:5
+[2015-12-11 10:39:39:471] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 7-1】[Player [userId=363,playerName=null, checkVal=5, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:471] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 12-1】[Player [userId=363,playerName=null, checkVal=5, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:471] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:39:39:471] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 19-1】[Player [userId=363,playerName=null, checkVal=5, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:471] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 19-2】[Player [userId=363,playerName=null, checkVal=5, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:474] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 10:39:39:484] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<MailAction.queryMail--->time:9
+[2015-12-11 10:39:39:486] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 14-1】[Player [userId=363,playerName=null, checkVal=6, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:486] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 6-1】[Player [userId=363,playerName=null, checkVal=6, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:486] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 18-2】[Player [userId=363,playerName=null, checkVal=6, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:488] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:39:39:491] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 10:39:39:535] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<MallAction.gainMall--->time:44
+[2015-12-11 10:39:39:543] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:39:39:568] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:25
+[2015-12-11 10:39:39:649] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<TaskAction.getDailyTaskInfo--->time:81
+[2015-12-11 10:39:39:654] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:39:39:657] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 10:39:39:705] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<TaskAction.getRenownTaskInfo--->time:48
+[2015-12-11 10:39:39:708] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-11 10:39:39:711] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 10:39:39:718] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriends--->time:6
+[2015-12-11 10:39:39:720] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 14-2】[Player [userId=363,playerName=null, checkVal=10, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:39:39:722] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:39:39:725] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:39:39:730] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryCurrZone--->time:5
+[2015-12-11 10:39:39:733] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-11 10:39:39:736] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<WorldChatAction.gainChatMessages--->time:3
+[2015-12-11 10:39:39:739] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:39:39:743] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriendApply--->time:4
+[2015-12-11 10:39:39:746] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-11 10:42:20:181] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 10:42:20:182] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:1
+[2015-12-11 10:43:11:637] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 2-2】[Player [userId=44,playerName=null, checkVal=15, sessionId=0763650e-a5e6-4f73-90d2-0f2831ae3e6c]@/192.168.100.124:51367] 
+[2015-12-11 10:43:11:640] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:43:11:650] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:10
+[2015-12-11 10:43:11:654] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:44:43:371] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 2-2】[Player [userId=363,playerName=null, checkVal=13, sessionId=0598ec3b-371a-49a2-bfd0-f5f73abd5169]@/192.168.100.136:55057] 
+[2015-12-11 10:44:43:374] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:44:43:384] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:10
+[2015-12-11 10:44:43:388] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:45:31:264] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 5-1】[Player [userId=44,playerName=null, checkVal=0, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:269] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:45:31:275] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<UserTeamAction.queryUserTeam--->time:6
+[2015-12-11 10:45:31:277] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-1】[Player [userId=44,playerName=null, checkVal=1, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:279] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:45:31:282] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:45:31:357] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserInfo--->time:74
+[2015-12-11 10:45:31:362] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<FightAction.checkFight--->time:5
+[2015-12-11 10:45:31:369] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-2】[Player [userId=44,playerName=null, checkVal=2, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:378] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 2-5】[Player [userId=44,playerName=null, checkVal=2, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:387] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.setUserOnline--->time:24
+[2015-12-11 10:45:31:391] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:45:31:457] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:64
+[2015-12-11 10:45:31:465] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:8
+[2015-12-11 10:45:31:476] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:11
+[2015-12-11 10:45:31:484] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:6
+[2015-12-11 10:45:31:561] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserStat--->time:77
+[2015-12-11 10:45:31:569] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:8
+[2015-12-11 10:45:31:638] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 13-1】[Player [userId=44,playerName=null, checkVal=4, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:638] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 7-1】[Player [userId=44,playerName=null, checkVal=4, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:639] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 19-1】[Player [userId=44,playerName=null, checkVal=5, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:639] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 19-2】[Player [userId=44,playerName=null, checkVal=5, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:639] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 12-1】[Player [userId=44,playerName=null, checkVal=5, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:641] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:45:31:647] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<UserAchieveAction.queryUserAchieve--->time:5
+[2015-12-11 10:45:31:651] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:45:31:654] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 10:45:31:663] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<MailAction.queryMail--->time:8
+[2015-12-11 10:45:31:667] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:45:31:670] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:45:31:677] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 14-1】[Player [userId=44,playerName=null, checkVal=7, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:681] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 18-2】[Player [userId=44,playerName=null, checkVal=7, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:689] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 6-1】[Player [userId=44,playerName=null, checkVal=7, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:756] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<TaskAction.getDailyTaskInfo--->time:86
+[2015-12-11 10:45:31:760] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:45:31:763] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 10:45:31:873] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<TaskAction.getRenownTaskInfo--->time:109
+[2015-12-11 10:45:31:879] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:45:31:886] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:45:31:910] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<MallAction.gainMall--->time:23
+[2015-12-11 10:45:31:923] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:10
+[2015-12-11 10:45:31:947] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:45:31:957] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriends--->time:9
+[2015-12-11 10:45:31:962] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 10:45:31:964] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 14-2】[Player [userId=44,playerName=null, checkVal=11, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:31:966] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<WorldChatAction.gainChatMessages--->time:4
+[2015-12-11 10:45:31:970] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 10:45:31:976] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryCurrZone--->time:6
+[2015-12-11 10:45:31:980] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 10:45:31:983] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 10:45:31:990] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriendApply--->time:7
+[2015-12-11 10:45:31:994] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:45:53:408] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 20-1】[Player [userId=44,playerName=null, checkVal=13, sessionId=05923aac-999c-4f6b-85a8-80c4a5477e19]@/192.168.100.124:52532] 
+[2015-12-11 10:45:53:411] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 10:45:54:525] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<MallAction.gainPayBill--->time:1113
+[2015-12-11 10:45:54:528] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 10:45:54:529] [ERROR] [pool-2-thread-1] [Subpackage] 
+java.lang.NullPointerException
+	at java.io.StringReader.<init>(StringReader.java:50)
+	at org.codehaus.jackson.JsonFactory.createJsonParser(JsonFactory.java:636)
+	at org.codehaus.jackson.map.ObjectMapper.readValue(ObjectMapper.java:1863)
+	at com.ks.util.JSONUtil.toObject(JSONUtil.java:51)
+	at com.ks.logic.service.impl.MallServiceImpl.gainPayBill(MallServiceImpl.java:207)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.ks.logic.service.ServiceHandler.invoke(ServiceHandler.java:27)
+	at com.sun.proxy.$Proxy28.gainPayBill(Unknown Source)
+	at com.ks.logic.action.MallActionImpl.gainPayBill(MallActionImpl.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.ks.rpc.server.RPCServerCommand.run(RPCServerCommand.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:47:36:158] [INFO ] [main] [Application] init server info
+[2015-12-11 13:47:36:158] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 13:47:36:158] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 13:47:37:750] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.AdminAction
+[2015-12-11 13:47:37:750] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.ArenaAction
+[2015-12-11 13:47:37:765] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FightAction
+[2015-12-11 13:47:37:765] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FriendAction
+[2015-12-11 13:47:37:765] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.GuildAction
+[2015-12-11 13:47:37:765] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 13:47:37:781] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MailAction
+[2015-12-11 13:47:37:782] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MallAction
+[2015-12-11 13:47:37:782] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MartialWayAction
+[2015-12-11 13:47:37:782] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.PlayerAction
+[2015-12-11 13:47:37:782] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.TaskAction
+[2015-12-11 13:47:37:797] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 13:47:37:797] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAction
+[2015-12-11 13:47:37:797] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserBuffAction
+[2015-12-11 13:47:37:797] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 13:47:37:797] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEternalAction
+[2015-12-11 13:47:37:813] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserHeroAction
+[2015-12-11 13:47:37:813] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserPropAction
+[2015-12-11 13:47:37:813] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserTeamAction
+[2015-12-11 13:47:37:813] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserZoneAction
+[2015-12-11 13:47:37:813] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-11 13:47:37:829] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-11 13:47:37:829] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-11 13:47:37:829] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-11 13:47:37:829] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-11 13:47:37:829] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-11 13:47:37:829] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-11 13:47:37:829] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-11 13:47:37:844] [INFO ] [main] [TimerController] timer register : UserTask
+[2015-12-11 13:47:37:844] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 00:00:00.0
+[2015-12-11 13:47:37:844] [INFO ] [main] [TimerController] timer register : ZeroPointJob
+[2015-12-11 13:47:37:844] [INFO ] [main] [QZGameServerKernel] init application
+[2015-12-11 13:47:37:844] [INFO ] [main] [QZGameServerKernel] application init finish....
+[2015-12-11 13:47:37:844] [INFO ] [main] [QZGameServerKernel] connect world server....
+[2015-12-11 13:47:37:844] [INFO ] [main] [QZGameServerKernel] start rpc server——>3325
+[2015-12-11 13:47:37:969] [INFO ] [main] [QZGameServerKernel] start rpc server finish ...
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:38:047] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #1] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57621
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #2] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57624
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #3] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57625
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #4] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57626
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #5] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57627
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #6] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57628
+[2015-12-11 13:47:38:188] [INFO ] [New I/O  worker #7] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57629
+[2015-12-11 13:47:38:204] [INFO ] [New I/O  worker #8] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57630
+[2015-12-11 13:47:38:220] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MallAction
+[2015-12-11 13:47:38:220] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.PlayerAction
+[2015-12-11 13:47:38:220] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.ArenaAction
+[2015-12-11 13:47:38:220] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.FightAction
+[2015-12-11 13:47:38:220] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 13:47:38:220] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserBuffAction
+[2015-12-11 13:47:38:220] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.GuildAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.FriendAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserTeamAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MartialWayAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserPropAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserEternalAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MailAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserHeroAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.TaskAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserZoneAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 13:47:38:235] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.AdminAction
+[2015-12-11 13:47:38:235] [INFO ] [main] [ClientRPCHandler] return method <<<<<<<<WorldServerAction.gameServerConnected--->time:266
+[2015-12-11 13:47:38:235] [INFO ] [main] [QZGameServerKernel] start server
+[2015-12-11 13:47:38:282] [INFO ] [main] [QZGameServerKernel] start server finish....
+[2015-12-11 13:47:38:282] [INFO ] [main] [QZGameServerKernel] server port：6987
+[2015-12-11 13:47:38:282] [INFO ] [main] [QZGameServerKernel] RPC address：127.0.0.1
+[2015-12-11 13:47:38:282] [INFO ] [main] [QZGameServerKernel] RPC port：3325
+[2015-12-11 13:48:06:387] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 5-1】[Player [userId=1,playerName=null, checkVal=0, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:06:393] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 13:48:06:397] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:48:06:399] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:48:06:401] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:48:06:403] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:48:06:405] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:48:06:406] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:48:06:408] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:48:06:410] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:48:06:424] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserTeamAction.queryUserTeam--->time:31
+[2015-12-11 13:48:06:430] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:6
+[2015-12-11 13:48:06:434] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-1】[Player [userId=1,playerName=null, checkVal=1, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:06:441] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:6
+[2015-12-11 13:48:06:781] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserInfo--->time:340
+[2015-12-11 13:48:06:788] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<FightAction.checkFight--->time:7
+[2015-12-11 13:48:06:794] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 2-2】[Player [userId=1,playerName=null, checkVal=2, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:06:796] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.setUserOnline--->time:7
+[2015-12-11 13:48:06:800] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:48:06:800] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 2-5】[Player [userId=1,playerName=null, checkVal=3, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:06:803] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:48:06:812] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:7
+[2015-12-11 13:48:06:816] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:48:06:819] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:48:06:869] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserStat--->time:49
+[2015-12-11 13:48:06:873] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:48:06:874] [ERROR] [pool-2-thread-7] [Subpackage] 
+java.sql.SQLException: Column 'last_ref_time' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1074)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:988)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:974)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:919)
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1166)
+	at com.mysql.jdbc.ResultSetImpl.getTimestamp(ResultSetImpl.java:6229)
+	at org.apache.commons.dbcp.DelegatingResultSet.getTimestamp(DelegatingResultSet.java:300)
+	at org.apache.commons.dbcp.DelegatingResultSet.getTimestamp(DelegatingResultSet.java:300)
+	at com.ks.table.UserStatTable$DBRowMapper_UserStat.rowMapper(UserStatTable.java:253)
+	at com.ks.table.UserStatTable$DBRowMapper_UserStat.rowMapper(UserStatTable.java:1)
+	at com.ks.access.GameDAOTemplate.queryForEntity(GameDAOTemplate.java:158)
+	at com.ks.logic.dao.UserStatDAO.queryUserStat(UserStatDAO.java:23)
+	at com.ks.logic.service.impl.UserServiceImpl.getUserStat(UserServiceImpl.java:264)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.ks.logic.service.ServiceHandler.invoke(ServiceHandler.java:27)
+	at com.sun.proxy.$Proxy44.getUserStat(Unknown Source)
+	at com.ks.logic.action.PlayerActionImpl.gainUserStat(PlayerActionImpl.java:61)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.ks.rpc.server.RPCServerCommand.run(RPCServerCommand.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:48:07:159] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 13-1】[Player [userId=1,playerName=null, checkVal=4, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:161] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 7-1】[Player [userId=1,playerName=null, checkVal=5, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:162] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 19-1】[Player [userId=1,playerName=null, checkVal=5, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:164] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 13:48:07:180] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<UserAchieveAction.queryUserAchieve--->time:16
+[2015-12-11 13:48:07:186] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:6
+[2015-12-11 13:48:07:186] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 19-2】[Player [userId=1,playerName=null, checkVal=5, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:191] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:5
+[2015-12-11 13:48:07:196] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 12-1】[Player [userId=1,playerName=null, checkVal=6, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:222] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 14-1】[Player [userId=1,playerName=null, checkVal=6, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:225] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<TaskAction.getRenownTaskInfo--->time:34
+[2015-12-11 13:48:07:227] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 18-2】[Player [userId=1,playerName=null, checkVal=6, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:240] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 6-1】[Player [userId=1,playerName=null, checkVal=6, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:240] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:15
+[2015-12-11 13:48:07:241] [ERROR] [pool-2-thread-1] [Subpackage] 
+java.sql.SQLException: Column 'last_ref_time' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1074)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:988)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:974)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:919)
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1166)
+	at com.mysql.jdbc.ResultSetImpl.getTimestamp(ResultSetImpl.java:6229)
+	at org.apache.commons.dbcp.DelegatingResultSet.getTimestamp(DelegatingResultSet.java:300)
+	at org.apache.commons.dbcp.DelegatingResultSet.getTimestamp(DelegatingResultSet.java:300)
+	at com.ks.table.UserStatTable$DBRowMapper_UserStat.rowMapper(UserStatTable.java:253)
+	at com.ks.table.UserStatTable$DBRowMapper_UserStat.rowMapper(UserStatTable.java:1)
+	at com.ks.access.GameDAOTemplate.queryForEntity(GameDAOTemplate.java:158)
+	at com.ks.logic.dao.UserStatDAO.queryUserStat(UserStatDAO.java:23)
+	at com.ks.logic.service.impl.UserServiceImpl.getUserStat(UserServiceImpl.java:264)
+	at com.ks.logic.service.impl.PrepareMethodServiceImpl$10.invoke(PrepareMethodServiceImpl.java:197)
+	at com.ks.logic.service.impl.TaskServiceImpl.executePrepareMethod(TaskServiceImpl.java:275)
+	at com.ks.logic.service.impl.TaskServiceImpl.refreshUserTask(TaskServiceImpl.java:223)
+	at com.ks.logic.service.impl.TaskServiceImpl.getTaskInfo(TaskServiceImpl.java:118)
+	at com.ks.logic.service.impl.TaskServiceImpl.getRenownTaskInfo(TaskServiceImpl.java:94)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.ks.logic.service.ServiceHandler.invoke(ServiceHandler.java:27)
+	at com.sun.proxy.$Proxy36.getRenownTaskInfo(Unknown Source)
+	at com.ks.logic.action.TaskActionImpl.getRenownTaskInfo(TaskActionImpl.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.ks.rpc.server.RPCServerCommand.run(RPCServerCommand.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2015-12-11 13:48:07:250] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:7
+[2015-12-11 13:48:07:295] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<MailAction.queryMail--->time:45
+[2015-12-11 13:48:07:300] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:48:07:304] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:48:07:355] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<TaskAction.getDailyTaskInfo--->time:51
+[2015-12-11 13:48:07:360] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:48:07:372] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:10
+[2015-12-11 13:48:07:437] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<MallAction.gainMall--->time:65
+[2015-12-11 13:48:07:463] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:48:07:467] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:48:07:488] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriends--->time:20
+[2015-12-11 13:48:07:493] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 13:48:07:501] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 14-2】[Player [userId=1,playerName=null, checkVal=11, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:48:07:514] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<WorldChatAction.gainChatMessages--->time:21
+[2015-12-11 13:48:07:521] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:6
+[2015-12-11 13:48:07:539] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryCurrZone--->time:18
+[2015-12-11 13:48:07:543] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:48:07:547] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:48:07:596] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriendApply--->time:49
+[2015-12-11 13:48:07:599] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-11 13:52:37:852] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 13:52:37:852] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 13:53:12:494] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 2-2】[Player [userId=1,playerName=null, checkVal=13, sessionId=96be67ab-e0d2-4410-aa03-6a0caac03fdd]@/192.168.100.124:57729] 
+[2015-12-11 13:53:12:497] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:53:12:508] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:11
+[2015-12-11 13:53:12:512] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:54:13:608] [INFO ] [main] [Application] init server info
+[2015-12-11 13:54:13:609] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 13:54:13:624] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 13:54:15:131] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.AdminAction
+[2015-12-11 13:54:15:137] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.ArenaAction
+[2015-12-11 13:54:15:144] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FightAction
+[2015-12-11 13:54:15:148] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FriendAction
+[2015-12-11 13:54:15:155] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.GuildAction
+[2015-12-11 13:54:15:158] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 13:54:15:161] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MailAction
+[2015-12-11 13:54:15:165] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MallAction
+[2015-12-11 13:54:15:169] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MartialWayAction
+[2015-12-11 13:54:15:177] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.PlayerAction
+[2015-12-11 13:54:15:181] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.TaskAction
+[2015-12-11 13:54:15:184] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 13:54:15:188] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAction
+[2015-12-11 13:54:15:190] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserBuffAction
+[2015-12-11 13:54:15:193] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 13:54:15:196] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEternalAction
+[2015-12-11 13:54:15:201] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserHeroAction
+[2015-12-11 13:54:15:203] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserPropAction
+[2015-12-11 13:54:15:206] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserTeamAction
+[2015-12-11 13:54:15:209] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserZoneAction
+[2015-12-11 13:54:15:213] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-11 13:54:15:215] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-11 13:54:15:217] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-11 13:54:15:220] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-11 13:54:15:225] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-11 13:54:15:228] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-11 13:54:15:231] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-11 13:54:15:233] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-11 13:54:15:241] [INFO ] [main] [TimerController] timer register : UserTask
+[2015-12-11 13:54:15:248] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 00:00:00.0
+[2015-12-11 13:54:15:248] [INFO ] [main] [TimerController] timer register : ZeroPointJob
+[2015-12-11 13:54:15:248] [INFO ] [main] [QZGameServerKernel] init application
+[2015-12-11 13:54:15:249] [INFO ] [main] [QZGameServerKernel] application init finish....
+[2015-12-11 13:54:15:249] [INFO ] [main] [QZGameServerKernel] connect world server....
+[2015-12-11 13:54:15:252] [INFO ] [main] [QZGameServerKernel] start rpc server——>3325
+[2015-12-11 13:54:15:382] [INFO ] [main] [QZGameServerKernel] start rpc server finish ...
+[2015-12-11 13:54:15:453] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:15:454] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:15:455] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:15:457] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:15:458] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:15:459] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:15:460] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:15:462] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-11 13:54:15:584] [INFO ] [New I/O  worker #1] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57961
+[2015-12-11 13:54:15:593] [INFO ] [New I/O  worker #2] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57964
+[2015-12-11 13:54:15:594] [INFO ] [New I/O  worker #3] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57965
+[2015-12-11 13:54:15:597] [INFO ] [New I/O  worker #4] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57966
+[2015-12-11 13:54:15:599] [INFO ] [New I/O  worker #5] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57967
+[2015-12-11 13:54:15:601] [INFO ] [New I/O  worker #6] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57968
+[2015-12-11 13:54:15:602] [INFO ] [New I/O  worker #7] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57969
+[2015-12-11 13:54:15:603] [INFO ] [New I/O  worker #8] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:57970
+[2015-12-11 13:54:15:636] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MallAction
+[2015-12-11 13:54:15:636] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.PlayerAction
+[2015-12-11 13:54:15:636] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.ArenaAction
+[2015-12-11 13:54:15:636] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.FightAction
+[2015-12-11 13:54:15:636] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 13:54:15:637] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserBuffAction
+[2015-12-11 13:54:15:637] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.GuildAction
+[2015-12-11 13:54:15:637] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.FriendAction
+[2015-12-11 13:54:15:637] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 13:54:15:637] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserTeamAction
+[2015-12-11 13:54:15:638] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserAction
+[2015-12-11 13:54:15:638] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MartialWayAction
+[2015-12-11 13:54:15:638] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserPropAction
+[2015-12-11 13:54:15:638] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserEternalAction
+[2015-12-11 13:54:15:638] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MailAction
+[2015-12-11 13:54:15:638] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserHeroAction
+[2015-12-11 13:54:15:638] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.TaskAction
+[2015-12-11 13:54:15:639] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserZoneAction
+[2015-12-11 13:54:15:639] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 13:54:15:639] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.AdminAction
+[2015-12-11 13:54:15:642] [INFO ] [main] [ClientRPCHandler] return method <<<<<<<<WorldServerAction.gameServerConnected--->time:257
+[2015-12-11 13:54:15:643] [INFO ] [main] [QZGameServerKernel] start server
+[2015-12-11 13:54:15:676] [INFO ] [main] [QZGameServerKernel] start server finish....
+[2015-12-11 13:54:15:677] [INFO ] [main] [QZGameServerKernel] server port：6987
+[2015-12-11 13:54:15:677] [INFO ] [main] [QZGameServerKernel] RPC address：127.0.0.1
+[2015-12-11 13:54:15:677] [INFO ] [main] [QZGameServerKernel] RPC port：3325
+[2015-12-11 13:54:40:651] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 5-1】[Player [userId=1,playerName=null, checkVal=0, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:40:657] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:5
+[2015-12-11 13:54:40:662] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:40:664] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:40:666] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:40:669] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:40:670] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:40:672] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:40:674] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:40:676] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 13:54:40:693] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserTeamAction.queryUserTeam--->time:36
+[2015-12-11 13:54:40:699] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 13:54:40:706] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-1】[Player [userId=1,playerName=null, checkVal=1, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:40:712] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:6
+[2015-12-11 13:54:40:964] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserInfo--->time:252
+[2015-12-11 13:54:40:971] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<FightAction.checkFight--->time:7
+[2015-12-11 13:54:40:977] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 2-2】[Player [userId=1,playerName=null, checkVal=2, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:40:979] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.setUserOnline--->time:7
+[2015-12-11 13:54:40:983] [INFO ] [pool-2-thread-4] [2015-12-11 13:54:40:983ClientRPCHandler] ] [return method <<<<<<<<LockAction.unlockKey--->time:3INFO
+ [2015-12-11 13:54:40:983] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 2-5】[Player [userId=1,playerName=null, checkVal=2, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:096] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:113
+[2015-12-11 13:54:41:117] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:18
+[2015-12-11 13:54:41:124] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:6
+[2015-12-11 13:54:41:150] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:25
+[2015-12-11 13:54:41:224] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserStat--->time:73
+[2015-12-11 13:54:41:228] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:54:41:285] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 13-1】[Player [userId=1,playerName=null, checkVal=4, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:285] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 7-1】[Player [userId=1,playerName=null, checkVal=4, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:285] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 19-1】[Player [userId=1,playerName=null, checkVal=5, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:286] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 19-2】[Player [userId=1,playerName=null, checkVal=5, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:286] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 12-1】[Player [userId=1,playerName=null, checkVal=5, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:288] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:54:41:295] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<UserAchieveAction.queryUserAchieve--->time:6
+[2015-12-11 13:54:41:298] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:54:41:302] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:54:41:338] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<MailAction.queryMail--->time:35
+[2015-12-11 13:54:41:343] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:54:41:343] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 14-1】[Player [userId=1,playerName=null, checkVal=7, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:346] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:54:41:347] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 18-2】[Player [userId=1,playerName=null, checkVal=7, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:357] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 6-1】[Player [userId=1,playerName=null, checkVal=7, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:386] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<TaskAction.getDailyTaskInfo--->time:40
+[2015-12-11 13:54:41:390] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:54:41:394] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:54:41:464] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<TaskAction.getRenownTaskInfo--->time:70
+[2015-12-11 13:54:41:467] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-11 13:54:41:470] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 13:54:41:515] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<MallAction.gainMall--->time:44
+[2015-12-11 13:54:41:523] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:54:41:526] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:54:41:542] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriends--->time:16
+[2015-12-11 13:54:41:547] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:54:41:547] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 14-2】[Player [userId=1,playerName=null, checkVal=11, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:41:559] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<WorldChatAction.gainChatMessages--->time:11
+[2015-12-11 13:54:41:562] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 13:54:41:575] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryCurrZone--->time:12
+[2015-12-11 13:54:41:578] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:54:41:582] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 13:54:41:593] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriendApply--->time:11
+[2015-12-11 13:54:41:597] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 13:54:52:397] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 19-3】[Player [userId=1,playerName=null, checkVal=13, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:54:52:400] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:54:52:426] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<TaskAction.receieveDailyTaskReward--->time:26
+[2015-12-11 13:54:52:430] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:54:52:430] [WARN ] [pool-2-thread-2] [Subpackage] game exception code : 80,message : 
+[2015-12-11 13:55:29:995] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 19-3】[Player [userId=1,playerName=null, checkVal=14, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:55:29:999] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:55:38:937] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<TaskAction.receieveDailyTaskReward--->time:8938
+[2015-12-11 13:55:38:945] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:6
+[2015-12-11 13:55:38:945] [WARN ] [pool-2-thread-3] [Subpackage] game exception code : 80,message : 
+[2015-12-11 13:55:41:595] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 19-3】[Player [userId=1,playerName=null, checkVal=15, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:55:41:598] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 13:57:54:113] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<TaskAction.receieveDailyTaskReward--->time:132514
+[2015-12-11 13:57:54:117] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 13:57:54:117] [WARN ] [pool-2-thread-5] [Subpackage] game exception code : 80,message : 
+[2015-12-11 13:59:15:247] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 13:59:15:247] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 13:59:43:734] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-2】[Player [userId=1,playerName=null, checkVal=16, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 13:59:43:739] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 13:59:43:759] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:15
+[2015-12-11 13:59:43:771] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:11
+[2015-12-11 14:01:32:931] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 19-3】[Player [userId=1,playerName=null, checkVal=17, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 14:01:32:935] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:04:15:252] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 14:04:15:252] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:04:46:583] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 2-2】[Player [userId=1,playerName=null, checkVal=18, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 14:06:06:177] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<TaskAction.receieveDailyTaskReward--->time:273242
+[2015-12-11 14:06:06:189] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:11
+[2015-12-11 14:06:06:190] [WARN ] [pool-2-thread-8] [Subpackage] game exception code : 80,message : 
+[2015-12-11 14:06:06:194] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:5
+[2015-12-11 14:06:06:208] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:13
+[2015-12-11 14:06:06:211] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:09:15:256] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 14:09:15:256] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:09:49:610] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 2-2】[Player [userId=1,playerName=null, checkVal=19, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 14:09:49:614] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 14:09:49:624] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:10
+[2015-12-11 14:09:49:631] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:7
+[2015-12-11 14:13:30:677] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 19-3】[Player [userId=1,playerName=null, checkVal=20, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 14:13:30:681] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:13:39:619] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<TaskAction.receieveDailyTaskReward--->time:8938
+[2015-12-11 14:13:39:624] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:13:39:624] [WARN ] [pool-2-thread-5] [Subpackage] game exception code : 80,message : 
+[2015-12-11 14:14:15:260] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 14:14:15:260] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:14:52:344] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 2-2】[Player [userId=1,playerName=null, checkVal=21, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 14:14:52:347] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:14:52:357] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:9
+[2015-12-11 14:14:52:361] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:19:15:264] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 14:19:15:264] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 14:19:54:482] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-2】[Player [userId=1,playerName=null, checkVal=22, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 14:19:54:485] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:19:54:497] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:11
+[2015-12-11 14:19:54:501] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:21:05:744] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 19-3】[Player [userId=1,playerName=null, checkVal=23, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 14:21:05:748] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:21:10:886] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<TaskAction.receieveDailyTaskReward--->time:5138
+[2015-12-11 14:21:10:891] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:21:10:891] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 2-3】[Player [userId=1,playerName=null, checkVal=24, sessionId=2f8a67e0-0fa7-4de0-8bd7-37122b04d17a]@/192.168.100.124:58069] 
+[2015-12-11 14:21:10:894] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:21:10:901] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserSimpleInfo--->time:7
+[2015-12-11 14:21:10:905] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:56:13:295] [INFO ] [main] [Application] init server info
+[2015-12-11 14:56:13:296] [INFO ] [main] [Application] Server Status : Develop
+[2015-12-11 14:56:13:312] [INFO ] [main] [ServerEngine] init communication VO proxy
+[2015-12-11 14:56:14:871] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.AdminAction
+[2015-12-11 14:56:14:877] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.ArenaAction
+[2015-12-11 14:56:14:884] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FightAction
+[2015-12-11 14:56:14:888] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.FriendAction
+[2015-12-11 14:56:14:895] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.GuildAction
+[2015-12-11 14:56:14:899] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 14:56:14:902] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MailAction
+[2015-12-11 14:56:14:906] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MallAction
+[2015-12-11 14:56:14:911] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.MartialWayAction
+[2015-12-11 14:56:14:919] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.PlayerAction
+[2015-12-11 14:56:14:922] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.TaskAction
+[2015-12-11 14:56:14:926] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 14:56:14:930] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserAction
+[2015-12-11 14:56:14:933] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserBuffAction
+[2015-12-11 14:56:14:936] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 14:56:14:940] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserEternalAction
+[2015-12-11 14:56:14:945] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserHeroAction
+[2015-12-11 14:56:14:949] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserPropAction
+[2015-12-11 14:56:14:952] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserTeamAction
+[2015-12-11 14:56:14:954] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.logic.UserZoneAction
+[2015-12-11 14:56:14:957] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LockAction
+[2015-12-11 14:56:14:959] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.LoginAction
+[2015-12-11 14:56:14:961] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.ResLockAction
+[2015-12-11 14:56:14:964] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldChatAction
+[2015-12-11 14:56:14:967] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldFightAction
+[2015-12-11 14:56:14:970] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldMartialWayAction
+[2015-12-11 14:56:14:973] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldServerAction
+[2015-12-11 14:56:14:976] [INFO ] [main] [RPCKernel] add type remote : interface com.ks.action.world.WorldUserAction
+[2015-12-11 14:56:14:983] [INFO ] [main] [TimerController] timer register : UserTask
+[2015-12-11 14:56:14:991] [INFO ] [main] [BaseJob] next run job time--------->2015-12-12 00:00:00.0
+[2015-12-11 14:56:14:991] [INFO ] [main] [TimerController] timer register : ZeroPointJob
+[2015-12-11 14:56:14:991] [INFO ] [main] [QZGameServerKernel] init application
+[2015-12-11 14:56:14:991] [INFO ] [main] [QZGameServerKernel] application init finish....
+[2015-12-11 14:56:14:992] [INFO ] [main] [QZGameServerKernel] connect world server....
+[2015-12-11 14:56:14:996] [INFO ] [main] [QZGameServerKernel] start rpc server——>3325
+[2015-12-11 14:56:15:160] [INFO ] [main] [QZGameServerKernel] start rpc server finish ...
+[2015-12-11 14:56:15:253] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:56:15:255] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:56:15:257] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:56:15:258] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:56:15:259] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:56:15:261] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:56:15:263] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:56:15:265] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect  success.
+[2015-12-11 14:56:15:382] [INFO ] [New I/O  worker #1] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58781
+[2015-12-11 14:56:15:408] [INFO ] [New I/O  worker #2] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58784
+[2015-12-11 14:56:15:410] [INFO ] [New I/O  worker #3] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58785
+[2015-12-11 14:56:15:413] [INFO ] [New I/O  worker #4] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58786
+[2015-12-11 14:56:15:415] [INFO ] [New I/O  worker #5] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58787
+[2015-12-11 14:56:15:417] [INFO ] [New I/O  worker #6] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58788
+[2015-12-11 14:56:15:418] [INFO ] [New I/O  worker #7] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58789
+[2015-12-11 14:56:15:420] [INFO ] [New I/O  worker #8] [RPCServer] client connected <<<<<<<<<<<<<</127.0.0.1:58790
+[2015-12-11 14:56:15:453] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MallAction
+[2015-12-11 14:56:15:453] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.PlayerAction
+[2015-12-11 14:56:15:453] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.ArenaAction
+[2015-12-11 14:56:15:453] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.FightAction
+[2015-12-11 14:56:15:453] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserEquipmentAction
+[2015-12-11 14:56:15:454] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserBuffAction
+[2015-12-11 14:56:15:454] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.GuildAction
+[2015-12-11 14:56:15:454] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.FriendAction
+[2015-12-11 14:56:15:454] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.HeroBreakAction
+[2015-12-11 14:56:15:455] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserTeamAction
+[2015-12-11 14:56:15:455] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserAction
+[2015-12-11 14:56:15:455] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MartialWayAction
+[2015-12-11 14:56:15:455] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserPropAction
+[2015-12-11 14:56:15:455] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserEternalAction
+[2015-12-11 14:56:15:455] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.MailAction
+[2015-12-11 14:56:15:456] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserHeroAction
+[2015-12-11 14:56:15:456] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.TaskAction
+[2015-12-11 14:56:15:456] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserZoneAction
+[2015-12-11 14:56:15:456] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.UserAchieveAction
+[2015-12-11 14:56:15:456] [INFO ] [pool-2-thread-1] [RPCKernel] add id remote : qz_logic_test_1:interface com.ks.action.logic.AdminAction
+[2015-12-11 14:56:15:461] [INFO ] [main] [ClientRPCHandler] return method <<<<<<<<WorldServerAction.gameServerConnected--->time:295
+[2015-12-11 14:56:15:462] [INFO ] [main] [QZGameServerKernel] start server
+[2015-12-11 14:56:15:496] [INFO ] [main] [QZGameServerKernel] start server finish....
+[2015-12-11 14:56:15:496] [INFO ] [main] [QZGameServerKernel] server port：6987
+[2015-12-11 14:56:15:497] [INFO ] [main] [QZGameServerKernel] RPC address：127.0.0.1
+[2015-12-11 14:56:15:497] [INFO ] [main] [QZGameServerKernel] RPC port：3325
+[2015-12-11 14:57:44:622] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 2-1】[Player [userId=1074,playerName=null, checkVal=0, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:44:627] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:57:44:632] [INFO ] [New I/O  worker #9] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:44:634] [INFO ] [New I/O  worker #10] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:44:636] [INFO ] [New I/O  worker #11] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:44:638] [INFO ] [New I/O  worker #12] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:44:640] [INFO ] [New I/O  worker #13] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:44:642] [INFO ] [New I/O  worker #14] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:44:643] [INFO ] [New I/O  worker #15] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:44:645] [INFO ] [New I/O  worker #16] [RPCClientChannelHandler] connect qz_logic_test_1 success.
+[2015-12-11 14:57:44:799] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserInfo--->time:171
+[2015-12-11 14:57:44:806] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<FightAction.checkFight--->time:7
+[2015-12-11 14:57:44:816] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<PlayerAction.setUserOnline--->time:9
+[2015-12-11 14:57:44:818] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 5-1】[Player [userId=1074,playerName=null, checkVal=1, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:44:819] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 2-5】[Player [userId=1074,playerName=null, checkVal=1, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:44:819] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:57:44:823] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:57:44:836] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<UserTeamAction.queryUserTeam--->time:13
+[2015-12-11 14:57:44:840] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:57:44:844] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:57:44:859] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 2-5】[Player [userId=1074,playerName=null, checkVal=3, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:028] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserStat--->time:183
+[2015-12-11 14:57:45:033] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:57:45:033] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-2】[Player [userId=1074,playerName=null, checkVal=3, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:038] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:5
+[2015-12-11 14:57:45:055] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:15
+[2015-12-11 14:57:45:063] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:7
+[2015-12-11 14:57:45:167] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:101
+[2015-12-11 14:57:45:216] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserStat--->time:49
+[2015-12-11 14:57:45:221] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:57:45:398] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 13-1】[Player [userId=1074,playerName=null, checkVal=5, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:398] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 7-1】[Player [userId=1074,playerName=null, checkVal=5, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:399] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 19-1】[Player [userId=1074,playerName=null, checkVal=6, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:400] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 19-2】[Player [userId=1074,playerName=null, checkVal=6, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:401] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 12-1】[Player [userId=1074,playerName=null, checkVal=6, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:402] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 14:57:45:424] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 14-1】[Player [userId=1074,playerName=null, checkVal=6, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:427] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 18-2】[Player [userId=1074,playerName=null, checkVal=6, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:427] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<UserAchieveAction.queryUserAchieve--->time:24
+[2015-12-11 14:57:45:430] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:2
+[2015-12-11 14:57:45:433] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 6-1】[Player [userId=1074,playerName=null, checkVal=7, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:433] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 14:57:45:438] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=7, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:448] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<MailAction.queryMail--->time:14
+[2015-12-11 14:57:45:451] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:57:45:454] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:57:45:540] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<TaskAction.getDailyTaskInfo--->time:86
+[2015-12-11 14:57:45:546] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 14:57:45:551] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 14:57:45:637] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<TaskAction.getRenownTaskInfo--->time:86
+[2015-12-11 14:57:45:641] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:57:45:644] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:57:45:689] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<MallAction.gainMall--->time:45
+[2015-12-11 14:57:45:697] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:57:45:700] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:57:45:706] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriends--->time:6
+[2015-12-11 14:57:45:710] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:57:45:720] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 14-2】[Player [userId=1074,playerName=null, checkVal=12, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:45:724] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<WorldChatAction.gainChatMessages--->time:14
+[2015-12-11 14:57:45:728] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 14:57:45:761] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryCurrZone--->time:33
+[2015-12-11 14:57:45:765] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:57:45:768] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:57:45:787] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:18
+[2015-12-11 14:57:45:795] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:6
+[2015-12-11 14:57:45:797] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 14:57:45:803] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<FriendAction.gainFriendApply--->time:5
+[2015-12-11 14:57:45:807] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:57:47:777] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 6-5】[Player [userId=1074,playerName=null, checkVal=15, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:47:780] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:57:47:787] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryUserZoneBattle--->time:6
+[2015-12-11 14:57:47:790] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:57:54:078] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=16, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:54:078] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 6-2】[Player [userId=1074,playerName=null, checkVal=17, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:54:082] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 14:57:54:089] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:7
+[2015-12-11 14:57:54:093] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:57:54:098] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:5
+[2015-12-11 14:57:54:173] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.intoZone--->time:75
+[2015-12-11 14:57:54:180] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:6
+[2015-12-11 14:57:54:184] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 2-3】[Player [userId=1074,playerName=null, checkVal=18, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:57:54:188] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 14:57:54:202] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserSimpleInfo--->time:14
+[2015-12-11 14:57:54:216] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:13
+[2015-12-11 14:58:06:041] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 3-2】[Player [userId=1074,playerName=null, checkVal=19, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:06:042] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=20, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:06:045] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:4
+[2015-12-11 14:58:06:104] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<FightAction.move--->time:59
+[2015-12-11 14:58:06:110] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:58:06:115] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:5
+[2015-12-11 14:58:06:124] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:9
+[2015-12-11 14:58:06:128] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:58:18:336] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 3-2】[Player [userId=1074,playerName=null, checkVal=21, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:18:336] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=22, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:18:339] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:58:18:361] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<FightAction.move--->time:22
+[2015-12-11 14:58:18:366] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:58:18:368] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 14:58:18:375] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:6
+[2015-12-11 14:58:18:378] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:58:39:104] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 3-2】[Player [userId=1074,playerName=null, checkVal=23, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:39:105] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=24, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:39:108] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:58:39:127] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<FightAction.move--->time:19
+[2015-12-11 14:58:39:133] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 14:58:39:139] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:6
+[2015-12-11 14:58:39:147] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:8
+[2015-12-11 14:58:39:154] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:7
+[2015-12-11 14:58:44:478] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 3-3】[Player [userId=1074,playerName=null, checkVal=25, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:44:481] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:58:44:862] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<FightAction.gainFightAward--->time:381
+[2015-12-11 14:58:44:870] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:8
+[2015-12-11 14:58:44:872] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-3】[Player [userId=1074,playerName=null, checkVal=26, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:44:875] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 6-5】[Player [userId=1074,playerName=null, checkVal=27, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:44:877] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 2-3】[Player [userId=1074,playerName=null, checkVal=27, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:58:44:899] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:27
+[2015-12-11 14:58:44:915] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserSimpleInfo--->time:16
+[2015-12-11 14:58:44:921] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:5
+[2015-12-11 14:58:44:927] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:6
+[2015-12-11 14:58:44:954] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryUserZoneBattle--->time:26
+[2015-12-11 14:58:44:958] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 14:58:44:962] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:58:44:975] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserSimpleInfo--->time:13
+[2015-12-11 14:58:44:979] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:59:26:837] [INFO ] [pool-2-thread-3] [Subpackage] 【exec cmd : 5-2】[Player [userId=1074,playerName=null, checkVal=29, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:59:26:838] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=30, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:59:26:840] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 14:59:26:882] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<UserTeamAction.updateUserTeam--->time:42
+[2015-12-11 14:59:26:886] [INFO ] [pool-2-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:59:26:888] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 14:59:26:895] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:6
+[2015-12-11 14:59:26:899] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 14:59:40:236] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 6-5】[Player [userId=1074,playerName=null, checkVal=31, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 14:59:40:240] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 14:59:40:246] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryUserZoneBattle--->time:6
+[2015-12-11 14:59:40:249] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:01:14:988] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:01:14:988] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:02:19:538] [INFO ] [pool-2-thread-6] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=32, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:02:19:538] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 6-2】[Player [userId=1074,playerName=null, checkVal=32, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:02:19:541] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 15:02:19:551] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:10
+[2015-12-11 15:02:19:555] [INFO ] [pool-2-thread-6] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:02:19:558] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:02:19:587] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.intoZone--->time:28
+[2015-12-11 15:02:19:591] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:02:19:593] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-3】[Player [userId=1074,playerName=null, checkVal=34, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:02:19:595] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 15:02:19:602] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserSimpleInfo--->time:7
+[2015-12-11 15:02:19:606] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 15:02:42:339] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 3-2】[Player [userId=1074,playerName=null, checkVal=35, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:02:42:339] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=36, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:02:42:342] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:02:42:359] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<FightAction.move--->time:17
+[2015-12-11 15:02:42:362] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:02:42:365] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:02:42:370] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:5
+[2015-12-11 15:02:42:373] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:02:48:651] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 2-2】[Player [userId=1074,playerName=null, checkVal=37, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:02:48:654] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:02:48:660] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<PlayerAction.heard--->time:6
+[2015-12-11 15:02:48:664] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 15:02:55:278] [INFO ] [pool-2-thread-5] [Subpackage] 【exec cmd : 3-2】[Player [userId=1074,playerName=null, checkVal=38, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:02:55:278] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=39, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:02:55:281] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:02:55:297] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<FightAction.move--->time:16
+[2015-12-11 15:02:55:301] [INFO ] [pool-2-thread-5] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:02:55:303] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 15:02:55:309] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:5
+[2015-12-11 15:02:55:313] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:03:09:379] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 3-5】[Player [userId=1074,playerName=null, checkVal=40, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:03:09:379] [INFO ] [pool-2-thread-4] [Subpackage] 【exec cmd : 2-9】[Player [userId=1074,playerName=null, checkVal=40, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:03:09:382] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:03:09:400] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<FightAction.releaseSkill--->time:17
+[2015-12-11 15:03:09:403] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:03:09:406] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:03:09:412] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<PlayerAction.updateGuideStep--->time:6
+[2015-12-11 15:03:09:416] [INFO ] [pool-2-thread-4] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:4
+[2015-12-11 15:03:14:439] [INFO ] [pool-2-thread-1] [Subpackage] 【exec cmd : 3-3】[Player [userId=1074,playerName=null, checkVal=42, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:03:14:441] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 15:03:14:624] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<FightAction.gainFightAward--->time:182
+[2015-12-11 15:03:14:626] [INFO ] [pool-2-thread-8] [Subpackage] 【exec cmd : 2-3】[Player [userId=1074,playerName=null, checkVal=43, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:03:14:628] [INFO ] [pool-2-thread-2] [Subpackage] 【exec cmd : 6-5】[Player [userId=1074,playerName=null, checkVal=43, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:03:14:629] [INFO ] [pool-2-thread-7] [Subpackage] 【exec cmd : 2-3】[Player [userId=1074,playerName=null, checkVal=43, sessionId=e89e3c99-4eeb-48d1-8505-a75f5f83abb8]@/192.168.100.124:58901] 
+[2015-12-11 15:03:14:632] [INFO ] [pool-2-thread-1] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:7
+[2015-12-11 15:03:14:654] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:22
+[2015-12-11 15:03:14:661] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserSimpleInfo--->time:6
+[2015-12-11 15:03:14:671] [INFO ] [pool-2-thread-8] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:10
+[2015-12-11 15:03:14:674] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:03:14:682] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<UserZoneAction.queryUserZoneBattle--->time:7
+[2015-12-11 15:03:14:685] [INFO ] [pool-2-thread-2] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:03:14:688] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:3
+[2015-12-11 15:03:14:696] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<PlayerAction.gainUserSimpleInfo--->time:8
+[2015-12-11 15:03:14:700] [INFO ] [pool-2-thread-7] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:06:14:992] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:06:14:992] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:11:14:997] [INFO ] [pool-3-thread-2] [BaseTask] task run --------> 
+[2015-12-11 15:11:14:997] [INFO ] [pool-3-thread-2] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:16:15:001] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:16:15:002] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 15:16:15:005] [INFO ] [pool-3-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.lockKey--->time:2
+[2015-12-11 15:16:15:010] [INFO ] [pool-3-thread-3] [ClientRPCHandler] return method <<<<<<<<LoginAction.logout--->time:5
+[2015-12-11 15:16:15:072] [INFO ] [pool-3-thread-3] [ClientRPCHandler] return method <<<<<<<<PlayerAction.logout--->time:62
+[2015-12-11 15:16:15:076] [INFO ] [pool-3-thread-3] [ClientRPCHandler] return method <<<<<<<<LockAction.unlockKey--->time:3
+[2015-12-11 15:21:15:007] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:21:15:007] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:26:15:011] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:26:15:011] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:31:15:015] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:31:15:015] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:36:15:019] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:36:15:019] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:41:15:024] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:41:15:024] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:46:15:028] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:46:15:028] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:51:15:032] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:51:15:032] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 15:56:15:036] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 15:56:15:036] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:01:15:040] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:01:15:040] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:06:15:044] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:06:15:044] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:11:15:048] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:11:15:049] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 16:16:15:054] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:16:15:054] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:21:15:057] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:21:15:059] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:2
+[2015-12-11 16:26:15:063] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:26:15:063] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:31:15:067] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:31:15:067] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:36:15:071] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:36:15:071] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:41:15:075] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:41:15:076] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 16:46:15:081] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:46:15:084] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:3
+[2015-12-11 16:51:15:089] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:51:15:089] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 16:56:15:093] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 16:56:15:093] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:01:15:097] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 17:01:15:097] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:06:15:101] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 17:06:15:101] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:11:15:105] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 17:11:15:105] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:16:15:110] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 17:16:15:110] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:21:15:114] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 17:21:15:114] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:26:15:118] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 17:26:15:118] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:31:15:122] [INFO ] [pool-3-thread-1] [BaseTask] task run --------> 
+[2015-12-11 17:31:15:123] [INFO ] [pool-3-thread-1] [BaseTask] task run finish ------------> time:1
+[2015-12-11 17:36:15:127] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 17:36:15:127] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:41:15:131] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 17:41:15:131] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:46:15:136] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 17:46:15:136] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:51:15:140] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 17:51:15:140] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 17:56:15:144] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 17:56:15:144] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:01:15:148] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 18:01:15:148] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:06:15:152] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 18:06:15:152] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:11:15:157] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 18:11:15:157] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:16:15:161] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 18:16:15:161] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0
+[2015-12-11 18:21:15:166] [INFO ] [pool-3-thread-3] [BaseTask] task run --------> 
+[2015-12-11 18:21:15:166] [INFO ] [pool-3-thread-3] [BaseTask] task run finish ------------> time:0

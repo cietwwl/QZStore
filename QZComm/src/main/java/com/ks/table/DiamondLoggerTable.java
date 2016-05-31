@@ -4,6 +4,7 @@ public static DiamondLoggerTable instance;
 public static final String TABLE_NAME="t_diamond_logger";
 public static final String ID="id";
 public static final String USERID="user_id";
+public static final String PLAYERNAME="playername";
 public static final String LOGGERTYPE="logger_type";
 public static final String TYPE="type";
 public static final String ASSID="ass_id";
@@ -15,6 +16,7 @@ public static final String SURPLUSAMOUNT="surplusAmount";
 
 public static final String J_ID="id";
 public static final String J_USERID="userId";
+public static final String J_PLAYERNAME="playername";
 public static final String J_LOGGERTYPE="loggerType";
 public static final String J_TYPE="type";
 public static final String J_ASSID="assId";
@@ -34,6 +36,9 @@ return bean.getId();
 }
 if(USERID.equals(fname)){
 return bean.getUserId();
+}
+if(PLAYERNAME.equals(fname)){
+return bean.getPlayername();
 }
 if(LOGGERTYPE.equals(fname)){
 return bean.getLoggerType();
@@ -71,6 +76,7 @@ public com.ks.db.log.DiamondLogger rowMapper(java.sql.ResultSet rs) throws java.
 com.ks.db.log.DiamondLogger bean = new com.ks.db.log.DiamondLogger();
 bean.setId(rs.getInt("id"));
 bean.setUserId(rs.getInt("user_id"));
+bean.setPlayername(rs.getString("playername"));
 bean.setLoggerType(rs.getInt("logger_type"));
 bean.setType(rs.getInt("type"));
 bean.setAssId(rs.getInt("ass_id"));

@@ -68,7 +68,7 @@ public interface AdminAction {
 	 * @param items
 	 * @return
 	 */
-	HttpResult addItems(int partner, String username, String items, HttpResult result);
+	HttpResult addItems(int partner, String username, String items, String delItems, HttpResult result);
 	
 	/**
 	 * 停服

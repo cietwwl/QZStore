@@ -225,9 +225,9 @@ public class UserHeroServiceImpl extends BaseService implements UserHeroService 
 			}
 			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_升级消耗);
 			if(gold > 0){
-				effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, gold);
+				effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, gold, 0);
 			}
-			effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL, 0, delExp);
+			effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL, 0, delExp, 0);
 			int code = effectService.validDels(user, effects);
 			if(code != GameException.CODE_正常){
 				throw new GameException(code, "");
@@ -274,7 +274,7 @@ public class UserHeroServiceImpl extends BaseService implements UserHeroService 
 					UserHero next = it.next();
 					if(next.getHeroId() == item.getAssId()){
 						if(next.getId() != userHeroId && team.getHeroList().indexOf(next.getId()) == -1){
-							effects.delItem(next);
+							effects.appendDelObj(next);
 							it.remove();
 							count++;
 							if(count >= item.getNum()){
@@ -287,7 +287,7 @@ public class UserHeroServiceImpl extends BaseService implements UserHeroService 
 					throw new GameException(GameException.CODE_材料不足, "");
 				}
 			}else{
-				effects.delItem(item.getType(), item.getAssId(), item.getNum());
+				effects.appendItem(item.getType(), item.getAssId(), item.getNum(), 0);
 			}
 		}
 		int code = effectService.validDels(user, effects);
@@ -414,7 +414,7 @@ public class UserHeroServiceImpl extends BaseService implements UserHeroService 
 	 */
 	private void createHeroVo(User user, List<UserHeroVO> vos, int heroId){
 		ItemEffect effect = effectService.createEffect(SystemConstant.ITEM_EFFECT_TYPE_HERO, heroId, 1, 1, SystemConstant.LOGGER_APPROACH_召唤获得);
-		UserHero userHero = (UserHero) incomeService.addIncome(user, effect).get(0);
+		UserHero userHero = (UserHero) incomeService.addIncome(user, effect, null, false).get(0);
 		UserHeroVO vo = MessageFactory.getMessage(UserHeroVO.class);
 		vo.init(userHero);
 		vos.add(vo);
@@ -429,14 +429,14 @@ public class UserHeroServiceImpl extends BaseService implements UserHeroService 
 			UserHero uh = getUserHero(user, userHeroId);
 			Hero hero = GameCache.getHero(uh.getHeroId());
 			gold += hero.getSellPrice();
-			effects.delItem(uh);
+			effects.appendDelObj(uh);
 		}
 		int code = effectService.validDels(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
 		}
 		effectService.delIncome(user, effects);
-		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, gold, SystemConstant.LOGGER_APPROACH_出售英雄获得);
+		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, gold, null, false, SystemConstant.LOGGER_APPROACH_出售英雄获得);
 	}
 
 //	@Override
@@ -622,7 +622,7 @@ public class UserHeroServiceImpl extends BaseService implements UserHeroService 
 					}
 					Hero config = GameCache.getHero(hero.getHeroId());
 					exp += hero.getExp() + config.getGiveExp();
-					effects.delItem(hero);
+					effects.appendDelObj(hero);
 				}
 			}
 			int code = effectService.validDels(user, effects);
@@ -642,7 +642,7 @@ public class UserHeroServiceImpl extends BaseService implements UserHeroService 
 				exp *= UserHero.getLevelUpVal(1);
 				vo.setType(1);
 			}
-			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL, exp, SystemConstant.LOGGER_APPROACH_分解获得);
+			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL, exp, null, false, SystemConstant.LOGGER_APPROACH_分解获得);
 			vo.setExp(exp);
 			return vo;
 		}

@@ -128,42 +128,60 @@ public class UserEquipmentServiceImpl extends BaseService implements UserEquipme
 		userEquipmentDAO.clearUserEquipmentCache(userId);
 		return loadUserEquipment(userId).values();
 	}
+
 	
 	/**************************************************** 装备逻辑 ****************************************************************/
 	
 	@Override
 	public int levelUpEquipment(int userId, int userEquipId, int type) {
-		int amount = 1;
 		User user = userService.getOnlineUser(userId);
 		UserEquipment equip = userEquipmentService.getUserEquipment(user, userEquipId);
 		if(equip == null){
 			throw new GameException(GameException.CODE_装备不存在, "");
 		}
+		int amount = 1;
 		Equipment config = GameCache.getEquipment(equip.getEquipmentId());
 		if(equip.getLevel() >= config.getMaxLevel()){
 			throw new GameException(GameException.CODE_装备已经达到最大等级, "");
 		}else if(type == 2){
 			amount = config.getMaxLevel() - equip.getLevel();
 		}
-		List<EquipmentUp> expends = GameCache.getEquipmentUps(equip.getLevel());
-		if(expends == null || expends.isEmpty()){
-			throw new GameException(GameException.CODE_参数错误, "");
+		ItemEffects dels = new ItemEffects(SystemConstant.LOGGER_APPROACH_强化装备消耗);
+		ItemEffects valids = new ItemEffects(0);
+		for(int level = equip.getLevel(); level <= equip.getLevel() + amount; level++){
+			List<EquipmentUp> expends = GameCache.getEquipmentUps(level);
+			if(expends == null || expends.isEmpty()){
+				amount = level - equip.getLevel() - 1;
+				break;
+			}else{
+				for(EquipmentUp item : expends){
+					valids.appendItem(item.getType(), item.getAssId(), item.getNum(), 0);
+				}
+				int code = effectService.validDels(user, valids);
+				if(code != GameException.CODE_正常){
+					if(level == equip.getLevel() + 1){
+						throw new GameException(code, "");
+					}else{
+						amount = level - equip.getLevel() - 1;
+						break;
+					}
+				}
+				for(EquipmentUp item : expends){
+					dels.appendItem(item.getType(), item.getAssId(), item.getNum(), 0);
+				}
+			}
 		}
-		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_强化装备消耗);
-		for(EquipmentUp item : expends){
-			effects.delItem(item.getType(), item.getAssId(), item.getNum());
+		if(amount > 0){
+			effectService.delIncome(user, dels);
+			equip.setLevel(equip.getLevel() + amount);
+			updateUserEquipment(user, equip, true);
+			//更新战斗力
+			fightService.computeFightingEvent(user.getUserId());
+			userService.increTodayEquipLevelUpTimes(userId, amount);
+			//抛出装备强化事件
+			LevelUpEquipEvent event = LevelUpEquipEvent.valueOf(user, equip.getEquipmentId(), equip.getLevel(), SystemConstant.EQUIPMENT_UP_RATE_SUCCESS_成功, amount);
+			TimerController.submitGameEvent(event);
 		}
-		amount = effectService.validDels(user, effects, amount);
-		effectService.delIncome(user, effects);
-		equip.setLevel(equip.getLevel() + amount);
-		updateUserEquipment(user, equip, true);
-		//更新战斗力
-		fightService.computeFightingEvent(user.getUserId());
-		userService.increTodayEquipLevelUpTimes(userId, amount);
-		//抛出装备强化事件
-		LevelUpEquipEvent event = LevelUpEquipEvent.valueOf(user, equip.getEquipmentId(), equip.getLevel(), SystemConstant.EQUIPMENT_UP_RATE_SUCCESS_成功, amount);
-		TimerController.submitGameEvent(event);
-		return SystemConstant.EQUIPMENT_UP_RATE_SUCCESS_成功;
 //		int upLevel=0;
 //		double random=Math.random();
 //		EquipmentUpRate rate=GameCache.getEquipmentUpRate(equip.getLevel());
@@ -176,6 +194,7 @@ public class UserEquipmentServiceImpl extends BaseService implements UserEquipme
 //		}else{
 //			upLevel = SystemConstant.EQUIPMENT_UP_RATE_LOSE_失败;
 //		}
+		return SystemConstant.EQUIPMENT_UP_RATE_SUCCESS_成功;
 	}
 
 	@Override
@@ -193,14 +212,14 @@ public class UserEquipmentServiceImpl extends BaseService implements UserEquipme
 			}
 			Equipment e = GameCache.getEquipment(ue.getEquipmentId());
 			gold += e.getSellPrice();
-			effects.delItem(ue);
+			effects.appendDelObj(ue);
 		}
 		int code = effectService.validDels(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
 		}
 		effectService.delIncome(user, effects);
-		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, gold, SystemConstant.LOGGER_APPROACH_出售装备);
+		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, gold, null, false, SystemConstant.LOGGER_APPROACH_出售装备);
 	}
 
 	@Override

@@ -13,6 +13,7 @@ import com.ks.action.world.WorldChatAction;
 import com.ks.app.Application;
 import com.ks.constant.SystemConstant;
 import com.ks.db.cfg.Equipment;
+import com.ks.db.cfg.Eternal;
 import com.ks.db.cfg.Hero;
 import com.ks.db.cfg.PayGoods;
 import com.ks.db.model.SysMail;
@@ -49,8 +50,7 @@ public class AdminServiceImpl extends BaseService implements AdminService{
 		if(user == null){
 			return GameException.CODE_用户不存在;
 		}else{
-			userService.recharge(user, amount, SystemConstant.LOGGER_APPROACH_后台操作);
-			userDAO.updateUser(user);
+			userService.recharge(user, amount, true, SystemConstant.LOGGER_APPROACH_后台操作);
 		}
 		return GameException.CODE_正常;
 	}
@@ -125,18 +125,20 @@ public class AdminServiceImpl extends BaseService implements AdminService{
 		}else{
 			Map<String, String> hash = new HashMap<String, String>();
 			if(banType == 1){
-				user.setBanChatTime(banTime);
 				WorldChatAction action = RPCKernel.getRemoteByServerType(Application.WORLD_SERVER, WorldChatAction.class);
 				action.banChat(user.getUserId(), banTime);
+				user.setBanChatTime(banTime);
 				hash.put(UserTable.J_BANCHATTIME, String.valueOf(user.getBanChatTime()));
+				userService.updateUser(user, hash, true);
 			}else if(banType == 2){
+				if(banTime > 0){
+					LoginAction action = RPCKernel.getRemoteByServerType(Application.WORLD_SERVER, LoginAction.class);
+					action.logout(user.getUserId());
+					userService.logout(user.getUserId());
+				}
 				user.setBanLoginTime(banTime);
-				LoginAction action = RPCKernel.getRemoteByServerType(Application.WORLD_SERVER, LoginAction.class);
-				action.logout(user.getUserId());
-				userService.logout(user.getUserId());
-				hash.put(UserTable.J_BANLOGINTIME, String.valueOf(user.getBanLoginTime()));
+				userDAO.updateUser(user);
 			}
-			userService.updateUser(user, hash, true);
 		}
 		return GameException.CODE_正常;
 	}
@@ -193,7 +195,7 @@ public class AdminServiceImpl extends BaseService implements AdminService{
 				TimerController.submitGameEvent(event);
 			}
 			List<ItemEffect> rechanges = effectService.parseItemEffects(goods.getItems(), logSubType);
-			ItemEffects effects = new ItemEffects(logSubType);
+			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_订单发货_额外获得);
 			UserRecord record = userDAO.getUserRecord(userId);
 			if(record.isFirstRecharge(payGoodsId)){
 				record.addFirstRecharge(payGoodsId);
@@ -202,42 +204,52 @@ public class AdminServiceImpl extends BaseService implements AdminService{
 				opt.putFieldOpt(UserRecordTable.FIRSTRECHARGES, SQLOpt.EQUAL);
 				userService.updateUserRecord(record, opt);
 				if(goods.getFirstItems().length() > 0){
-					effects.addItems(goods.getFirstItems());
+					effects.appendStrs(goods.getFirstItems());
 				}
 			}else if(goods.getExtraItems().length() > 0){
-				effects.addItems(goods.getExtraItems());
+				effects.appendStrs(goods.getExtraItems());
 			}
 			int diamond = 0;
 			for(ItemEffect item : rechanges){
 				if(item.getType() == SystemConstant.ITEM_EFFECT_TYPE_DIAMOND){
 					diamond += item.getValue1();
 				}else{
-					effects.addItem(item.getType(), item.getId(), item.getValue1(), item.getValue2());
+					effects.appendItem(item.getType(), item.getId(), item.getValue1(), item.getValue2());
 				}
 			}
 			int code = effectService.validAdds(user, effects);
 			if(code != GameException.CODE_正常){
 				throw new GameException(code, "");
 			}
-			effectService.addIncome(user, effects);
-			userService.recharge(user, diamond, logSubType);
+			userService.recharge(user, diamond, true, logSubType);
+			effects.setDbUp(true);
+			effectService.addIncome(user, effects, null);
 		}
 		return 0;
 	}
 	
 	@Override
-	public int addItems(int partner, String username, String items){
+	public int addItems(int partner, String username, String items, String delItems){
 		User user = getUser(partner, username);
 		if(user == null){
 			return GameException.CODE_用户不存在;
 		}else{
-			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_后台操作);
-			effects.addItems(items);
-			int code = effectService.validAdds(user, effects);
-			if(code != GameException.CODE_正常){
-				new GameException(code, "");
+			if(delItems != null && delItems.length() > 0){
+				ItemEffects dels = new ItemEffects(SystemConstant.LOGGER_APPROACH_后台操作);
+				dels.appendStrs(delItems);
+				dels.setDbUp(true);
+				effectService.delIncome(user, dels);
 			}
-			effectService.addIncome(user, effects);
+			if(items != null && items.length() > 0){
+				ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_后台操作);
+				effects.appendStrs(items);
+				int code = effectService.validAdds(user, effects);
+				if(code != GameException.CODE_正常){
+					new GameException(code, "");
+				}
+				effects.setDbUp(true);
+				effectService.addIncome(user, effects, null);
+			}
 		}
 		return GameException.CODE_正常;
 	}
@@ -298,7 +310,7 @@ public class AdminServiceImpl extends BaseService implements AdminService{
 			while(it.hasNext()){
 				UserEquipment target = it.next();
 				if(target.getUserHeroId() == 0){
-					removes.delItem(target);
+					removes.appendDelObj(target);
 					it.remove();
 				}
 			}
@@ -307,23 +319,23 @@ public class AdminServiceImpl extends BaseService implements AdminService{
 			while(itt.hasNext()){
 				UserEternal target = itt.next();
 				if(!target.isUse()){
-					removes.delItem(target);
+					removes.appendDelObj(target);
 					itt.remove();
 				}
 			}
 			List<UserHero> heros = userHeroService.getUserHeros(user);
 			for(UserHero hero : heros){
 				if(team.getHeroList().indexOf(hero.getId()) == -1){
-					removes.delItem(hero);
+					removes.appendDelObj(hero);
 					for(UserEquipment equip : equips){
 						if(equip.getUserHeroId() == hero.getId()){
-							removes.delItem(equip);
+							removes.appendDelObj(equip);
 							break;
 						}
 					}
 					for(UserEternal eternal : eternals){
 						if(eternal.getUserEternalId() == hero.getEternal()){
-							removes.delItem(eternal);
+							removes.appendDelObj(eternal);
 							break;
 						}
 					}
@@ -337,42 +349,47 @@ public class AdminServiceImpl extends BaseService implements AdminService{
 				if(hero.getQuality() >= 5 && hero.getAtkMode().equals("10101010")
 						&& hero.getMoveMode().equals("30333033") && !eles.contains(hero.getEle())){
 					eles.add(hero.getEle());
-					adds.addItem(SystemConstant.ITEM_EFFECT_TYPE_HERO, hero.getHeroId(), 1, hero.getMaxLevel());
+					adds.appendItem(SystemConstant.ITEM_EFFECT_TYPE_HERO, hero.getHeroId(), 1, hero.getMaxLevel());
 				}
 			}
 			Map<Integer, List<Equipment>> map = new HashMap<>();
 			Collection<Equipment> list1 = GameCache.getEquipments();
 			for(Equipment equip : list1){
-				List<Equipment> list2 = map.get(equip.getEle());
-				if(list2 == null){
-					list2 = new ArrayList<>();
-					map.put(equip.getEle(), list2);
-				}
-				boolean add = true;
-				Iterator<Equipment> it1 = list2.iterator();
-				while(it1.hasNext()){
-					Equipment old = it1.next();
-					if(old.getType() == equip.getType()){
-						if(old.getQuality() < equip.getQuality()){
-							it1.remove();
-						}else{
-							add = false;
-						}
-						break;
+				if(equip.getEle() != 0){
+					List<Equipment> list2 = map.get(equip.getEle());
+					if(list2 == null){
+						list2 = new ArrayList<>();
+						map.put(equip.getEle(), list2);
 					}
-				}
-				if(add){
-					list2.add(equip);
+					boolean add = true;
+					Iterator<Equipment> it1 = list2.iterator();
+					while(it1.hasNext()){
+						Equipment old = it1.next();
+						if(old.getType() == equip.getType()){
+							if(old.getQuality() < equip.getQuality()){
+								it1.remove();
+							}else{
+								add = false;
+							}
+							break;
+						}
+					}
+					if(add){
+						list2.add(equip);
+					}
 				}
 			}
 			for(List<Equipment> list3 : map.values()){
 				for(Equipment equip : list3){
-					adds.addItem(SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT, equip.getEquipmentId(), 1, equip.getMaxLevel());
+					adds.appendItem(SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT, equip.getEquipmentId(), 1, equip.getMaxLevel());
 				}
 			}
-			adds.addItem(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL, 5020012, eles.size(), 0);
+			Eternal eternal = GameCache.getEternal(5020012);
+			if(eternal != null){
+				adds.appendItem(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL, 5020012, eles.size(), 0);
+			}
 			effectService.delIncome(user, removes);
-			effectService.addIncome(user, adds);
+			effectService.addIncome(user, adds, null);
 		}
 		return GameException.CODE_正常;
 	}

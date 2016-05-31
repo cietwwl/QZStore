@@ -6,6 +6,7 @@ import java.util.List;
 import com.ks.access.Transaction;
 import com.ks.db.model.User;
 import com.ks.object.ItemEffect;
+import com.ks.object.Reward;
 
 public interface UserIncomeService {
 	
@@ -13,13 +14,13 @@ public interface UserIncomeService {
 	 * 获取收益
 	 */
 	@Transaction
-	void addIncomes(User user, Collection<ItemEffect> effects);
+	void addIncomes(User user, Collection<ItemEffect> effects, Reward reward, boolean dbUp);
 	
 	/**
 	 * 获取收益
 	 */
 	@Transaction
-	List<?> addIncome(User user, ItemEffect effect);
+	List<?> addIncome(User user, ItemEffect effect, Reward reward, boolean dbUp);
 
 	/**
 	 * 获取收益
@@ -29,7 +30,7 @@ public interface UserIncomeService {
 	 * @param logSubType
 	 */
 	@Transaction
-	void addIncome(User user, int effectType, int value, int logSubType);
+	void addIncome(User user, int effectType, int value, Reward reward, boolean dbUp, int logSubType);
 	/**
 	 * 获取收益
 	 * @param user
@@ -38,37 +39,37 @@ public interface UserIncomeService {
 	 * @param logDec  日志说明
 	 */
 	@Transaction
-	void addIncome(User user, int effectType, int value, int logSubType, String logDec);
+	void addIncome(User user, int effectType, int value, Reward reward, boolean dbUp, int logSubType, String logDec);
 	
 	/**
 	 * 扣除
 	 */
 	@Transaction
-	void delIncomes(User user, Collection<ItemEffect> effects);
+	void delIncomes(User user, Collection<ItemEffect> effects, boolean dbUp);
 
 	/**
 	 * 扣除
 	 */
 	@Transaction
-	void delIncome(User user, ItemEffect effect);
+	void delIncome(User user, ItemEffect effect, boolean dbUp);
 	
 	/**
 	 * 扣除
 	 */
 	@Transaction
-	void delIncome(User user, int effectType, int value, int logSubType);
+	void delIncome(User user, int effectType, int value, boolean dbUp, int logSubType);
 	
 	/**
 	 * 扣除
 	 */
 	@Transaction
-	void delIncome(User user, int effectType, int value, int logSubType, String logDec);
+	void delIncome(User user, int effectType, int value, boolean dbUp, int logSubType, String logDec);
 	
 	/**
 	 * 添加日志
 	 */
 	@Transaction
-	void addLogger(int logType, int logSubType, int uid, int originalAmount, int amount, int surplusAmount, int assId, String logDec);
+	void addLogger(int logType, int logSubType, User user, int originalAmount, int amount, int surplusAmount, int assId, String logDec);
 	
 	void initSize(User user, int type);
 }

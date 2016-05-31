@@ -174,13 +174,22 @@ public interface UserService {
 	 * @param userId
 	 * @param plotStep
 	 */
+	@Transaction
 	void updatePlotStep(int userId,int plotStep);
 	/**
 	 * 修改新手步骤
 	 * @param userId
 	 * @param guideStep
 	 */
+	@Transaction
 	void updateGuideStep(int userId,int guideStep);
+	
+	/**
+	 * 获取引导
+	 * @param userId
+	 * @return
+	 */
+	List<Integer> getGuideSteps(int userId);
 	
 	
 	/**
@@ -343,7 +352,7 @@ public interface UserService {
 	 * 充值钻石
 	 */
 	@Transaction
-	void recharge(User user, int diamond, int logType);
+	void recharge(User user, int diamond, boolean dbUp, int logType);
 	
 	/**
 	 * 校验试炼次数

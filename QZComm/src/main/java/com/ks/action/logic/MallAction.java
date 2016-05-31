@@ -25,7 +25,7 @@ public interface MallAction {
 	 * 刷新黑市
 	 * @param userId
 	 */
-	void refreshBlackMarket(int userId);
+	void refreshBlackMarket(int userId, boolean active);
 	
 	/**
 	 * 获取商品订单

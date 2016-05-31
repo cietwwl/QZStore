@@ -2,7 +2,6 @@ package com.ks.game.handler;
 
 import java.util.Date;
 
-import com.ks.action.logic.PlayerAction;
 import com.ks.app.Application;
 import com.ks.game.model.Player;
 import com.ks.handler.GameHandler;
@@ -13,7 +12,6 @@ import com.ks.protocol.main.MainCMD;
 import com.ks.protocol.sub.UserCMD;
 import com.ks.protocol.vo.Head;
 import com.ks.protocol.vo.user.UserInfoVO;
-import com.ks.rpc.RPCKernel;
 import com.ks.util.LockKeyUtil;
 /**
  * 用户
@@ -31,11 +29,8 @@ public class UserHandler extends ActionAdapter{
 		ClientLockManager.lock(LockKeyUtil.getUserLockKey(player.getUserId()));
 		try{
 			UserInfoVO userInfo = playerAction().gainUserInfo(player.getUserId());
-			fightAction().checkFight(player.getUserId());
 			Head head = handler.getHead();
 			Application.sendMessage(handler.getChannel(), head, userInfo);
-			
-			playerAction().setUserOnline(player.getUserId());
 		}finally{
 			ClientLockManager.unlockThreadLock();
 		}
@@ -52,35 +47,15 @@ public class UserHandler extends ActionAdapter{
 		try{
 			Date now = new Date();
 			Date lastHeartTime = player.getLastHeartTime();
-			if(lastHeartTime==null){
-				lastHeartTime = new Date(now.getTime()-Player.HEART_FREQUENCY);
+			if(lastHeartTime == null){
+				lastHeartTime = new Date(now.getTime() - Player.HEART_FREQUENCY);
 			}
-//			long time = now.getTime() - lastHeartTime.getTime();
-//			boolean reset = true;
-			PlayerAction playerAction = RPCKernel.getRemoteByServerType(Application.LOGIC_SERVER, PlayerAction.class);
-//			if(time<(Player.HEART_FREQUENCY-30*1000L)){
-//				reset = false;
-//				player.setExceptionHeartCount(player.getExceptionHeartCount()+1);
-//				if(player.getExceptionHeartCount()>2){
-//					LoginAction action = RPCKernel.getRemoteByServerType(Application.WORLD_SERVER, LoginAction.class);
-//					action.logout(player.getUserId());
-//
-//					playerAction.logout(player.getUserId());
-//					PlayerManager.removeOnlinePlayer(player.getSessionId());
-//					
-//					throw new GameException(GameException.CODE_心跳异常, "");
-//				}else{
-//					playerAction.heard(player.getUserId());
-//				}
-//			}else{
-				playerAction.heard(player.getUserId());
-//			}
-//			if(reset){
-//				player.setExceptionHeartCount(0);
-//			}
-			player.setLastHeartTime(now);
-			Head head = handler.getHead();
-			Application.sendMessage(handler.getChannel(), head, now.getTime());
+			if(lastHeartTime.getTime() + Player.HEART_FREQUENCY + 30000 >= now.getTime()){
+				playerAction().heard(player.getUserId());
+				player.setLastHeartTime(now);
+				Head head = handler.getHead();
+				Application.sendMessage(handler.getChannel(), head, now.getTime());
+			}
 		}finally{
 			ClientLockManager.unlockThreadLock();
 		}
@@ -196,6 +171,25 @@ public class UserHandler extends ActionAdapter{
 			ClientLockManager.unlockThreadLock();
 		}
 	}
+	
+	/**
+	 * 获取引导
+	 * @param handler
+	 * @param guideStep
+	 */
+	@SubCmd(subCmd=UserCMD.UPDATE_GUIDE_STEP_LIST)
+	public void getGuideSteps(GameHandler handler){
+		Player player = handler.getPlayer();
+		ClientLockManager.lock(LockKeyUtil.getUserLockKey(player.getUserId()));
+		try{
+			Application.sendMessage(handler.getChannel(), handler.getHead(), playerAction().getGuideSteps(player.getUserId()));
+		}finally{
+			ClientLockManager.unlockThreadLock();
+		}
+	}
+	
+	
+	
 	/**
 	 * 购买金币
 	 * @param handler

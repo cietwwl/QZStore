@@ -27,7 +27,6 @@ public final class ServiceFactory {
 		for(String clazz : classes){
 			try{
 				Class<?> cla = Application.getClassLoader().loadClass(clazz);
-				System.out.println(cla);
 				BaseService service = (BaseService) cla.newInstance();
 				serviceMap.put(cla.getInterfaces()[0],
 						Proxy.newProxyInstance(Application.getClassLoader(),

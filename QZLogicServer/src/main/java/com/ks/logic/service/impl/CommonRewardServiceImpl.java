@@ -43,7 +43,7 @@ public class CommonRewardServiceImpl extends BaseService implements CommonReward
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_领取通用奖励);
-		effects.addItems(config.getItems());
+		effects.appendStrs(config.getItems());
 		int code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
@@ -130,7 +130,7 @@ public class CommonRewardServiceImpl extends BaseService implements CommonReward
 			if(!adds.isEmpty()){
 				ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_自动获得通用奖励);
 				for(CommonRewardConfig config : adds){
-					effects.addItems(config.getItems());
+					effects.appendStrs(config.getItems());
 				}
 				int code = effectService.validAdds(user, effects);
 				if(code == GameException.CODE_正常){
@@ -141,7 +141,7 @@ public class CommonRewardServiceImpl extends BaseService implements CommonReward
 					SQLOpt opt = new SQLOpt();
 					opt.putFieldOpt(UserRecordTable.COMMONREWARDS, SQLOpt.EQUAL);
 					userDAO.updateUserRecord(record, opt);
-					effectService.addIncome(user, effects);
+					effectService.addIncome(user, effects, null);
 				}
 			}
 		}

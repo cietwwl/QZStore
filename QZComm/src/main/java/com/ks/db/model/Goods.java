@@ -3,10 +3,13 @@ package com.ks.db.model;
 import java.io.Serializable;
 
 import com.ks.access.DBFieldSet;
+
+import lombok.Data;
 /**
  * 物品
  * @author ks
  */
+@Data
 public class Goods implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/**物品编号*/
@@ -30,30 +33,6 @@ public class Goods implements Serializable {
 		goods.setNum(num);
 		goods.setLevel(level);
 		return goods;
-	}
-	public int getGoodsId() {
-		return goodsId;
-	}
-	public void setGoodsId(int goodsId) {
-		this.goodsId = goodsId;
-	}
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
-	}
-	public int getLevel() {
-		return level;
-	}
-	public void setLevel(int level) {
-		this.level = level;
 	}
 	
 }

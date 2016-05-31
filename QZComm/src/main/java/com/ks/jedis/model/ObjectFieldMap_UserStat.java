@@ -28,6 +28,7 @@ map.put("buyStaminaCount",String.valueOf(bean.getBuyStaminaCount()));
 map.put("signinDays",String.valueOf(bean.getSigninDays()));
 map.put("fillSignin",String.valueOf(bean.getFillSignin()));
 map.put("sumSigninDays",String.valueOf(bean.getSumSigninDays()));
+map.put("lastBlackRefreshTime",String.valueOf(bean.getLastBlackRefreshTime()));
 map.put("blackMarketGoods",String.valueOf(bean.getBlackMarketGoods()));
 map.put("blackMarketRefCount",String.valueOf(bean.getBlackMarketRefCount()));
 map.put("mallTotleBuyCount",String.valueOf(bean.getMallTotleBuyCount()));

@@ -157,7 +157,7 @@ public class UserPropServiceImpl extends BaseService implements UserPropService 
 				throw new GameException(GameException.CODE_参数错误, "");
 			}
 			ItemEffects removes = new ItemEffects(SystemConstant.LOGGER_APPROACH_使用道具);
-			removes.delItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, propId, number);
+			removes.appendItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, propId, number, 0);
 			int code = effectService.validDels(user, removes);
 			if(code != GameException.CODE_正常){
 				throw new GameException(code, "");
@@ -165,7 +165,7 @@ public class UserPropServiceImpl extends BaseService implements UserPropService 
 			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_使用道具获得);
 			for(PropEffect effect : prop.getEffects()){
 				if(effect.getEffectId() == SystemConstant.PROP_EFFECT_ID_获得经验){
-					effects.addItem(SystemConstant.ITEM_EFFECT_TYPE_EXP, 0, effect.getVal() * number, 0);
+					effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_EXP, 0, effect.getVal() * number, 0);
 				}else if(effect.getEffectId() == SystemConstant.PROP_EFFECT_ID_获得体力
 						|| effect.getEffectId() == SystemConstant.PROP_EFFECT_ID_体力全满){
 					int value = effect.getVal() * number;
@@ -174,15 +174,15 @@ public class UserPropServiceImpl extends BaseService implements UserPropService 
 						value = rule.getStamina() - user.getStamina();
 					}
 					if(value > 0){
-						effects.addItem(SystemConstant.ITEM_EFFECT_TYPE_STAMINA, 0, value, 0);
+						effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_STAMINA, 0, value, 0);
 					}
 				}else if(effect.getEffectId() == SystemConstant.PROP_EFFECT_ID_金钱加成
 						|| effect.getEffectId() == SystemConstant.PROP_EFFECT_ID_经验加成){
 					addUserBuff(userId, effect);
 				}else if(effect.getEffectId() == SystemConstant.PROP_EFFECT_ID_增加经验池上限){
-					effects.addItem(SystemConstant.ITEM_EFFECT_TYPE_ADD_HERO_POOL_EXP_LIMIT, 0, effect.getVal() * number, 0);
+					effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_ADD_HERO_POOL_EXP_LIMIT, 0, effect.getVal() * number, 0);
 				}else if(effect.getEffectId() == SystemConstant.PROP_EFFECT_ID_增加熔炼池上限){
-					effects.addItem(SystemConstant.ITEM_EFFECT_TYPE_ADD_SMELTING_POOL_EXP_LIMIT, 0, effect.getVal() * number, 0);
+					effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_ADD_SMELTING_POOL_EXP_LIMIT, 0, effect.getVal() * number, 0);
 				}
 			}
 			code = effectService.validAdds(user, effects);
@@ -190,7 +190,7 @@ public class UserPropServiceImpl extends BaseService implements UserPropService 
 				throw new GameException(code, "");
 			}
 			effectService.delIncome(user, removes);
-			effectService.addIncome(user, effects);
+			effectService.addIncome(user, effects, null);
 			return userProp;
 		}
 	}
@@ -226,7 +226,7 @@ public class UserPropServiceImpl extends BaseService implements UserPropService 
 			if(sell.getNum() <= 0 || !prop.isSell()){
 				throw new GameException(GameException.CODE_参数错误, "");
 			}else if(prop.getSellPrice() >= 0){
-				effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, sell.getPropId(), sell.getNum());
+				effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, sell.getPropId(), sell.getNum(), 0);
 				gold += prop.getSellPrice() * sell.getNum();
 			}
 		}
@@ -236,7 +236,7 @@ public class UserPropServiceImpl extends BaseService implements UserPropService 
 		}
 		if(gold > 0){
 			effectService.delIncome(user, effects);
-			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, gold, SystemConstant.LOGGER_APPROACH_出售道具);
+			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, gold, null, false, SystemConstant.LOGGER_APPROACH_出售道具);
 		}
 	}
 	
@@ -261,15 +261,15 @@ public class UserPropServiceImpl extends BaseService implements UserPropService 
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_开启宝箱);
 		if(prop.getExpendItems().length() > 0){
-			effects.delItem(prop.getExpendItems());
+			effects.appendStrs(prop.getExpendItems());
 		}
-		effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, propId, 1);
+		effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, propId, 1, 0);
 		code = effectService.validDels(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
 		}
 		effectService.delIncome(user, effects);
-		List<ItemEffect> items = effectService.addDrops(user, drops);
+		List<ItemEffect> items = effectService.addDrops(user, drops, false);
 		return toVo(items);
 	}
 	

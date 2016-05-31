@@ -54,8 +54,8 @@ public class MartialWayDAO extends GameDAOTemplate {
 		}
 		return userIds;
 	}
-	public long getUserRank(int userId){
-		return zrevrank(MARTIAL_WAY_RANK_KEY, String.valueOf(userId))+1;
+	public int getUserRank(int userId){
+		return (int) (zrevrank(MARTIAL_WAY_RANK_KEY, String.valueOf(userId))+1);
 	}
 	public void clearMartialWay(){
 		Set<String> keys = smembers(MARTIAL_WAY_SET_KEY);

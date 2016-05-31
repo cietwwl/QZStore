@@ -1,6 +1,7 @@
 package com.ks.table;
 public final class UserHeroTable extends com.ks.access.DBBeanTable<com.ks.db.model.UserHero>{
 public static UserHeroTable instance;
+public static final String TABLE_NAME_PREFIX="t_user_hero_";
 public static final String ID="id";
 public static final String USERID="user_id";
 public static final String HEROID="hero_id";
@@ -31,6 +32,7 @@ public static final String J_ETERNAL="eternal";
 public static final String J_BREAKLEVEL="breakLevel";
 public static final String J_BREAKEDSLOTS="breakedSlots";
 
+public static String getTableName(int index){return TABLE_NAME_PREFIX + (index % 10);}
 public UserHeroTable(){
 mapper=new DBRowMapper_UserHero();
 }

@@ -1,56 +1,48 @@
 package com.ks.object;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import lombok.Data;
+import java.util.Map;
 
 import com.ks.constant.SystemConstant;
-import com.ks.protocol.vo.equment.UserEquipmentVO;
-import com.ks.protocol.vo.eternal.UserEternalVO;
-import com.ks.protocol.vo.hero.UserHeroVO;
-import com.ks.protocol.vo.prop.UserPropVO;
+import com.ks.protocol.MessageFactory;
+import com.ks.protocol.vo.reward.ItemEffectVO;
 
-@Data
 public class Reward {
-	private int gold;
-	private int exp;
-	private int slate;
-	private int smeltingPoint;
-	private int heroExp;
-	private List<UserHeroVO> heros = new ArrayList<UserHeroVO>();
-	private List<UserPropVO> props = new ArrayList<UserPropVO>();
-	private List<UserEquipmentVO> equips = new ArrayList<UserEquipmentVO>();
-	private List<UserEternalVO> eternals = new ArrayList<UserEternalVO>();
+	private Map<Integer, List<ItemEffectVO>> map = new HashMap<>();
 	
-	public void setValue(int effectType, int value){
-		switch(effectType){
-			case SystemConstant.ITEM_EFFECT_TYPE_GOLD:
-				gold = value;
-				break;
-			case SystemConstant.ITEM_EFFECT_TYPE_EXP:
-				exp = value;
-				break;
-			case SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT:
-				smeltingPoint = value;
-				break;
-			case SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL:
-				heroExp = value;
-				break;
+	public void addItemEffect(int type, int id, int value1, int value2){
+		List<ItemEffectVO> list = map.get(type);
+		if(list == null){
+			list = new ArrayList<>();
+			map.put(type, list);
+		}
+		boolean update = true;
+		if(type != SystemConstant.ITEM_EFFECT_TYPE_HERO
+				&& type != SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT
+				&& type != SystemConstant.ITEM_EFFECT_TYPE_ETERNAL){
+			for(ItemEffectVO vo : list){
+				if(vo.getId() == id){
+					update = false;
+					vo.setValue1(vo.getValue1() + value1);
+					vo.setValue2(vo.getValue2() + value2);
+					break;
+				}
+			}
+		}
+		if(update){
+			ItemEffectVO vo = MessageFactory.getMessage(ItemEffectVO.class);
+			vo.init(type, id, value1, value2);
+			list.add(vo);
 		}
 	}
 	
-	public int getValue(int effectType){
-		switch(effectType){
-			case SystemConstant.ITEM_EFFECT_TYPE_GOLD:
-				return gold;
-			case SystemConstant.ITEM_EFFECT_TYPE_EXP:
-				return exp;
-			case SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT:
-				return smeltingPoint;
-			case SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL:
-				return heroExp;
+	public List<ItemEffectVO> getItemEffects(){
+		List<ItemEffectVO> list = new ArrayList<>();
+		for(List<ItemEffectVO> vos : map.values()){
+			list.addAll(vos);
 		}
-		return 0;
+		return list;
 	}
 }

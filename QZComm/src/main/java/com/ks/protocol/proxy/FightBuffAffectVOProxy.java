@@ -20,6 +20,12 @@ public final class FightBuffAffectVOProxy extends com.ks.protocol.vo.fight.skill
 		for(com.ks.protocol.vo.fight.skill.ReleaseSkillVO p2000 : getRelSkill()){
 			writeObject(channelBuff,p2000);
 		}
+		if(getAtkEffectIds()==null){
+			setAtkEffectIds(new java.util.ArrayList<java.lang.Integer>());
+		}		channelBuff.writeShort(getAtkEffectIds().size());
+		for(java.lang.Integer p3000 : getAtkEffectIds()){
+			channelBuff.writeInt(p3000);
+		}
 	}
 	public void decode(org.jboss.netty.buffer.ChannelBuffer channelBuff){
 		setFightId(channelBuff.readInt());
@@ -37,6 +43,11 @@ public final class FightBuffAffectVOProxy extends com.ks.protocol.vo.fight.skill
 		int p2000=channelBuff.readShort();
 		for(int i2000=0;i2000<p2000;i2000++){
 			getRelSkill().add(readObject(channelBuff,com.ks.protocol.vo.fight.skill.ReleaseSkillVO.class));
+		}
+		setAtkEffectIds(new java.util.ArrayList<java.lang.Integer>());
+		int p3000=channelBuff.readShort();
+		for(int i3000=0;i3000<p3000;i3000++){
+			getAtkEffectIds().add(channelBuff.readInt());
 		}
 	}
 	public Object copy(){return new FightBuffAffectVOProxy();}

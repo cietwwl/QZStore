@@ -7,25 +7,21 @@ import java.util.List;
 import java.util.Map;
 
 import com.ks.constant.SystemConstant;
-import com.ks.db.cfg.Drop;
 import com.ks.db.cfg.Equipment;
 import com.ks.db.cfg.Eternal;
 import com.ks.db.cfg.Hero;
 import com.ks.db.cfg.Prop;
 import com.ks.db.cfg.UserRule;
-import com.ks.db.cfg.ZoneBattle;
 import com.ks.db.model.User;
 import com.ks.db.model.UserEquipment;
 import com.ks.db.model.UserEternal;
 import com.ks.db.model.UserHero;
 import com.ks.db.model.UserProp;
 import com.ks.db.model.UserTeam;
-import com.ks.db.model.UserZoneBattle;
 import com.ks.exceptions.GameException;
 import com.ks.logic.cache.GameCache;
 import com.ks.logic.service.BaseService;
 import com.ks.logic.service.EffectService;
-import com.ks.model.fight.Battle;
 import com.ks.object.DropEffect;
 import com.ks.object.ItemEffect;
 import com.ks.object.ItemEffects;
@@ -38,7 +34,6 @@ import com.ks.protocol.vo.goods.GainGameAwardVO;
 import com.ks.protocol.vo.goods.GoodsVO;
 import com.ks.protocol.vo.hero.UserHeroVO;
 import com.ks.protocol.vo.prop.UserPropVO;
-import com.ks.protocol.vo.reward.RewardVO;
 import com.ks.util.MathUtil;
 import com.ks.util.XyStringUtil;
 
@@ -187,7 +182,7 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 	}
 	
 	@Override
-	public List<ItemEffect> addDrops(User user, List<DropEffect> drops){
+	public List<ItemEffect> addDrops(User user, List<DropEffect> drops, boolean dbUp){
 		List<ItemEffect> list = new ArrayList<>();
 		for(DropEffect drop : drops){
 			if(drop.isDrop()){
@@ -199,7 +194,7 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 					ItemEffect effect = it.next();
 					if(effect.getProbability() == SystemConstant.PERCENT_BASE_INT){
 						it.remove();
-						incomeService.addIncome(user, effect);
+						incomeService.addIncome(user, effect, null, dbUp);
 						list.add(effect);
 						if(amount > 0){
 							amount--;
@@ -220,7 +215,7 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 								ItemEffect effect = ix.next();
 								if(random < effect.getProbability()){
 									probability -= effect.getProbability();
-									incomeService.addIncome(user, effect);
+									incomeService.addIncome(user, effect, null, dbUp);
 									list.add(effect);
 									break;
 								}else{
@@ -233,7 +228,7 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 					for(ItemEffect effect : items){
 						int random = MathUtil.nextInt(SystemConstant.PERCENT_BASE_INT);
 						if(random < effect.getProbability()){
-							incomeService.addIncome(user, effect);
+							incomeService.addIncome(user, effect, null, dbUp);
 							list.add(effect);
 						}
 					}
@@ -262,21 +257,21 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 		return effect;
 	}
 	
-	public void addItemEffects(User user, List<ItemEffect> effects, RewardVO vo){
+	public void addItemEffects(User user, List<ItemEffect> effects, Reward reward, boolean dbUp){
 		if(effects.size() > 1){
 			effects = mergeEffect(effects, 0);
 		}
-		incomeService.addIncomes(user, effects);
+		incomeService.addIncomes(user, effects, reward, dbUp);
 	}
 	
-	public void addItemEffect(User user, ItemEffect effect, RewardVO vo){
+	public void addItemEffect(User user, ItemEffect effect, Reward reward, boolean dbUp){
 		List<ItemEffect> effects = new ArrayList<>();
 		effects.add(effect);
-		addItemEffects(user, effects, vo);
+		addItemEffects(user, effects, reward, dbUp);
 	}
 	
-	public void addItemEffect(User user, int effectType, int value, int logSubType, RewardVO vo){
-		incomeService.addIncome(user, effectType, value, logSubType);
+	public void addItemEffect(User user, int effectType, int value, int logSubType, Reward reward, boolean dbUp){
+		incomeService.addIncome(user, effectType, value, reward, dbUp, logSubType);
 	}
 	
 	@Override
@@ -345,52 +340,6 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 			return propSize + user.getPropSize() > SystemConstant.USER_BACK_PACK_LIMIT ? GameException.CODE_道具背包空间不足 : GameException.CODE_正常;
 		}
 		return GameException.CODE_正常;
-	}
-	
-	/**
-	 * 校验添加
-	 * @param user
-	 * @param effect
-	 * @return
-	 */
-	private int validAdd(User user, ItemEffect effect){
-		int heroSize = 0;
-		int eternalSize = 0;
-		int equipSize = 0;
-		int propSize = 0;
-		if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO){
-			Hero hero = GameCache.getHero(effect.getId());
-			if(hero == null){
-				return GameException.CODE_伙伴不存在;
-			}else{
-				heroSize = effect.getValue1();
-			}
-		}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL){
-			Eternal econfig = GameCache.getEternal(effect.getId());
-			if(econfig == null){
-				return GameException.CODE_武魂不存在;
-			}else{
-				eternalSize = effect.getValue1();
-			}
-		}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT){
-			Equipment econfig = GameCache.getEquipment(effect.getId());
-			if(econfig == null){
-				return GameException.CODE_装备不存在;
-			}else{
-				equipSize = effect.getValue1();
-			}
-		}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_PROP){
-			Prop pconfig = GameCache.getProp(effect.getId());
-			if(pconfig == null){
-				return GameException.CODE_道具不存在;
-			}else{
-				UserProp prop = userPropService.getUserPropByPropId(user, effect.getId());
-				if(prop == null){
-					propSize ++;
-				}
-			}
-		}
-		return validSize(user, heroSize, eternalSize, equipSize, propSize);
 	}
 	
 	@Override
@@ -477,51 +426,47 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 				return GameException.CODE_道具不足;
 			}
 		}else{
-			return validDel(user, effect.getType(), effect.getValue1());
+			int code = GameException.CODE_正常;
+			if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_GOLD){
+				return user.getGold() >= effect.getValue1() ? code : GameException.CODE_金币不足;
+			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_DIAMOND){
+				return user.getDiamond() >= effect.getValue1() ? code : GameException.CODE_钻石不足;
+			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_GP){
+				return user.getGp() >= effect.getValue1() ? code : GameException.CODE_GP不足;
+			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL){
+				return user.getHeroExpPool() >= effect.getValue1() ? code : GameException.CODE_参数错误;
+			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT){
+				return user.getSmeltingExp() >= effect.getValue1() ? code : GameException.CODE_参数错误;
+			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_SLATE){
+				return user.getSlate() >= effect.getValue1() ? code : GameException.CODE_上古石板不足;
+			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_STAMINA){
+				return user.getStamina() >= effect.getValue1() ? code : GameException.CODE_体力不足;
+			}else{
+				return GameException.CODE_参数错误;
+			}
 		}
 		return GameException.CODE_正常;
 	}
-	/**
-	 * 校验扣除
-	 */
-	private int validDel(User user, int type, int value){
-		int code = GameException.CODE_正常;
-		if(type == SystemConstant.ITEM_EFFECT_TYPE_GOLD){
-			return user.getGold() >= value ? code : GameException.CODE_金币不足;
-		}else if(type == SystemConstant.ITEM_EFFECT_TYPE_DIAMOND){
-			return user.getDiamond() >= value ? code : GameException.CODE_钻石不足;
-		}else if(type == SystemConstant.ITEM_EFFECT_TYPE_GP){
-			return user.getGp() >= value ? code : GameException.CODE_GP不足;
-		}else if(type == SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL){
-			return user.getHeroExpPool() >= value ? code : GameException.CODE_参数错误;
-		}else if(type == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT){
-			return userEternalService.gainEternalSmelting(user.getUserId()).get(0).getVal() >= value ? code : GameException.CODE_参数错误;
-		}else if(type == SystemConstant.ITEM_EFFECT_TYPE_SLATE){
-			return user.getSlate() >= value ? code : GameException.CODE_上古石板不足;
-		}else if(type == SystemConstant.ITEM_EFFECT_TYPE_STAMINA){
-			return user.getStamina() >= value ? code : GameException.CODE_体力不足;
-		}
-		return code;
-	}
 	
 	@Override
-	public void addIncome(User user, int type, int value, int logSubType){
+	public void addIncome(User user, int type, int value, Reward reward, boolean dbUp, int logSubType){
 		ItemEffects effects = new ItemEffects(logSubType);
-		effects.addItem(type, 0, value, 0);
-		addIncome(user, effects);
+		effects.appendItem(type, 0, value, 0);
+		effects.setDbUp(dbUp);
+		addIncome(user, effects, reward);
 	}
 	
 	@Override
-	public void addIncome(User user, ItemEffects effects){
+	public void addIncome(User user, ItemEffects effects, Reward reward){
 		for(Map<Integer, ItemEffect> map : effects.getItemMap().values()){
-			incomeService.addIncomes(user, map.values());
+			incomeService.addIncomes(user, map.values(), reward, effects.isDbUp());
 		}
 	}
 	
 	@Override
 	public void delIncome(User user, int type, int id,  int value, int logSubType){
 		ItemEffects effects = new ItemEffects(logSubType);
-		effects.delItem(type, id, value);
+		effects.appendItem(type, id, value, 0);
 		int code = validDels(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
@@ -532,7 +477,7 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 	@Override
 	public void delIncome(User user, ItemEffects effects){
 		for(Map<Integer, ItemEffect> map : effects.getItemMap().values()){
-			incomeService.delIncomes(user, map.values());
+			incomeService.delIncomes(user, map.values(), effects.isDbUp());
 		}
 	}
 
@@ -544,7 +489,7 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 		List<UserPropVO> props = new ArrayList<>();
 		for(Map<Integer, ItemEffect> map : effects.getItemMap().values()){
 			for(ItemEffect effect : map.values()){
-				List<?> list = incomeService.addIncome(user, effect);
+				List<?> list = incomeService.addIncome(user, effect, null, effects.isDbUp());
 				if(!list.isEmpty()){
 					for(Object obj : list){
 						if(obj instanceof UserHero){
@@ -593,94 +538,5 @@ public class EffectServiceImpl extends BaseService implements EffectService{
 		gea.setGoodses(goodsVOs);
 		gea.setAwards(addGainAwardVo(user, effects));
 		return gea;
-	}
-	
-	@Override
-	public List<Drop> drop(User user, UserZoneBattle userZoneBattle, Battle battle, List<Drop> drops, Reward reward, int logSubType){
-		int gold = 0;
-		int exp = 0;
-		int slate = 0;
-		if(userZoneBattle != null){
-			ZoneBattle zoneBattle = GameCache.getZoneBattle(userZoneBattle.getZoneBattleId());
-			gold = userZoneBattle.getPassCount()==1?zoneBattle.getFirstGold():zoneBattle.getGold();
-			exp = userZoneBattle.getPassCount()==1?zoneBattle.getFirstExp():zoneBattle.getExp();
-		}
-		List<Drop> dlist = new ArrayList<Drop>();
-		for(Drop old : drops){
-			Drop drop = old.copy();
-			try{
-				ItemEffect effect = effectService.createEffect(drop.getType(), drop.getAssId(), drop.getNum(), 1, logSubType);
-				if(drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO
-						|| drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_PROP
-						|| drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL
-						|| drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT){
-					int code = validAdd(user, effect);
-					if(code == GameException.CODE_正常){
-						List<?> list = incomeService.addIncome(user, effect);
-						for(Object obj : list){
-							if(obj instanceof UserHero){
-								UserHeroVO vo = MessageFactory.getMessage(UserHeroVO.class);
-								vo.init((UserHero) obj);
-								reward.getHeros().add(vo);
-							}else if(obj instanceof UserProp){
-								UserPropVO vo = MessageFactory.getMessage(UserPropVO.class);
-								vo.init((UserProp) obj);
-								reward.getProps().add(vo);
-							}else if(obj instanceof UserEquipment){
-								UserEquipmentVO vo = MessageFactory.getMessage(UserEquipmentVO.class);
-								vo.init((UserEquipment) obj);
-								reward.getEquips().add(vo);
-							}else if(obj instanceof UserEternal){
-								UserEternalVO vo = MessageFactory.getMessage(UserEternalVO.class);
-								vo.init((UserEternal) obj);
-								reward.getEternals().add(vo);
-							}
-						}
-					}else{
-						drop.setSuccessDrop(false);
-					}
-				}else{
-					if(battle != null){
-						if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_EXP){
-							effect.setValue1(exp + effect.getValue1());
-							int expAddition = fightService.getBattleAddition(battle, SystemConstant.SKILL_EFFECT_ID_经验增加, SystemConstant.PROP_EFFECT_ID_经验加成);
-							if(expAddition > 0){
-								effect.setAddition(expAddition);
-							}
-							exp = 0;
-						}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_GOLD){
-							effect.setValue1(gold + effect.getValue1());
-							int goldAddition = fightService.getBattleAddition(battle, SystemConstant.SKILL_EFFECT_ID_金钱增加, SystemConstant.PROP_EFFECT_ID_金钱加成);
-							if(goldAddition > 0){
-								effect.setAddition(goldAddition);
-							}
-							gold = 0;
-						}else if(battle.getSlate() > 0){
-							slate = battle.getSlate();
-						}
-					}
-					incomeService.addIncome(user, effect);
-					reward.setValue(effect.getType(), effect.getValue1());
-				}
-			}catch(Exception e){
-				drop.setSuccessDrop(false);
-			}
-			if(drop.isSuccessDrop()){
-				dlist.add(drop);
-			}
-		}
-		if(slate > 0){
-			addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_SLATE, slate, logSubType);
-			reward.setSlate(slate);
-		}
-		if(exp > 0){
-			addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_EXP, exp, logSubType);
-			reward.setExp(exp);
-		}
-		if(gold > 0){
-			addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, gold, logSubType);
-			reward.setGold(gold);
-		}
-		return dlist;
 	}
 }

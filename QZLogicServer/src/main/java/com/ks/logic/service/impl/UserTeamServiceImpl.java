@@ -122,8 +122,6 @@ public class UserTeamServiceImpl extends BaseService implements UserTeamService 
 					throw new GameException(GameException.CODE_参数错误, "");
 				}
 				cost += hero.getCost();
-			}else if(i==0){
-				throw new GameException(GameException.CODE_参数错误, "");
 			}
 		}
 		UserRule rule = GameCache.getUserRule(user.getLevel());

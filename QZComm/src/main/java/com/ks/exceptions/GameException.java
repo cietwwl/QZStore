@@ -159,8 +159,8 @@ public class GameException extends RuntimeException {
 	public static final int CODE_对方功能未开放 = 72;
 	@FieldDesc(desc="该功能不支持对自己操作")
 	public static final int CODE_该功能不支持对自己操作 = 73;
-//	@FieldDesc(desc="玩家不存在")
-//	public static final int CODE_玩家不存在 = 74;
+	@FieldDesc(desc="创建订单异常")
+	public static final int CODE_创建订单异常 = 74;
 	@FieldDesc(desc="商品不存在")
 	public static final int CODE_商品不存在 = 75;
 	@FieldDesc(desc="补签次数不足")
@@ -194,6 +194,10 @@ public class GameException extends RuntimeException {
 	public static final int CODE_订单已处理 = 100004;
 	@FieldDesc(desc="订单服务器不存在")
 	public static final int CODE_订单服务器不存在 = 100005;
+	@FieldDesc(desc="订单非法")
+	public static final int CODE_订单非法 = 100006;
+	@FieldDesc(desc="渠道不存在")
+	public static final int CODE_渠道不存在 = 100007;
 	
 	/**错误码*/
 	private int code;

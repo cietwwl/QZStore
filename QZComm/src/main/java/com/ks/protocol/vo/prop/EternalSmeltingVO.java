@@ -1,6 +1,5 @@
 package com.ks.protocol.vo.prop;
 
-import com.ks.db.cfg.EternalSmelting;
 import com.ks.protocol.FieldDesc;
 import com.ks.protocol.Message;
 /**
@@ -18,10 +17,10 @@ public class EternalSmeltingVO extends Message {
 	@FieldDesc(desc="增加熔炼点上限")
 	private int addEternalVal;
 	
-	public void init(EternalSmelting es){
-		this.type = es.getType();
-		this.val = es.getVal();
-		this.addEternalVal = es.getAddEternalVal();
+	public void init(int type, int smeltingExp, int addSmeltingVal){
+		this.type = type;
+		this.val = smeltingExp;
+		this.addEternalVal = addSmeltingVal;
 	}
 	public int getType() {
 		return type;

@@ -5,10 +5,13 @@ import java.util.Date;
 
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
+
+import lombok.Data;
 /**
  * 好友
  * @author ks
  */
+@Data
 @DBBeanSet(primaryKey={"user_id", "friend_id"})
 public class Friend implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -37,54 +40,5 @@ public class Friend implements Serializable {
 	/**修改时间*/
 	@DBFieldSet(dbfname="update_time")
 	private Date updateTime = new Date();
-	
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getFriendId() {
-		return friendId;
-	}
-	public void setFriendId(int friendId) {
-		this.friendId = friendId;
-	}
-	public int getState() {
-		return state;
-	}
-	public void setState(int state) {
-		this.state = state;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-	public int getUseCount() {
-		return useCount;
-	}
-	public void setUseCount(int useCount) {
-		this.useCount = useCount;
-	}
-	public int getFriendlyDegrees() {
-		return friendlyDegrees;
-	}
-	public void setFriendlyDegrees(int friendlyDegrees) {
-		this.friendlyDegrees = friendlyDegrees;
-	}
-	public Date getLastRefTime() {
-		return lastRefTime;
-	}
-	public void setLastRefTime(Date lastRefTime) {
-		this.lastRefTime = lastRefTime;
-	}
 	
 }

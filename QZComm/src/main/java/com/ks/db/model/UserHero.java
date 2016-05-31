@@ -18,7 +18,7 @@ import com.ks.util.StringUtil;
  * 用户英雄
  * @author ks
  */
-@DBBeanSet(primaryKey={"id"})
+@DBBeanSet(tablename_prefix="t_user_hero_", primaryKey={"id"})
 @JedisBeanSet()
 @Data
 public class UserHero implements Serializable {

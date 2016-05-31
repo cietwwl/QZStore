@@ -207,6 +207,8 @@ public class SystemConstant {
 	/**商店类型*/
 	public static final int MALL_TYPE_普通 = 1;
 	public static final int MALL_TYPE_黑市 = 2;
+	/**黑市刷新时间(小时)*/
+	public static final int MALL_BLACK_MARKET_REFRESH_HOURS[] = {0, 12, 18, 21};
 
 	/**刷新黑市钻石消耗*/
 	public static int MALL_REFRESH_BLACK_MARKET; 
@@ -341,18 +343,18 @@ public class SystemConstant {
 	public static int USER_SIGNIN_DIAMOND;
 	/**改名消耗*/
 	public static int USER_CHANGE_NAME_DIAMOND;
-	/**最大伙伴容量 */
+	/**增加伙伴格子上限 */
 	public static int USER_MAX_HERO_CAPACITY;
-	/**最大装备容量 */
+	/**增加装备格子上限 */
 	public static int USER_MAX_EQUIPMENT_CAPACITY;
-	/**最大武魂容量 */
+	/**增加武魂格子上限 */
 	public static int USER_MAX_ETERNAL_CAPACITY;
 	/**扩充背包容量单次价格(钻石)*/
 	public static int USER_HERO_ADD_CAPACITY_PRICE;
 	/**扩充背包容量单次格子数*/
 	public static int USER_HERO_ADD_CAPACITY_NUMBER;
 	/**背包格子上限*/
-	public static final int USER_BACK_PACK_LIMIT = 24;
+	public static int USER_BACK_PACK_LIMIT = 60;
 	
 	
 	/********************************** 副本 ************************************************/
@@ -382,7 +384,11 @@ public class SystemConstant {
 
 	/********************************** 道具效果类型  ************************************************/
 	/** 货币 */
-	public static final int ITEM_TYPE_CURRENCY = 100001;
+	public static final int ITEM_TYPE_CURRENCY = 1001;
+	/**道具效果类型(后台充值) */
+	public static final int ITEM_EFFECT_TYPE_RECHARGE = -2;
+	/**道具效果类型(等级) */
+	public static final int ITEM_EFFECT_TYPE_LEVEL = -1;
 	/**道具效果类型(英雄/伙伴)*/
 	public static final int ITEM_EFFECT_TYPE_HERO = 1;
 	/**道具效果类型(金币)*/
@@ -455,6 +461,7 @@ public class SystemConstant {
 	}
 
 	/********************************** 系统系数  ************************************************/
+	public static final int STOP_SERVER_CODE = -101010;
 	/**比值基数10000(double)*/
 	public static final double PERCENT_BASE_DOUBLE = 10000d;
 	/**比值基数10000(int)*/
@@ -485,6 +492,7 @@ public class SystemConstant {
 	public static final int LOGGER_TYPE_SLATE = 11;
 	
 	/********************************** 日志产生途径 ************************************************/
+	public static final int LOGGER_APPROACH = -1;
 	public static final int LOGGER_APPROACH_扩充背包容量 = 1;
 	public static final int LOGGER_APPROACH_进化消耗 = 2;
 	public static final int LOGGER_APPROACH_召唤消耗 = 3;
@@ -565,6 +573,7 @@ public class SystemConstant {
 	public static final int LOGGER_APPROACH_自动获得通用奖励 = 78;
 	public static final int LOGGER_APPROACH_开启宝箱 = 79;
 	public static final int LOGGER_APPROACH_订单发货 = 80;
+	public static final int LOGGER_APPROACH_订单发货_额外获得 = 81;
 	
 	/**日志类型*/
 	public static final int[] LOGGER_APPROACH_TYPES = {
@@ -647,7 +656,8 @@ public class SystemConstant {
 		LOGGER_APPROACH_领取通用奖励,
 		LOGGER_APPROACH_自动获得通用奖励,
 		LOGGER_APPROACH_开启宝箱,
-		LOGGER_APPROACH_订单发货
+		LOGGER_APPROACH_订单发货,
+		LOGGER_APPROACH_订单发货_额外获得
 	};
 	/**日志类型*/
 	public static final String[] LOGGER_APPROACH_TYPE_NAMES = {
@@ -730,7 +740,8 @@ public class SystemConstant {
 		"领取通用奖励",
 		"自动获得通用奖励",
 		"开启宝箱",
-		"订单发货"
+		"订单发货",
+		"订单发货(额外获得)"
 	};
 	/**
 	 * 得到日志类型名称
@@ -740,6 +751,14 @@ public class SystemConstant {
 	public static String getLoggerApproachName(int type){
 		return getTypeName(type, LOGGER_APPROACH_TYPES, LOGGER_APPROACH_TYPE_NAMES);
 	}
+
+	/********************************** 日志事件 ************************************************/
+	/**日志事件（游戏）*/
+	public static final int LOG_EVENT_TYPE_GAME = 0;
+	/**日志事件（用户活跃）*/
+	public static  final int LOG_EVENT_TYPE_ACTICE = 1;
+	/**日志事件（副本战斗）*/
+	public static final int LOG_EVENT_TYPE_BATTLE = 2;
 	
 	/********************************** 竞技场 ************************************************/
 	public static final int ARENA_LOGGER_TYPE_竞技场 = 1;
@@ -865,11 +884,11 @@ public class SystemConstant {
 	/**钻石召唤十次伙伴消耗*/
 	public static int HERO_CALL_TEN_DIAMOND;
 	/**免费金币召唤次数*/
-	public static final int HERO_CALL_GOLD_FREE = 3;
+	public static int HERO_CALL_GOLD_FREE = 3;
 	/**免费金币召唤次数CD(秒)*/
-	public static final int HERO_CALL_GOLD_FREE_CD = 30 * 60;
+	public static int HERO_CALL_GOLD_FREE_CD = 30 * 60;
 	/**免费钻石召唤次数CD*/
-	public static final int HERO_CALL_DIAMOND_FREE_CD = 48 * 60 * 60;
+	public static int HERO_CALL_DIAMOND_FREE_CD = 48 * 60 * 60;
 	/**首次钻石召唤伙伴id*/
 	public static int HERO_FIRST_DIAMOND_CALL_ID;
 	/**伙伴规则*/
@@ -959,6 +978,8 @@ public class SystemConstant {
 	public static final int PAY_TYPE_DIAMOND = 1;
 	/**支付类型(周期卡)*/
 	public static final int PAY_TYPE_CYCLE_CARD = 2;
+	/**支付订单状态(二次验证失败)*/
+	public static final int PAY_BILL_TOW_VALID_LOSS = -2;
 	/**支付订单状态(订单服务器不存在)*/
 	public static final int PAY_BILL_STATE_NO_SERVER = -1;
 	/**支付订单状态(初始)*/
@@ -971,6 +992,12 @@ public class SystemConstant {
 	public static final int PAY_MONTH_CARD_ID = 7;
 	/**周卡ID*/
 	public static final int PAY_WEEK_CARD = 8;
+
+	/********************************** 服务器类型  ************************************************/
+	/**服务器类型（测试）-web使用*/
+	public static final int SERVER_TYPE_DEBUG = 0;
+	/**服务器类型（正式）*/
+	public static final int SERVER_TYPE_OFFICIAL = 1;
 	
 	/**
 	 *  //TODO 初始化常数

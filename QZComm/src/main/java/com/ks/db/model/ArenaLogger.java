@@ -6,10 +6,13 @@ import java.util.Date;
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
 
+import lombok.Data;
+
 /**
  * 竞技场日志
  *
  */
+@Data
 @DBBeanSet(primaryKey="id")
 public class ArenaLogger implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -43,65 +46,5 @@ public class ArenaLogger implements Serializable {
 	/**日志类型*/
 	@DBFieldSet(dbfname="type")
 	private int type;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getMatchUserName() {
-		return matchUserName;
-	}
-	public void setMatchUserName(String matchUserName) {
-		this.matchUserName = matchUserName;
-	}
-	public int getMatchLevel() {
-		return matchLevel;
-	}
-	public void setMatchLevel(int matchLevel) {
-		this.matchLevel = matchLevel;
-	}
-	public int getMatchUserId() {
-		return matchUserId;
-	}
-	public void setMatchUserId(int matchUserId) {
-		this.matchUserId = matchUserId;
-	}
-	public int getWinLos() {
-		return winLos;
-	}
-	public void setWinLos(int winLos) {
-		this.winLos = winLos;
-	}
-	public int getCapId() {
-		return capId;
-	}
-	public void setCapId(int capId) {
-		this.capId = capId;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
 
 }

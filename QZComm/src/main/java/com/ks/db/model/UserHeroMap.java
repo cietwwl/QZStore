@@ -5,10 +5,13 @@ import java.util.Date;
 
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
+
+import lombok.Data;
 /**
  * 用户图鉴
  * @author ks
  */
+@Data
 @DBBeanSet(primaryKey={"user_id", "hero_id"})
 public class UserHeroMap implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -21,22 +24,4 @@ public class UserHeroMap implements Serializable {
 	/**创建时间*/
 	@DBFieldSet(dbfname="create_time")
 	private Date createTime = new Date();
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getHeroId() {
-		return heroId;
-	}
-	public void setHeroId(int heroId) {
-		this.heroId = heroId;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
 }

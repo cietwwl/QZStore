@@ -6,10 +6,13 @@ import java.util.Date;
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
 
+import lombok.Data;
+
 /**
  * 公会成员
  *
  */
+@Data
 @DBBeanSet(tablename="t_guild_member", primaryKey={"user_id"})
 public class GuildMember implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -50,60 +53,5 @@ public class GuildMember implements Serializable {
 		member.setProperty(property);
 		member.setLevel(level);
 		return member;
-	}
-	
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getGuildId() {
-		return guildId;
-	}
-	public void setGuildId(int guildId) {
-		this.guildId = guildId;
-	}
-	public String getPlayerName() {
-		return playerName;
-	}
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
-	}
-	public int getLevel() {
-		return level;
-	}
-	public void setLevel(int level) {
-		this.level = level;
-	}
-	public int getProperty() {
-		return property;
-	}
-	public void setProperty(int property) {
-		this.property = property;
-	}
-	public int getDevote() {
-		return devote;
-	}
-	public void setDevote(int devote) {
-		this.devote = devote;
-	}
-	public int getTodayDevote() {
-		return todayDevote;
-	}
-	public void setTodayDevote(int todayDevote) {
-		this.todayDevote = todayDevote;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 }

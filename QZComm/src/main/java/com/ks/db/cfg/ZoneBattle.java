@@ -67,6 +67,9 @@ public class ZoneBattle implements Serializable {
 	/**开放条件*/
 	@DBFieldSet(dbfname="conditions")
 	private String conditions;
+	/**副本名称*/
+	@DBFieldSet(dbfname="name")
+	private String name;
 	/**条件参数*/
 	private ConditionParams conditionParams;
 
@@ -188,5 +191,11 @@ public class ZoneBattle implements Serializable {
 	public ConditionParams getConditionParams(){
 		return conditionParams;
 	}
-	
+
+	public String getName(){
+		return name;
+	}
+	public void setName(String name){
+		this.name = name;
+	}
 }

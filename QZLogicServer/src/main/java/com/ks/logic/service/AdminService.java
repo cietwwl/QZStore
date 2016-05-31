@@ -73,7 +73,7 @@ public interface AdminService {
 	 * @return
 	 */
 	@Transaction
-	int addItems(int partner, String username, String items);
+	int addItems(int partner, String username, String items, String delItems);
 	
 	/**
 	 * 停服

@@ -12,8 +12,8 @@ public class RegistLossLogger implements Serializable{
 
 	@DBFieldSet(dbfname="id")
 	private int id;
-	@DBFieldSet(dbfname="type")
-	private int type;
+	@DBFieldSet(dbfname="type")  
+	private int type;  //1未注册，2注册，3注册完成
 	@DBFieldSet(dbfname="username")
 	private String username;
 	@DBFieldSet(dbfname="partner")

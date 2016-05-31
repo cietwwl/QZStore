@@ -8,10 +8,13 @@ import com.ks.access.DBFieldSet;
 import com.ks.constant.SystemConstant;
 import com.ks.exceptions.GameException;
 import com.ks.util.Calculate;
+
+import lombok.Data;
 /**
  * 用户探索
  * @author ks
  */
+@Data
 @DBBeanSet(tablename="t_user_explore", primaryKey={"user_id", "explore_id"})
 public class UserExplore implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -108,53 +111,5 @@ public class UserExplore implements Serializable {
 		default:
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getExploreId() {
-		return exploreId;
-	}
-	public void setExploreId(int exploreId) {
-		this.exploreId = exploreId;
-	}
-	public int getUserHeroId() {
-		return userHeroId;
-	}
-	public void setUserHeroId(int userHeroId) {
-		this.userHeroId = userHeroId;
-	}
-	public int getExploreType() {
-		return exploreType;
-	}
-	public void setExploreType(int exploreType) {
-		this.exploreType = exploreType;
-	}
-	public int getState() {
-		return state;
-	}
-	public void setState(int state) {
-		this.state = state;
-	}
-	public Date getEndTime() {
-		return endTime;
-	}
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 }

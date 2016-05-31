@@ -14,9 +14,7 @@ import com.ks.access.DBBeanSetSqlSetList;
 import com.ks.access.DBBeanSetUpdateSqlSet;
 import com.ks.access.GameDAOTemplate;
 import com.ks.constant.SystemConstant;
-import com.ks.db.cfg.EternalSmelting;
 import com.ks.db.model.UserProp;
-import com.ks.table.EternalSmeltingTable;
 import com.ks.table.UserPropTable;
 import com.ks.util.JSONUtil;
 
@@ -92,33 +90,6 @@ public class UserPropDAO extends GameDAOTemplate {
 		String sql = DBBeanRowMapperManager.getDynamicSql(UserProp.class, "updateUserProp", getTableName(userProp.getUserId()));
 		Object[] args = DBBeanRowMapperManager.getDynamicParams(UserProp.class, "updateUserProp", userProp).toArray();
 		saveOrUpdate(sql, args);
-	}
-	
-	@DBBeanSetSqlSetList(selects={@DBBeanSetSelectSqlSet(name="queryEternalSmeltings", dbbean=EternalSmelting.class, wheres={EternalSmeltingTable.USERID})})
-	public List<EternalSmelting> queryEternalSmeltings(int userId){
-		String sql = DBBeanRowMapperManager.getDynamicSql(EternalSmelting.class, "queryEternalSmeltings");
-		return queryForList(sql, DBBeanRowMapperManager.getRowMapper(EternalSmelting.class), userId);
-	}
-	@DBBeanSetSqlSetList(selects={@DBBeanSetSelectSqlSet(name="queryEternalSmelting", dbbean=EternalSmelting.class, wheres={EternalSmeltingTable.USERID, EternalSmeltingTable.TYPE})})
-	public EternalSmelting queryEternalSmelting(int userId,int type){
-		String sql = DBBeanRowMapperManager.getDynamicSql(EternalSmelting.class, "queryEternalSmelting");
-		return queryForEntity(sql, DBBeanRowMapperManager.getRowMapper(EternalSmelting.class), userId,type);
-	}
-	@DBBeanSetSqlSetList(inserts={@DBBeanSetInsertSqlSet(name="addEternalSmeltings", dbbean=EternalSmelting.class)})
-	public void addEternalSmeltings(List<EternalSmelting> ess){
-		String sql = DBBeanRowMapperManager.getDynamicSql(EternalSmelting.class, "addEternalSmeltings");
-		List<Object[]> args = new ArrayList<>();
-		for(EternalSmelting smelting : ess){
-			Object[] arg = DBBeanRowMapperManager.getDynamicParams(EternalSmelting.class, "addEternalSmeltings", smelting).toArray();
-			args.add(arg);
-		}
-		executeBatch(sql, args);
-	}
-	@DBBeanSetSqlSetList(updates={@DBBeanSetUpdateSqlSet(name="updateEternalSmelting", dbbean=EternalSmelting.class, wheres={EternalSmeltingTable.USERID, EternalSmeltingTable.TYPE})})
-	public void updateEternalSmelting(EternalSmelting es){
-		String sql = DBBeanRowMapperManager.getDynamicSql(EternalSmelting.class, "updateEternalSmelting");
-		List<Object> params = DBBeanRowMapperManager.getDynamicParams(EternalSmelting.class, "updateEternalSmelting", es);
-		saveOrUpdate(sql, params.toArray());
 	}
 
 	/**

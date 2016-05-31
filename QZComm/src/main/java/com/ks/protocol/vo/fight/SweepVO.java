@@ -4,32 +4,17 @@ import java.util.List;
 
 import com.ks.protocol.FieldDesc;
 import com.ks.protocol.Message;
+import com.ks.protocol.vo.reward.ItemEffectVO;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(callSuper=true)
+@Data
 public class SweepVO extends Message {
-
 	private static final long serialVersionUID = 1L;
-	@FieldDesc(desc="金币")
-	private int gold;
-	@FieldDesc(desc="经验")
-	private int exp;
-	@FieldDesc(desc="掉落")
-	private List<DropVO> drops;
-	public int getGold() {
-		return gold;
-	}
-	public void setGold(int gold) {
-		this.gold = gold;
-	}
-	public int getExp() {
-		return exp;
-	}
-	public void setExp(int exp) {
-		this.exp = exp;
-	}
-	public List<DropVO> getDrops() {
-		return drops;
-	}
-	public void setDrops(List<DropVO> drops) {
-		this.drops = drops;
-	}
+	@FieldDesc(desc="获得副本奖励")
+	private List<ItemEffectVO> rewards;
+	@FieldDesc(desc="掉落物品")
+	private List<ItemEffectVO> drops;
 }

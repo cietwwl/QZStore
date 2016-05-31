@@ -41,8 +41,8 @@ public class MallActionImpl implements MallAction {
 	}
 
 	@Override
-	public void refreshBlackMarket(int userId) {
-		mallService.refreshBlackMarket(userId);
+	public void refreshBlackMarket(int userId, boolean active) {
+		mallService.refreshBlackMarket(userId, active);
 	}
 
 	@Override

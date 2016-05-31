@@ -2,6 +2,7 @@ package com.ks.logic.cache;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -69,6 +70,7 @@ import com.ks.logic.service.ActivityZoneService;
 import com.ks.logic.service.ArenaService;
 import com.ks.logic.service.CommonRewardService;
 import com.ks.logic.service.ConstantService;
+import com.ks.logic.service.EffectService;
 import com.ks.logic.service.EquipmentService;
 import com.ks.logic.service.EternalService;
 import com.ks.logic.service.FameService;
@@ -421,6 +423,7 @@ public class LoadCache extends GameCache{
 	 */
 	private void initMonsters() {
 		MonsterService service = ServiceFactory.getService(MonsterService.class);
+		EffectService eservice = ServiceFactory.getService(EffectService.class);
 		List<Monster> ms = service.queryMonster();
 		List<MonsterAtkMode> modes = service.queryMonsterAtkMode();
 		List<Drop> drops = service.queryDrops();
@@ -429,15 +432,18 @@ public class LoadCache extends GameCache{
 			m.setBodyType(SystemConstant.MONSTER_TYPE_GENERAL);
 			monsters.put(m.getMonsterId(), m);
 			m.setModes(new ArrayList<MonsterAtkMode>());
-			m.setDrops(new ArrayList<Drop>());
 			for(MonsterAtkMode mam : modes){
 				if(mam.getMonsterId() == m.getMonsterId()){
 					m.getModes().add(mam);
 				}
 			}
-			for(Drop d : drops){
-				if(d.getMonsterId() == m.getMonsterId()){
-					m.getDrops().add(d);
+			Iterator<Drop> it = drops.iterator();
+			while(it.hasNext()){
+				Drop drop = it.next();
+				if(drop.getMonsterId() == m.getMonsterId()){
+					m.setDrops(eservice.parseDropEffects(drop.getDropItems(), SystemConstant.LOGGER_APPROACH_副本掉落));
+					it.remove();
+					break;
 				}
 			}
 		}

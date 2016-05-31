@@ -43,7 +43,7 @@ public class MartialWayServiceImpl extends BaseService implements
 			martialWayDAO.addMartialWay(mw);
 			martialWayDAO.updateMartialWayRank(userId, 0);
 		}else{
-			rank = (int)martialWayDAO.getUserRank(userId);
+			rank = martialWayDAO.getUserRank(userId);
 		}
 		MartialWayVO vo = MessageFactory.getMessage(MartialWayVO.class);
 		vo.init(mw, rank);
@@ -82,7 +82,7 @@ public class MartialWayServiceImpl extends BaseService implements
 	@Override
 	public MartialWayUserVO gainMartialWayUser(int userId) {
 		UserBaseinfo baseInfo = userService.getUserBaseInfo(userId);
-		int rank = (int)martialWayDAO.getUserRank(userId);
+		int rank = martialWayDAO.getUserRank(userId);
 		int fightingCapacity = userService.getUserFighting(userId);
 		
 		MartialWayUserVO vo = MessageFactory.getMessage(MartialWayUserVO.class);
@@ -119,7 +119,7 @@ public class MartialWayServiceImpl extends BaseService implements
 		MartialWay myWay = martialWayDAO.getMartialWay(userId);
 		int rank = 0;
 		if(myWay!=null){
-			rank = (int)martialWayDAO.getUserRank(userId);
+			rank = martialWayDAO.getUserRank(userId);
 		}
 		List<Integer> userIds = martialWayDAO.gainMartialWayRank(page*10,10);
 		List<MartialWay> rankWays = martialWayDAO.gainMartialWays(userIds);

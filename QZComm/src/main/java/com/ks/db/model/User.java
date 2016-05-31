@@ -46,10 +46,6 @@ public final class User implements Serializable {
 	@DBFieldSet(dbfname="exp")
 	@JedisFieldSet()
 	private int exp;
-	/** 经验池上限增加量 */
-	@DBFieldSet(dbfname="add_exp_pool")
-	@JedisFieldSet()
-	private int addExpPool;
 	/** 体力 */
 	@DBFieldSet(dbfname="stamina")
 	@JedisFieldSet()
@@ -66,10 +62,6 @@ public final class User implements Serializable {
 	@DBFieldSet(dbfname="gp")
 	@JedisFieldSet()
 	private int gp;
-	/** 英雄容量 */
-	@DBFieldSet(dbfname="hero_capacity")
-	@JedisFieldSet()
-	private int heroCapacity;
 	/** 战斗编号 */
 	@DBFieldSet(dbfname="fight_id")
 	@JedisFieldSet()
@@ -94,40 +86,14 @@ public final class User implements Serializable {
 	@DBFieldSet(dbfname="update_time")
 	@JedisFieldSet()
 	private Date updateTime=new Date();
-	/**英雄经验池*/
-	@DBFieldSet(dbfname="hero_exp_pool")
-	@JedisFieldSet()
-	private int heroExpPool;
-	/**装备容量*/
-	@DBFieldSet(dbfname="equipment_capacity")
-	@JedisFieldSet()
-	private int equipmentCapacity;
-	/**武魂容量*/
-	@DBFieldSet(dbfname="eternal_capacity")
-	@JedisFieldSet()
-	private int eternalCapacity;
 	/**剧情步骤*/
 	@DBFieldSet(dbfname="plot_step")
 	@JedisFieldSet()
 	private int plotStep;
-	/**新手步骤*/
-	@DBFieldSet(dbfname="guide_step")
-	@JedisFieldSet()
-	private int guideStep;
-	/**功能解锁*/
-	@DBFieldSet(dbfname="fun_unlock")
-	@JedisFieldSet()
-	private int funUnlock;
 	/**石板*/
 	@DBFieldSet(dbfname="slate")
 	@JedisFieldSet()
 	private int slate;
-	/** 当前英雄数量 */
-	@JedisFieldSet()
-	private int heroSize;
-	/**当前装备数量*/
-	@JedisFieldSet()
-	private int equipmentSize;
 	/**名望*/
 	@DBFieldSet(dbfname="fame")
 	@JedisFieldSet()
@@ -168,11 +134,56 @@ public final class User implements Serializable {
 	@DBFieldSet(dbfname="vip")
 	@JedisFieldSet()
 	private int vip;
+	/** 英雄容量 */
+	@DBFieldSet(dbfname="hero_capacity")
+	@JedisFieldSet()
+	private int heroCapacity;
+	/**装备容量*/
+	@DBFieldSet(dbfname="equipment_capacity")
+	@JedisFieldSet()
+	private int equipmentCapacity;
+	/**武魂容量*/
+	@DBFieldSet(dbfname="eternal_capacity")
+	@JedisFieldSet()
+	private int eternalCapacity;
+	/**英雄经验池*/
+	@DBFieldSet(dbfname="hero_exp_pool")
+	@JedisFieldSet()
+	private int heroExpPool;
+	/** 伙伴经验池上限增加量 */
+	@DBFieldSet(dbfname="add_exp_pool")
+	@JedisFieldSet()
+	private int addExpPool;
+	/**熔炼池经验*/
+	@DBFieldSet(dbfname="smelting_exp")
+	@JedisFieldSet()
+	private int smeltingExp; 
+	/**增加熔炼池上限值*/
+	@DBFieldSet(dbfname="add_smelting_val")
+	@JedisFieldSet()
+	private int addSmeltingVal;
 	
-	/**占用道具格子数量*/
+	/**新手步骤（已不用）*/
+	@DBFieldSet(dbfname="guide_step")
+	@JedisFieldSet()
+	private int guideStep;
+	/**功能解锁（无用）*/
+	@DBFieldSet(dbfname="fun_unlock")
+	@JedisFieldSet()
+	private int funUnlock;
+	
+	/**当前道具格子数量*/
+	@JedisFieldSet()
 	private int propSize;
-	/**武魂数量*/
+	/**当前武魂数量*/
+	@JedisFieldSet()
 	private int eternalSize;
+	/** 当前英雄数量 */
+	@JedisFieldSet()
+	private int heroSize;
+	/**当前装备数量*/
+	@JedisFieldSet()
+	private int equipmentSize;
 	
 	/**玩家特权*/
 	private Privileges privileges;
@@ -190,5 +201,7 @@ public final class User implements Serializable {
 	private Map<Integer, Mail> mails;
 	/***/
 	private UserStat stat;
+	/**引导步骤*/
+	private UserGuideStep userGuideStep;
 	
 }

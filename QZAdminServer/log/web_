@@ -1,0 +1,99 @@
+[INFO] 2016-05-31 09:18:27 [ContextInitListener.contextInitialized:33]  init start...
+[INFO] 2016-05-31 09:18:32 [ContextInitListener.contextInitialized:49]  init is end!!!!
+[ERROR] 2016-05-31 10:04:08 [com.web.filter.LoggerFilter.doFilter:30]  logger error
+javax.servlet.ServletException: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.apache.jasper.runtime.PageContextImpl.doHandlePageException(PageContextImpl.java:945)
+	at org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:877)
+	at org.apache.jsp.game_005fplayer_005fmgr.get_005fplayer_005flist_jsp._jspService(get_005fplayer_005flist_jsp.java:63)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:109)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:403)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:476)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:366)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:546)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1360)
+	at com.web.filter.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:26)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1331)
+	at com.web.filter.JurisdictionFilter.doFilter(JurisdictionFilter.java:59)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1331)
+	at com.web.filter.LoggerFilter.doFilter(LoggerFilter.java:28)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1331)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:477)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:119)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:520)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:227)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1027)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:406)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:961)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:111)
+	at org.eclipse.jetty.server.Server.handle(Server.java:349)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:449)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:925)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:870)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:238)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:75)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:615)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:45)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:598)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:533)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1117)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:350)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2393)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2430)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2215)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:813)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:399)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:334)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at com.db.util.ConnUtil.getConnection(ConnUtil.java:34)
+	at com.game.service.GamePlayerService.getPlayerList(GamePlayerService.java:95)
+	at org.apache.jsp.game_005fplayer_005fmgr.get_005fplayer_005flist_jsp._jspService(get_005fplayer_005flist_jsp.java:53)
+	... 35 more
+Caused by: java.net.SocketException: Network is unreachable: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:257)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:300)
+	... 52 more
+[INFO] 2016-05-31 11:39:38 [ContextInitListener.contextInitialized:33]  init start...
+[INFO] 2016-05-31 11:39:39 [ContextInitListener.contextInitialized:49]  init is end!!!!
+[INFO] 2016-05-31 11:41:23 [ContextInitListener.contextInitialized:33]  init start...
+[INFO] 2016-05-31 11:41:24 [ContextInitListener.contextInitialized:49]  init is end!!!!
+[INFO] 2016-05-31 11:49:37 [ContextInitListener.contextInitialized:33]  init start...
+[INFO] 2016-05-31 11:49:37 [ContextInitListener.contextInitialized:49]  init is end!!!!
+[INFO] 2016-05-31 13:10:56 [ContextInitListener.contextInitialized:33]  init start...
+[INFO] 2016-05-31 13:10:57 [ContextInitListener.contextInitialized:49]  init is end!!!!
+[INFO] 2016-05-31 13:11:54 [ContextInitListener.contextInitialized:33]  init start...
+[INFO] 2016-05-31 13:11:55 [ContextInitListener.contextInitialized:49]  init is end!!!!
+[INFO] 2016-05-31 13:13:53 [ContextInitListener.contextInitialized:33]  init start...
+[INFO] 2016-05-31 13:13:54 [ContextInitListener.contextInitialized:49]  init is end!!!!

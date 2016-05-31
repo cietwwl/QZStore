@@ -20,6 +20,7 @@ import com.ks.logic.dao.UserBuffDAO;
 import com.ks.logic.dao.UserDAO;
 import com.ks.logic.dao.UserEquipmentDAO;
 import com.ks.logic.dao.UserEternalDAO;
+import com.ks.logic.dao.UserGuideStepDAO;
 import com.ks.logic.dao.UserHeroDAO;
 import com.ks.logic.dao.UserPropDAO;
 import com.ks.logic.dao.UserStatDAO;
@@ -143,6 +144,8 @@ public abstract class BaseService {
 	protected static final CommonRewardDAO commonRewardDao = new CommonRewardDAO();
 	/**常数*/
 	protected static final ConstantDAO constantDao = new ConstantDAO();
+	/**玩家引导*/
+	protected static final UserGuideStepDAO userGuideStepDao = new UserGuideStepDAO();
 	//service
 	protected static final ArenaService arenaService = new ArenaServiceImpl();
 	protected static final FightService fightService = new FightServiceImpl();

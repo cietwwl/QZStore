@@ -6,6 +6,7 @@ import java.util.List;
 
 import lombok.Data;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.type.TypeReference;
 
 import com.ks.access.DBBeanSet;
@@ -47,14 +48,9 @@ public class Mail implements Serializable {
 	/**修改时间*/
 	@DBFieldSet(dbfname="update_time")
 	private Date updateTime = new Date();
-	
+	@JsonIgnore
 	private List<Goods> goodsList;
-	private void initGoodsList(){
-		goodsList = JSONUtil.toObject(goodses, new TypeReference<List<Goods>>(){});
-	}
-	private void initGoodses(){
-		goodses = JSONUtil.toJson(goodsList);
-	}
+	
 	public static final Mail createMail(int userId,int type,String title,String context, List<Goods> goodses){
 		Mail mail = new Mail();
 		mail.setUserId(userId);
@@ -65,41 +61,11 @@ public class Mail implements Serializable {
 		mail.setState(SystemConstant.MAIL_STATE_UNREAD);
 		return mail;
 	}
-	public int getMailId() {
-		return mailId;
+	private void initGoodsList(){
+		goodsList = JSONUtil.toObject(goodses, new TypeReference<List<Goods>>(){});
 	}
-	public void setMailId(int mailId) {
-		this.mailId = mailId;
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getContext() {
-		return context;
-	}
-	public void setContext(String context) {
-		this.context = context;
-	}
-	public int getState() {
-		return state;
-	}
-	public void setState(int state) {
-		this.state = state;
+	private void initGoodses(){
+		goodses = JSONUtil.toJson(goodsList);
 	}
 	public String getGoodses() {
 		initGoodses();
@@ -108,17 +74,5 @@ public class Mail implements Serializable {
 	public void setGoodses(String goodses) {
 		this.goodses = goodses;
 		initGoodsList();
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 }

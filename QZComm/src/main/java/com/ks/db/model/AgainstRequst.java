@@ -5,10 +5,13 @@ import java.util.Date;
 
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
+
+import lombok.Data;
 /**
  * 对战请求
  * @author ks
  */
+@Data
 @DBBeanSet(tablename="t_against_requst", primaryKey={"user_id"})
 public class AgainstRequst implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -31,41 +34,4 @@ public class AgainstRequst implements Serializable {
 	/**修改时间*/
 	@DBFieldSet(dbfname="update_time")
 	private Date updateTime = new Date();
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getAgainstUserId() {
-		return againstUserId;
-	}
-	public void setAgainstUserId(int againstUserId) {
-		this.againstUserId = againstUserId;
-	}
-	public int getAgainstType() {
-		return againstType;
-	}
-	public void setAgainstType(int againstType) {
-		this.againstType = againstType;
-	}
-	public Date getAgainstTime() {
-		return againstTime;
-	}
-	public void setAgainstTime(Date againstTime) {
-		this.againstTime = againstTime;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-	
 }

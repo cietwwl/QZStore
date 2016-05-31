@@ -10,6 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import com.ks.action.game.GameServerAction;
 import com.ks.action.world.WorldChatAction;
 import com.ks.exceptions.GameException;
+import com.ks.object.ChatMsg;
 import com.ks.protocol.vo.Head;
 import com.ks.protocol.vo.chat.ChatMessageVO;
 import com.ks.rpc.RPCKernel;
@@ -33,6 +34,7 @@ public class WorldChatActionImpl implements WorldChatAction {
 			if(staticInfo != null && staticInfo.getBanChatTime() > XyTimeUtil.getNowSecond()){
 				throw new GameException(GameException.CODE_您已被禁言, "");
 			}
+			WorldServerCache.addChatMsg(toChatMsg(chatMessage.getType(), chatMessage.getMessage()));
 			while(!messages.offer(chatMessage)){
 				messages.poll();
 			}
@@ -90,6 +92,21 @@ public class WorldChatActionImpl implements WorldChatAction {
 		if(staticInfo != null){
 			staticInfo.setBanChatTime(banTime);
 		}
+	}
+	
+	private ChatMsg toChatMsg(int type, String value){
+		ChatMsg msg = new ChatMsg();
+		msg.setType(type);
+		String[] strs = value.split("\\[gird\\]");
+		if(strs.length >= 7){
+			msg.setContent(strs[5]);
+			msg.setSenderId(Integer.parseInt(strs[0]));
+			msg.setSender(strs[1]);
+			msg.setSenderLv(Integer.parseInt(strs[2]));//strs[3]玩家头像
+			msg.setSenderVip(Integer.parseInt(strs[4]));
+			msg.setSenderTime((int)(Long.parseLong(strs[6]) / 1000));
+		}
+		return msg;
 	}
 
 }

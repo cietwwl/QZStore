@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 
 import com.ks.access.Transaction;
-import com.ks.db.cfg.EternalSmelting;
 import com.ks.db.model.User;
 import com.ks.db.model.UserEternal;
 import com.ks.protocol.vo.eternal.UserEternalVO;
@@ -113,6 +112,6 @@ public interface UserEternalService {
 	 * @param userId
 	 * @return
 	 */
-	@Transaction
-	List<EternalSmelting> gainEternalSmelting(int userId);
+//	@Transaction
+//	List<EternalSmelting> gainEternalSmelting(int userId);
 }

@@ -1,6 +1,7 @@
 package com.ks.db.log;
 
 import com.ks.access.DBBeanSet;
+import com.ks.db.model.User;
 
 /**
  * 装备日志
@@ -13,7 +14,7 @@ public class EquipmentLogger extends GameLogger {
 	public EquipmentLogger(){
 		super();
 	}
-	public EquipmentLogger(int logType, int logSubType, int uid, int oamount, int amount, int samount, int assId, String logDec){
-		super(logType, logSubType, uid, oamount, amount, samount, assId, logDec);
+	public EquipmentLogger(int logType, int logSubType, User user, int oamount, int amount, int samount, int assId, String logDec){
+		super(logType, logSubType, user, oamount, amount, samount, assId, logDec);
 	}
 }

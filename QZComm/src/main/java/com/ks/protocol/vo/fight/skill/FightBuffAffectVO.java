@@ -3,6 +3,9 @@ package com.ks.protocol.vo.fight.skill;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import com.ks.protocol.FieldDesc;
 import com.ks.protocol.Message;
 import com.ks.protocol.MessageFactory;
@@ -11,6 +14,8 @@ import com.ks.protocol.vo.fight.DropVO;
  * buff影响
  * @author ks
  */
+@EqualsAndHashCode(callSuper=true)
+@Data
 public abstract class FightBuffAffectVO extends Message {
 
 	private static final long serialVersionUID = 1L;
@@ -30,6 +35,8 @@ public abstract class FightBuffAffectVO extends Message {
 	private List<DropVO> drops;
 	@FieldDesc(desc="释放技能")
 	private List<ReleaseSkillVO> relSkill=new ArrayList<ReleaseSkillVO>();
+	@FieldDesc(desc="伤害效果类型,请参照技能效果类型id")
+	private List<Integer> atkEffectIds;
 	public static final FightBuffAffectVO create(int fightId,int effectId, int valType, int val, int absorbHurt,int surHp){
 		FightBuffAffectVO vo = MessageFactory.getMessage(FightBuffAffectVO.class);
 		vo.setFightId(fightId);
@@ -42,59 +49,10 @@ public abstract class FightBuffAffectVO extends Message {
 		return vo;
 	}
 	
-	public int getFightId() {
-		return fightId;
+	public void addAtkEffectId(int effectId){
+		if(atkEffectIds == null){
+			atkEffectIds = new ArrayList<Integer>();
+		}
+		atkEffectIds.add(effectId);
 	}
-
-	public void setFightId(int fightId) {
-		this.fightId = fightId;
-	}
-
-	public int getEffectId() {
-		return effectId;
-	}
-	public void setEffectId(int effectId) {
-		this.effectId = effectId;
-	}
-	public int getValType() {
-		return valType;
-	}
-	public void setValType(int valType) {
-		this.valType = valType;
-	}
-	public int getVal() {
-		return val;
-	}
-	public void setVal(int val) {
-		this.val = val;
-	}
-	public int getAbsorbHurt() {
-		return absorbHurt;
-	}
-	public void setAbsorbHurt(int absorbHurt) {
-		this.absorbHurt = absorbHurt;
-	}
-	public List<DropVO> getDrops() {
-		return drops;
-	}
-	public void setDrops(List<DropVO> drops) {
-		this.drops = drops;
-	}
-
-	public int getSurHp() {
-		return surHp;
-	}
-
-	public void setSurHp(int surHp) {
-		this.surHp = surHp;
-	}
-
-	public List<ReleaseSkillVO> getRelSkill() {
-		return relSkill;
-	}
-
-	public void setRelSkill(List<ReleaseSkillVO> relSkill) {
-		this.relSkill = relSkill;
-	}
-	
 }

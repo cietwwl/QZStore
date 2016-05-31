@@ -2,10 +2,7 @@ package com.ks.logic.service;
 
 import java.util.List;
 
-import com.ks.db.cfg.Drop;
 import com.ks.db.model.User;
-import com.ks.db.model.UserZoneBattle;
-import com.ks.model.fight.Battle;
 import com.ks.object.DropEffect;
 import com.ks.object.ItemEffect;
 import com.ks.object.ItemEffects;
@@ -58,7 +55,7 @@ public interface EffectService {
 	/**
 	 * 添加掉落
 	 */
-	List<ItemEffect> addDrops(User user, List<DropEffect> drops);
+	List<ItemEffect> addDrops(User user, List<DropEffect> drops, boolean dbUp);
 	
 	/**
 	 * 校验添加
@@ -103,14 +100,14 @@ public interface EffectService {
 	 * @param value
 	 * @param logSubType
 	 */
-	void addIncome(User user, int type, int value, int logSubType);
+	void addIncome(User user, int type, int value, Reward reward, boolean dbUp, int logSubType);
 	
 	/**
 	 * 添加收益
 	 * @param user
 	 * @param effects
 	 */
-	void addIncome(User user, ItemEffects effects);
+	void addIncome(User user, ItemEffects effects, Reward reward);
 	
 	/**
 	 * 扣除效益(带校验)
@@ -145,15 +142,15 @@ public interface EffectService {
 	 */
 	GainGameAwardVO addGainGameAwardVo(User user, ItemEffects effects);
 	
-	/**
-	 * 掉落处理
-	 * @param user
-	 * @param userZoneBattle
-	 * @param battle
-	 * @param drops
-	 * @param reward
-	 * @param logSubType
-	 * @return
-	 */
-	List<Drop> drop(User user, UserZoneBattle userZoneBattle, Battle battle, List<Drop> drops, Reward reward, int logSubType);
+//	/**
+//	 * 掉落处理
+//	 * @param user
+//	 * @param userZoneBattle
+//	 * @param battle
+//	 * @param drops
+//	 * @param reward
+//	 * @param logSubType
+//	 * @return
+//	 */
+//	List<Drop> drop(User user, UserZoneBattle userZoneBattle, Battle battle, List<Drop> drops, Reward reward, int logSubType);
 }

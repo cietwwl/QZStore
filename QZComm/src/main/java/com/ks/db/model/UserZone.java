@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
 import com.ks.util.StringUtil;
-
-import lombok.Data;
 /**
  * 用户副本
  * @author ks
@@ -41,6 +43,7 @@ public class UserZone implements Serializable {
 	@DBFieldSet(dbfname="update_time")
 	private Date updateTime = new Date();
 	
+	@JsonIgnore
 	private List<Integer> gainAwardStarList = new ArrayList<>();
 	private void initGainAwardStarList(){
 		gainAwardStarList = StringUtil.stringToList(gainAwardStar);
@@ -56,5 +59,4 @@ public class UserZone implements Serializable {
 		this.gainAwardStar = gainAwardStar;
 		initGainAwardStarList();
 	}
-	
 }

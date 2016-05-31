@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.type.TypeReference;
 
 import lombok.Data;
@@ -52,16 +53,8 @@ public class Arena implements Serializable {
 	/**cd时间*/
 	@DBFieldSet(dbfname="cd_time")
 	protected Date cdTime = new Date();
-//	/**购买挑战次数*/
-//	@DBFieldSet(dbfname="buy_count")
-//	protected int buyCount;
-//	/**刷新商店次数*/
-//	@DBFieldSet(dbfname="refresh_count")
-//	protected int refreshCount;
-//	/**挑战次数*/
-//	@DBFieldSet(dbfname="challenge_count")
-//	protected int challengeCount;
 	
+	@JsonIgnore
 	private List<ArenaShopping> shoppingList;
 	
 	private void initShoppingList(){

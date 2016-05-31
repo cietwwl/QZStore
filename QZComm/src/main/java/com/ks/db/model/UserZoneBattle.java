@@ -5,10 +5,13 @@ import java.util.Date;
 
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
+
+import lombok.Data;
 /**
  * 用户战场
  * @author ks
  */
+@Data
 @DBBeanSet(primaryKey={"user_id", "zone_id", "zone_battle_id"})
 public class UserZoneBattle implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -36,54 +39,6 @@ public class UserZoneBattle implements Serializable {
 	/**创建时间*/
 	@DBFieldSet(dbfname="create_time")
 	private Date createTime = new Date();
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getZoneBattleId() {
-		return zoneBattleId;
-	}
-	public void setZoneBattleId(int zoneBattleId) {
-		this.zoneBattleId = zoneBattleId;
-	}
-	public int getChallengeCount() {
-		return challengeCount;
-	}
-	public void setChallengeCount(int challengeCount) {
-		this.challengeCount = challengeCount;
-	}
-	public int getPassCount() {
-		return passCount;
-	}
-	public void setPassCount(int passCount) {
-		this.passCount = passCount;
-	}
-	public Date getLastChallengeTime() {
-		return lastChallengeTime;
-	}
-	public void setLastChallengeTime(Date lastChallengeTime) {
-		this.lastChallengeTime = lastChallengeTime;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public int getZoneId() {
-		return zoneId;
-	}
-	public void setZoneId(int zoneId) {
-		this.zoneId = zoneId;
-	}
-	public int getStar() {
-		return star;
-	}
-	public void setStar(int star) {
-		this.star = star;
-	}
 	
 	
 }

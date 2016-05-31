@@ -69,9 +69,9 @@ public class GuildServiceImpl extends BaseService implements GuildService {
 		User user = userService.getOnlineUser(userId);
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_创建公会);
 		if(moneyType == 1){
-			effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, SystemConstant.GUILD_CREATE_GOLD_PRICE);
+			effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, SystemConstant.GUILD_CREATE_GOLD_PRICE, 0);
 		}else{
-			effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.GUILD_CREATE_DIAMOND_PRICE);
+			effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.GUILD_CREATE_DIAMOND_PRICE, 0);
 		}
 		int code = effectService.validDels(user, effects);
 		if(code != GameException.CODE_正常){
@@ -189,45 +189,45 @@ public class GuildServiceImpl extends BaseService implements GuildService {
 
 	@Override
 	public int joinGuild(int userId, int guildId) {
-		User user = userService.getOnlineUser(userId);
-		Guild guild = guildDAO.queryGuildLock(guildId);
-		if(guild == null){
-			throw new GameException(GameException.CODE_公会不存在, "");
-		}
-		if(guild.getMaxMemberNum()<=guild.getMemberNum()){
-			throw new GameException(GameException.CODE_人数已满, "");
-		}
-		
-		GuildMember gm = guildMemberDAO.queryGuildMember(userId);
-		if(gm!=null){
-			throw new GameException(GameException.CODE_参数错误, "");
-		}
-		
-		GuildApply guildApply = guildApplyDAO.queryGuildApply(userId);
-		if(guildApply!=null){
-			throw new GameException(GameException.CODE_参数错误, "");
-		}
-		UserStat stat = userService.getUserStat(userId);
-		if(System.currentTimeMillis()-stat.getExitGuildTime().getTime()<24*60*60*1000L){
-			throw new GameException(GameException.CODE_参数错误, "");
-		}
-		if(guild.getState() == SystemConstant.GUILD_STAT_自动){
-			GuildMember member = GuildMember.createGuildMember(userId, guild.getGuildId(), user.getPlayerName(), user.getLevel(), SystemConstant.GUILD_MEMBER_成员);
-			guildMemberDAO.addGuildMember(member);
-			
-			guild.setMemberNum(guild.getMemberNum() + 1);
-			SQLOpt opt = new SQLOpt();
-			opt.putFieldOpt(GuildTable.MEMBERNUM, SQLOpt.EQUAL);
-			guildDAO.updateGuild(opt, guild);
-			return 1;
-		}else{
-			GuildApply apply = new GuildApply();
-			apply.setUserId(userId);
-			apply.setGuildId(guildId);
-			
-			guildApplyDAO.addGuildApply(apply);
+//		User user = userService.getOnlineUser(userId);
+//		Guild guild = guildDAO.queryGuildLock(guildId);
+//		if(guild == null){
+//			throw new GameException(GameException.CODE_公会不存在, "");
+//		}
+//		if(guild.getMaxMemberNum()<=guild.getMemberNum()){
+//			throw new GameException(GameException.CODE_人数已满, "");
+//		}
+//		
+//		GuildMember gm = guildMemberDAO.queryGuildMember(userId);
+//		if(gm!=null){
+//			throw new GameException(GameException.CODE_参数错误, "");
+//		}
+//		
+//		GuildApply guildApply = guildApplyDAO.queryGuildApply(userId);
+//		if(guildApply!=null){
+//			throw new GameException(GameException.CODE_参数错误, "");
+//		}
+//		UserStat stat = userService.getUserStat(userId);
+//		if(System.currentTimeMillis()-stat.getExitGuildTime().getTime()<24*60*60*1000L){
+//			throw new GameException(GameException.CODE_参数错误, "");
+//		}
+//		if(guild.getState() == SystemConstant.GUILD_STAT_自动){
+//			GuildMember member = GuildMember.createGuildMember(userId, guild.getGuildId(), user.getPlayerName(), user.getLevel(), SystemConstant.GUILD_MEMBER_成员);
+//			guildMemberDAO.addGuildMember(member);
+//			
+//			guild.setMemberNum(guild.getMemberNum() + 1);
+//			SQLOpt opt = new SQLOpt();
+//			opt.putFieldOpt(GuildTable.MEMBERNUM, SQLOpt.EQUAL);
+//			guildDAO.updateGuild(opt, guild);
+//			return 1;
+//		}else{
+//			GuildApply apply = new GuildApply();
+//			apply.setUserId(userId);
+//			apply.setGuildId(guildId);
+//			
+//			guildApplyDAO.addGuildApply(apply);
 			return 2;
-		}
+//		}
 	}
 
 	@Override
@@ -297,34 +297,34 @@ public class GuildServiceImpl extends BaseService implements GuildService {
 
 	@Override
 	public void execApply(int userId, int applyUserId, boolean pass) {
-		GuildMember gm = guildMemberDAO.queryGuildMember(userId);
-		if(gm == null){
-			throw new GameException(GameException.CODE_没有公会, "");
-		}
-		if(gm.getProperty() != SystemConstant.GUILD_MEMBER_会长){
-			throw new GameException(GameException.CODE_参数错误, "");
-		}
-		GuildApply apply = guildApplyDAO.queryGuildApply(applyUserId);
-		if(apply==null){
-			throw new GameException(GameException.CODE_申请不存在, "");
-		}
-		if(apply.getGuildId()!=gm.getGuildId()){
-			throw new GameException(GameException.CODE_申请不存在, "");
-		}
-		if(pass){
-			Guild guil = guildDAO.queryGuildLock(gm.getGuildId());
-			if(guil.getMaxMemberNum()<=guil.getMemberNum()){
-				throw new GameException(GameException.CODE_人数已满, "");
-			}
-			User applyUser = userService.getUser(applyUserId);
-			GuildMember member = GuildMember.createGuildMember(applyUser.getUserId(), guil.getGuildId(), applyUser.getPlayerName(), applyUser.getLevel(), SystemConstant.GUILD_MEMBER_成员);
-			guildMemberDAO.addGuildMember(member);
-			guil.setMemberNum(guil.getMemberNum() + 1);
-			SQLOpt opt = new SQLOpt();
-			opt.putFieldOpt(GuildTable.MEMBERNUM, SQLOpt.EQUAL);
-			guildDAO.updateGuild(opt, guil);
-		}
-		guildApplyDAO.deleteGuildApply(applyUserId);
+//		GuildMember gm = guildMemberDAO.queryGuildMember(userId);
+//		if(gm == null){
+//			throw new GameException(GameException.CODE_没有公会, "");
+//		}
+//		if(gm.getProperty() != SystemConstant.GUILD_MEMBER_会长){
+//			throw new GameException(GameException.CODE_参数错误, "");
+//		}
+//		GuildApply apply = guildApplyDAO.queryGuildApply(applyUserId);
+//		if(apply==null){
+//			throw new GameException(GameException.CODE_申请不存在, "");
+//		}
+//		if(apply.getGuildId()!=gm.getGuildId()){
+//			throw new GameException(GameException.CODE_申请不存在, "");
+//		}
+//		if(pass){
+//			Guild guil = guildDAO.queryGuildLock(gm.getGuildId());
+//			if(guil.getMaxMemberNum()<=guil.getMemberNum()){
+//				throw new GameException(GameException.CODE_人数已满, "");
+//			}
+//			User applyUser = userService.getUser(applyUserId);
+//			GuildMember member = GuildMember.createGuildMember(applyUser.getUserId(), guil.getGuildId(), applyUser.getPlayerName(), applyUser.getLevel(), SystemConstant.GUILD_MEMBER_成员);
+//			guildMemberDAO.addGuildMember(member);
+//			guil.setMemberNum(guil.getMemberNum() + 1);
+//			SQLOpt opt = new SQLOpt();
+//			opt.putFieldOpt(GuildTable.MEMBERNUM, SQLOpt.EQUAL);
+//			guildDAO.updateGuild(opt, guil);
+//		}
+//		guildApplyDAO.deleteGuildApply(applyUserId);
 	}
 
 	@Override

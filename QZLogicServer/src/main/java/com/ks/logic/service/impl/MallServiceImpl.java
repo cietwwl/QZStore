@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jackson.type.TypeReference;
+
 import com.ks.access.SQLOpt;
 import com.ks.app.Application;
 import com.ks.constant.SystemConstant;
@@ -28,6 +30,7 @@ import com.ks.protocol.vo.mall.PayBillVO;
 import com.ks.table.UserStatTable;
 import com.ks.util.HttpUtil;
 import com.ks.util.JSONUtil;
+import com.ks.util.XyTimeUtil;
 
 public class MallServiceImpl extends BaseService implements MallService {
 
@@ -48,9 +51,9 @@ public class MallServiceImpl extends BaseService implements MallService {
 		UserStat stat = userService.getUserStat(userId);
 		ItemEffects removes = new ItemEffects(SystemConstant.LOGGER_APPROACH_商城购买);
 		if(mall.getMoneyType() == SystemConstant.MALL_MONEY_TYPE_GOLD){
-			removes.delItem(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, amount * mall.getMoney());
+			removes.appendItem(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, amount * mall.getMoney(), 0);
 		}else{
-			removes.delItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, amount * mall.getMoney());
+			removes.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, amount * mall.getMoney(), 0);
 		}
 		int code = effectService.validDels(user, removes);
 		if(code != GameException.CODE_正常){
@@ -58,12 +61,12 @@ public class MallServiceImpl extends BaseService implements MallService {
 		}else{
 			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_商城购买);
 			if(mall.getType() == SystemConstant.MALL_TYPE_普通){
-				effects.addItems(mall.getGoodses(), 0);
+				effects.appendGoods(mall.getGoodses(), 0);
 			}else if(mall.getType() == SystemConstant.MALL_TYPE_黑市){
 				for(BlackMarketGoods bmg : stat.getBlackMarketGoodsList()){
 					if(bmg.getGoods().getMallId() == id){
 						Goods goods = bmg.getGoods();
-						effects.addItem(goods.getType(), goods.getGoodsId(), goods.getNum(), goods.getLevel());
+						effects.appendItem(goods.getType(), goods.getGoodsId(), goods.getNum(), goods.getLevel());
 						break;
 					}
 				}
@@ -135,23 +138,37 @@ public class MallServiceImpl extends BaseService implements MallService {
 	}
 
 	@Override
-	public void refreshBlackMarket(int userId){
-		User user = userService.getOnlineUser(userId);
+	public void refreshBlackMarket(int userId, boolean active){
 		UserStat stat = userService.getUserStat(userId);
-		if(stat.getBlackMarketRefCount() >= privilegeService.getPrivilegesValue(user, SystemConstant.PRIVILEGE_TYPE_BLACK_SHOP_REFRESH_NUMBER)){
-			throw new GameException(GameException.CODE_可刷新次数不足, "");
+		SQLOpt opt = new SQLOpt();
+		if(!active){
+			User user = userService.getOnlineUser(userId);
+			if(stat.getBlackMarketRefCount() >= privilegeService.getPrivilegesValue(user, SystemConstant.PRIVILEGE_TYPE_BLACK_SHOP_REFRESH_NUMBER)){
+				throw new GameException(GameException.CODE_可刷新次数不足, "");
+			}else{
+				ItemEffects dels = new ItemEffects(SystemConstant.LOGGER_APPROACH_刷新黑市);
+				dels.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.MALL_REFRESH_BLACK_MARKET, 0);
+				int code = effectService.validDels(user, dels);
+				if(code != GameException.CODE_正常){
+					throw new GameException(code, "");
+				}
+				effectService.delIncome(user, dels);
+				stat.setBlackMarketRefCount(stat.getBlackMarketRefCount() + 1);
+				opt.putFieldOpt(UserStatTable.BLACKMARKETREFCOUNT, SQLOpt.EQUAL);
+			}
 		}else{
-			effectService.delIncome(user, SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.MALL_REFRESH_BLACK_MARKET, SystemConstant.LOGGER_APPROACH_刷新黑市);
-			stat.setBlackMarketRefCount(stat.getBlackMarketRefCount() + 1);
-			stat.setBlackMarketGoodsList(createBlackMarketGoods());
-			SQLOpt opt = new SQLOpt();
-			opt.putFieldOpt(UserStatTable.BLACKMARKETGOODS, SQLOpt.EQUAL);
-			opt.putFieldOpt(UserStatTable.BLACKMARKETREFCOUNT, SQLOpt.EQUAL);
-//			userStatDAO.updateUserStat(opt, stat);
-			userService.updateUserStat(stat, opt);
+			if(stat.getLastBlackRefreshTime() + XyTimeUtil.HOUR_SECOND > XyTimeUtil.getNowSecond()){
+				return;
+			}
+			stat.setLastBlackRefreshTime(XyTimeUtil.getNowSecond());
+			opt.putFieldOpt(UserStatTable.LASTBLACKREFRESHTIME, SQLOpt.EQUAL);
 		}
+		stat.setBlackMarketGoodsList(createBlackMarketGoods());
+		opt.putFieldOpt(UserStatTable.BLACKMARKETGOODS, SQLOpt.EQUAL);
+		userService.updateUserStat(stat, opt);
 	}
 
+	@Override
 	public List<BlackMarketGoods> createBlackMarketGoods() {
 		List<BlackMarketGoods> blackMarketGoods = new ArrayList<BlackMarketGoods>();
 		for(int i=1;i<=6;i++){
@@ -179,7 +196,6 @@ public class MallServiceImpl extends BaseService implements MallService {
 		return mallDAO.queryPayGoodses();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public PayBillVO gainPayBill(int userId, int payGoodsId, String serverId){
 		User user = userService.getUser(userId);
@@ -198,17 +214,26 @@ public class MallServiceImpl extends BaseService implements MallService {
 				throw new GameException(GameException.CODE_处于冷却CD中, "");
 			}
 		}
-		String param = "partner=" + user.getPartner() +  "&userId=" + userId + "&username=" + user.getUsername() + "&payGoodsId=" + payGoodsId
-				+ "&playername=" + user.getPlayerName() + "&level=" + user.getLevel() + "&serverId=" + serverId + "&money=" + goods.getMoney();
-		String result = HttpUtil.postRet(Application.BILL_URL, param, "UTF-8", "UTF-8");
-		Map<String, Object> map = JSONUtil.toObject(result, Map.class);
-		int code = (int) map.get("code");
-		if(code != GameException.CODE_正常){
-			throw new GameException(code, "");
+		int code = GameException.CODE_正常;
+		try{
+			String param = "partner=" + user.getPartner() +  "&userId=" + userId + "&username=" + user.getUsername() + "&payGoodsId=" + payGoodsId
+					+ "&playername=" + user.getPlayerName() + "&level=" + user.getLevel() + "&serverId=" + serverId + "&money=" + goods.getMoney();
+			String result = HttpUtil.postRet(Application.BILL_URL, param, "UTF-8", "UTF-8");
+			Map<String, String> map = JSONUtil.toObject(result, new TypeReference<Map<String, String>>(){});
+			code = Integer.parseInt(map.get("code"));
+			if(code != GameException.CODE_正常){
+				throw new Exception();
+			}
+			PayBillVO vo = MessageFactory.getMessage(PayBillVO.class);
+			vo.setBill(map.get("bill"));
+			return vo;
+		}catch(Exception e){
+			if(code != GameException.CODE_正常){
+				throw new GameException(code, "");
+			}else{
+				throw new GameException(GameException.CODE_创建订单异常, "");
+			}
 		}
-		PayBillVO vo = MessageFactory.getMessage(PayBillVO.class);
-		vo.setBill((String) map.get("bill"));
-		return vo;
 	}
 
 }

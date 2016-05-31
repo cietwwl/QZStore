@@ -31,6 +31,8 @@ public final class Subpackage {
 	private GameHandler gameHandler;
 	/** 数据区最大长度 */
 	private static final short MAX_DATA_LENGTH = 1024;
+	private SubpackageExcutor startExcutor;
+	private SubpackageExcutor endExcutor;
 
 	public Subpackage(GameHandler gameHandler) {
 		super();
@@ -45,8 +47,14 @@ public final class Subpackage {
 				startHandler();
 				try {
 					processBefor(head);
+					if(startExcutor != null){
+						startExcutor.done(gameHandler);
+					}
 					Application.messageProcess.process(gameHandler, head,
 							obj.getBuffers());
+					if(endExcutor != null){
+						endExcutor.done(gameHandler);
+					}
 				} finally {
 					endHandler();
 				}
@@ -111,6 +119,7 @@ public final class Subpackage {
 			short s = 1;
 			s += player.getCheckVal();
 			player.setCheckVal(s);
+			
 		}
 	}
 
@@ -150,4 +159,25 @@ public final class Subpackage {
 			gameHandler.setPlayer(player);
 		}
 	}
+	
+	public SubpackageExcutor getStartExcutor() {
+		return startExcutor;
+	}
+
+	public void setStartExcutor(SubpackageExcutor startExcutor) {
+		this.startExcutor = startExcutor;
+	}
+
+	public SubpackageExcutor getEndExcutor() {
+		return endExcutor;
+	}
+
+	public void setEndExcutor(SubpackageExcutor endExcutor) {
+		this.endExcutor = endExcutor;
+	}
+	
+	public static abstract class SubpackageExcutor{
+		public abstract void done(GameHandler handler);
+	}
+	
 }

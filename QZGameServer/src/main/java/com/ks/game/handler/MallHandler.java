@@ -56,7 +56,7 @@ public class MallHandler extends ActionAdapter{
 		Player player = handler.getPlayer();
 		ClientLockManager.lock(LockKeyUtil.getUserLockKey(player.getUserId()));
 		try{
-			mallAction().refreshBlackMarket(player.getUserId());
+			mallAction().refreshBlackMarket(player.getUserId(), false);
 			Application.sendMessage(handler.getChannel(), handler.getHead());
 		}finally{
 			ClientLockManager.unlockThreadLock();

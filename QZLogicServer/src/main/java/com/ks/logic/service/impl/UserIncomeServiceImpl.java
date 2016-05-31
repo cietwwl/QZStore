@@ -17,7 +17,6 @@ import com.ks.db.cfg.EquipmentProperty;
 import com.ks.db.cfg.Eternal;
 import com.ks.db.cfg.EternalProperty;
 import com.ks.db.cfg.EternalSkill;
-import com.ks.db.cfg.EternalSmelting;
 import com.ks.db.cfg.UserRule;
 import com.ks.db.log.DiamondLogger;
 import com.ks.db.log.EquipmentLogger;
@@ -48,6 +47,7 @@ import com.ks.logic.event.task.RewardHeroEvent;
 import com.ks.logic.service.BaseService;
 import com.ks.logic.service.UserIncomeService;
 import com.ks.object.ItemEffect;
+import com.ks.object.Reward;
 import com.ks.table.GuildMemberTable;
 import com.ks.table.GuildTable;
 import com.ks.table.UserTable;
@@ -60,78 +60,82 @@ import com.ks.timer.TimerController;
 public class UserIncomeServiceImpl extends BaseService implements UserIncomeService{
 	
 	@Override  //TODO Add
-	public void addIncomes(User user, Collection<ItemEffect> effects){
+	public void addIncomes(User user, Collection<ItemEffect> effects, Reward reward, boolean dbUp){
 		for(ItemEffect effect : effects){
-			addIncome(user, effect);
+			addIncome(user, effect, reward, dbUp);
 		}
 	}
 	
 	@Override
-	public List<?> addIncome(User user, ItemEffect effect){
+	public List<?> addIncome(User user, ItemEffect effect, Reward reward, boolean dbUp){
 		if(effect.getValue1() > 0){
 			String logDec = SystemConstant.getLoggerApproachName(effect.getLogSubType());
 			if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO){
-				return addUserHero(user, effect.getId(), effect.getValue1(), effect.getValue2(), effect.getLogSubType(), logDec);
+				return addUserHero(user, effect.getId(), effect.getValue1(), effect.getValue2(), reward, effect.getLogSubType(), logDec);
 			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_PROP){
-				return addProp(user, effect.getId(), effect.getValue1(), effect.getLogSubType(), logDec);
+				return addProp(user, effect.getId(), effect.getValue1(), reward, effect.getLogSubType(), logDec);
 			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT){
-				return addEquipments(user, effect.getId(), effect.getValue1(), effect.getValue2(), effect.getLogSubType(), logDec);
+				return addEquipments(user, effect.getId(), effect.getValue1(), effect.getValue2(), reward, effect.getLogSubType(), logDec);
 			}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL){
-				return addEternals(user, effect.getId(), effect.getValue1(), effect.getLogSubType(), logDec);
+				return addEternals(user, effect.getId(), effect.getValue1(), reward, effect.getLogSubType(), logDec);
 			}else{
-				addIncome(user, effect.getType(), effect.getValue1(), effect.getLogSubType(), logDec);
+				addIncome(user, effect.getType(), effect.getValue1(), reward, dbUp, effect.getLogSubType(), logDec);
 			}
 		}
 		return new ArrayList<>();
 	}
 	
 	@Override
-	public void addIncome(User user, int effectType, int value, int logSubType){
+	public void addIncome(User user, int effectType, int value, Reward reward, boolean dbUp, int logSubType){
 		if(value <= 0){
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
 		String logDec = SystemConstant.getLoggerApproachName(logSubType);
-		addIncome(user, effectType, value, logSubType, logDec);
+		addIncome(user, effectType, value, reward, dbUp, logSubType, logDec);
 	}
 
 	@Override
-	public void addIncome(User user, int effectType, int value, int logSubType, String logDec){
+	public void addIncome(User user, int effectType, int value, Reward reward, boolean dbUp, int logSubType, String logDec){
 		if(value <= 0){
 			throw new GameException(GameException.CODE_参数错误, "");
+		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_RECHARGE){
+			userService.recharge(user, value, dbUp, SystemConstant.LOGGER_APPROACH_后台操作);
+		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_LEVEL){
+			addLevel(user, dbUp, value);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_GOLD){
-			addGold(user, value, logSubType, logDec);
+			addGold(user, value, reward, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_DIAMOND){
-			addDiamond(user, value, logSubType, logDec);
+			addDiamond(user, value, reward, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_GP){
-			addGp(user, value, logSubType, logDec);
+			addGp(user, value, reward, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL){
-			addHeroExpPool(user, value, logSubType, logDec);
+			addHeroExpPool(user, value, reward, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT){
-			addEternalSmelting(user, value, logSubType, logDec);
+			addEternalSmelting(user, value, reward, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_SLATE){
-			addSlate(user, value, logSubType, logDec);
+			addSlate(user, value, reward, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_EXP){
-			addExp(user, value, logSubType, logDec);
+			addExp(user, value, reward, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_STAMINA){
-			addStamina(user, value, logSubType, logDec);
+			addStamina(user, value, reward, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_ADD_HERO_POOL_EXP_LIMIT){
-			addHeroExpPoolLimit(user, value);
+			addHeroExpPoolLimit(user, value, reward, dbUp);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_ADD_SMELTING_POOL_EXP_LIMIT){
-			addSmeltingPoolLimit(user, value);
+			addSmeltingPoolLimit(user, value, reward, dbUp);
 		}else{
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
 	}
 	
 	@Override  //TODO del
-	public void delIncomes(User user, Collection<ItemEffect> effects){
+	public void delIncomes(User user, Collection<ItemEffect> effects, boolean dbUp){
 		for(ItemEffect effect : effects){
-			delIncome(user, effect);
+			delIncome(user, effect, dbUp);
 		}
 	}
 
 	@Override
-	public void delIncome(User user, ItemEffect effect){
+	public void delIncome(User user, ItemEffect effect, boolean dbUp){
 		String logDec = SystemConstant.getLoggerApproachName(effect.getLogSubType());
 		if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO){
 			delUserHero(user, effect.getId(), effect.getRemoveIds(), effect.getLogSubType(), logDec);
@@ -144,37 +148,37 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 		}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_PROP){
 			delProp(user, effect.getId(), effect.getValue1(), effect.getLogSubType(), logDec);
 		}else{
-			delIncome(user, effect.getType(), effect.getValue1(), effect.getLogSubType(), logDec);
+			delIncome(user, effect.getType(), effect.getValue1(), dbUp, effect.getLogSubType(), logDec);
 		}
 	} 
 	
 	@Override
-	public void delIncome(User user, int effectType, int value, int logSubType){
+	public void delIncome(User user, int effectType, int value, boolean dbUp, int logSubType){
 		if(value <= 0){
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
 		String logDec = SystemConstant.getLoggerApproachName(logSubType);
-		delIncome(user, effectType, value, logSubType, logDec);
+		delIncome(user, effectType, value, dbUp, logSubType, logDec);
 	}
 	
 	@Override
-	public void delIncome(User user, int effectType, int value, int logSubType, String logDec){
+	public void delIncome(User user, int effectType, int value, boolean dbUp, int logSubType, String logDec){
 		if(value <= 0){
 			throw new GameException(GameException.CODE_参数错误, "");
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_GOLD){
-			delGold(user, value, logSubType, logDec);
+			delGold(user, value, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_DIAMOND){
-			delDiamond(user, value, logSubType, logDec);
+			delDiamond(user, value, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_GP){
-			delGp(user, value, logSubType, logDec);
+			delGp(user, value, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL){
-			delHeroExpPool(user, value, logSubType, logDec);
+			delHeroExpPool(user, value, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT){
-			delEternalSmelting(user, value, logSubType, logDec);
+			delEternalSmelting(user, value, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_SLATE){
-			delSlate(user, value, logSubType, logDec);
+			delSlate(user, value, dbUp, logSubType, logDec);
 		}else if(effectType == SystemConstant.ITEM_EFFECT_TYPE_STAMINA){
-			delStamina(user, value, logSubType, logDec);
+			delStamina(user, value, dbUp, logSubType, logDec);
 		}else{
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
@@ -185,33 +189,33 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 	/************************************ 添加日志 *****************************************************/
 	
 	@Override
-	public void addLogger(int logType, int logSubType, int uid, int originalAmount, int amount, int surplusAmount, int assId, String logDec){
+	public void addLogger(int logType, int logSubType, User user, int originalAmount, int amount, int surplusAmount, int assId, String logDec){
 		GameLogger logger = null;
 		if(logType == SystemConstant.LOGGER_TYPE_HERO){
-			logger = new HeroLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new HeroLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_DIAMOND){
-			logger = new DiamondLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new DiamondLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_GOLD){
-			logger = new GoldLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new GoldLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_GP){
-			logger = new GpLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new GpLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_EXP){
-			logger = new ExpLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new ExpLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_PROP){
-			logger = new PropLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new PropLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_STAMINA){
-			logger = new StaminaLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new StaminaLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_HERO_EXP_POOL){
-			logger = new HeroExpPoolLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new HeroExpPoolLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_EQUIPMENT){
-			logger = new EquipmentLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new EquipmentLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_ETERNAL){
-			logger = new EternalLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new EternalLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}else if(logType == SystemConstant.LOGGER_TYPE_SLATE){
-			logger = new SlateLogger(logType, logSubType, uid, originalAmount, amount, surplusAmount, assId, logDec);
+			logger = new SlateLogger(logType, logSubType, user, originalAmount, amount, surplusAmount, assId, logDec);
 		}
 		if(logger != null){
-			GameLoggerEvent event = new GameLoggerEvent(logger);
+			GameLoggerEvent event = new GameLoggerEvent(SystemConstant.LOG_EVENT_TYPE_GAME, logger);
 			TimerController.submitGameEvent(event);
 		}
 	}
@@ -258,68 +262,74 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 	/**
 	 * 添加钻石
 	 */
-	private void addDiamond(User user, int amount, int logSubType, String logDec){
-		updateDiamond(user, amount, logSubType, logDec);
+	private void addDiamond(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
+		updateDiamond(user, amount, reward, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 扣除钻石
 	 */
-	private void delDiamond(User user, int amount, int logSubType, String logDec){
+	private void delDiamond(User user, int amount, boolean dbUp, int logSubType, String logDec){
 		if(user.getDiamond() < amount){
 			throw new GameException(GameException.CODE_钻石不足, "");
 		}
-		updateDiamond(user, -amount, logSubType, logDec);
+		updateDiamond(user, -amount, null, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 更新钻石
 	 */
-	private void updateDiamond(User user, int amount, int logSubType, String logDec){
+	private void updateDiamond(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
 		int oamount = user.getDiamond();
 		user.setDiamond(getValue(user.getDiamond(), amount));
 		Map<String, String> hash = new HashMap<>();
 		hash.put(UserTable.J_DIAMOND, String.valueOf(user.getDiamond()));
-		userService.updateUser(user, hash, false);
+		userService.updateUser(user, hash, dbUp);
 		int samount = user.getDiamond();
-		addLogger(SystemConstant.LOGGER_TYPE_DIAMOND, logSubType, user.getUserId(), oamount, amount, samount, 0, logDec);
+		addLogger(SystemConstant.LOGGER_TYPE_DIAMOND, logSubType, user, oamount, amount, samount, 0, logDec);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, amount, 0);
+		}
 	}
 	
 	/**
 	 * 添加金币
 	 */
-	private void addGold(User user, int amount, int logSubType, String logDec){
-		updateGold(user, amount, logSubType, logDec);
+	private void addGold(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
+		updateGold(user, amount, reward, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 扣除金币
 	 */
-	private void delGold(User user, int amount, int logSubType, String logDec){
+	private void delGold(User user, int amount, boolean dbUp, int logSubType, String logDec){
 		if(user.getGold() < amount){
 			throw new GameException(GameException.CODE_参数错误, "not gold num");
 		}
-		updateGold(user, -amount, logSubType, logDec);
+		updateGold(user, -amount, null, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 更新钻石
 	 */
-	private void updateGold(User user, int amount, int logSubType, String logDec){
+	private void updateGold(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
 		int oamount = user.getGold();
 		user.setGold(getValue(user.getGold(), amount));
 		Map<String, String> hash = new HashMap<>();
 		hash.put(UserTable.J_GOLD, String.valueOf(user.getGold()));
-		userService.updateUser(user, hash, false);
+		userService.updateUser(user, hash, dbUp);
 		int samount = user.getGold();
-		addLogger(SystemConstant.LOGGER_TYPE_GOLD, logSubType, user.getUserId(), oamount, amount, samount, 0, logDec);
+		addLogger(SystemConstant.LOGGER_TYPE_GOLD, logSubType, user, oamount, amount, samount, 0, logDec);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, amount, 0);
+		}
 	}
 
 	/**
 	 * 添加灵气/神之召唤点
 	 */
-	private void addGp(User user, int amount, int logSubType, String logDec){
-		updateGp(user, amount, logSubType, logDec);
+	private void addGp(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
+		updateGp(user, amount, reward, dbUp, logSubType, logDec);
 		//公会成员
 		GuildMember gm = guildMemberDAO.queryGuildMember(user.getUserId());
 		if (gm != null) {
@@ -346,30 +356,33 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 	/**
 	 * 扣除灵气
 	 */
-	private void delGp(User user, int amount, int logSubType, String logDec) {
+	private void delGp(User user, int amount, boolean dbUp, int logSubType, String logDec) {
 		if(user.getGp() < amount){
 			throw new GameException(GameException.CODE_GP不足, "");
 		}
-		updateGp(user, -amount, logSubType, logDec);
+		updateGp(user, -amount, null, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 更新灵气
 	 */
-	private void updateGp(User user, int amount, int logSubType, String logDec) {
+	private void updateGp(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec) {
 		int oamount = user.getGp();
 		user.setGp(getValue(user.getGp(), amount));
 		Map<String, String> hash = new HashMap<>();
 		hash.put(UserTable.J_GP, String.valueOf(user.getGp()));
-		userService.updateUser(user, hash, false);
+		userService.updateUser(user, hash, dbUp);
 		int samount = user.getGp();
-		addLogger(SystemConstant.LOGGER_TYPE_GP, logSubType, user.getUserId(), oamount, amount, samount, 0, logDec);
+		addLogger(SystemConstant.LOGGER_TYPE_GP, logSubType, user, oamount, amount, samount, 0, logDec);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_GP, 0, amount, 0);
+		}
 	}
 
 	/**
 	 * 添加经验
 	 */
-	private void addExp(User user, int amount, int logSubType, String logDec){
+	private void addExp(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
 		if(user.getLevel() < SystemConstant.USER_MAX_LEVEL){
 			int oamount = user.getExp();
 			int count = getValue(user.getExp(), amount);
@@ -393,154 +406,206 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 				user.setLevel(level);
 				hash.put(UserTable.J_LEVEL, String.valueOf(user.getLevel()));
 				userDAO.updateUserLevel(user.getLevel(), user.getUserId());
-				addStamina(user, levelUpCount * SystemConstant.USER_UP_LEVEL_GAIN_STAMINA, SystemConstant.LOGGER_APPROACH_玩家升级, "玩家升级");
+				addStamina(user, levelUpCount * SystemConstant.USER_UP_LEVEL_GAIN_STAMINA, reward, dbUp, SystemConstant.LOGGER_APPROACH_玩家升级, "玩家升级");
 				PlayerLevelUpEvent eventLevelUp = PlayerLevelUpEvent.valueOf(user, user.getLevel());
 				TimerController.submitGameEvent(eventLevelUp);
 				logDec += " : 升级[" + levelUpCount + "]";
 				fightService.computeFightingEvent(user.getUserId());
 			}
 			int samount = user.getExp();
-			userService.updateUser(user, hash, false);
-			addLogger(SystemConstant.LOGGER_TYPE_EXP, logSubType, user.getUserId(), oamount, amount, samount, 0, logDec);
+			userService.updateUser(user, hash, dbUp);
+			addLogger(SystemConstant.LOGGER_TYPE_EXP, logSubType, user, oamount, amount, samount, 0, logDec);
+			if(reward != null && amount > 0){
+				reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_EXP, 0, amount, 0);
+			}
+		}
+	}
+	
+	/**
+	 * 增加等级
+	 * @param user
+	 * @param amount
+	 */
+	private void addLevel(User user, boolean dbUp, int amount){
+		int level = getValue(user.getLevel(), amount);
+		int levelUpCount = 0;
+		if(level >= SystemConstant.USER_MAX_LEVEL){
+			user.setLevel(SystemConstant.USER_MAX_LEVEL);
+			levelUpCount = SystemConstant.USER_MAX_LEVEL - user.getLevel();
+		}else{
+			UserRule rule = GameCache.getUserRule(level);
+			if(rule != null && level > user.getLevel()){
+				levelUpCount = level - user.getLevel();
+				user.setLevel(rule.getLevel());
+			}
+		}
+		if(levelUpCount > 0){
+			Map<String, String> hash = new HashMap<>();
+			user.setLevel(level);
+			hash.put(UserTable.J_LEVEL, String.valueOf(user.getLevel()));
+			userService.updateUser(user, hash, dbUp);
+			userDAO.updateUserLevel(user.getLevel(), user.getUserId());
+			addStamina(user, levelUpCount * SystemConstant.USER_UP_LEVEL_GAIN_STAMINA, null, dbUp, SystemConstant.LOGGER_APPROACH_玩家升级, "玩家升级");
+			PlayerLevelUpEvent eventLevelUp = PlayerLevelUpEvent.valueOf(user, user.getLevel());
+			TimerController.submitGameEvent(eventLevelUp);
+			fightService.computeFightingEvent(user.getUserId());
 		}
 	}
 	
 	/**
 	 * 添加体力
 	 */
-	private void addStamina(User user, int amount, int logSubType, String logDec){
-		updateStamina(user, amount, logSubType, logDec);
+	private void addStamina(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
+		updateStamina(user, amount, reward, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 扣除体力
 	 */
-	private void delStamina(User user, int amount, int logSubType, String logDec){
+	private void delStamina(User user, int amount, boolean dbUp, int logSubType, String logDec){
 		if(user.getStamina() < amount){
 			throw new GameException(GameException.CODE_体力不足, "");
 		}
-		updateStamina(user, -amount, logSubType, logDec);
+		updateStamina(user, -amount, null, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 更新体力
 	 */
-	private void updateStamina(User user, int amount, int logSubType, String logDec){
+	private void updateStamina(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
 		int oamount = user.getStamina();
 		user.setStamina(getValue(user.getStamina(), amount));
 		Map<String, String> hash = new HashMap<>();
 		hash.put(UserTable.J_STAMINA, String.valueOf(user.getStamina()));
-		userService.updateUser(user, hash, false);
+		userService.updateUser(user, hash, dbUp);
 		int samount = user.getStamina();
-		addLogger(SystemConstant.LOGGER_TYPE_STAMINA, logSubType, user.getUserId(), oamount, amount, samount, 0, logDec);
+		addLogger(SystemConstant.LOGGER_TYPE_STAMINA, logSubType, user, oamount, amount, samount, 0, logDec);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_STAMINA, 0, amount, 0);
+		}
 	}
 	
 	/**
 	 * 校验伙伴经验池值
 	 */
-	private void addHeroExpPool(User user, int amount, int logSubType, String logDec){
-		updateHeroExpPool(user, amount, logSubType, logDec);
+	private void addHeroExpPool(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
+		updateHeroExpPool(user, amount, reward, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 扣除伙伴经验池值
 	 */
-	private void delHeroExpPool(User user, int amount, int logSubType, String logDec){
+	private void delHeroExpPool(User user, int amount, boolean dbUp, int logSubType, String logDec){
 		if(user.getHeroExpPool() < amount){
 			throw new GameException(GameException.CODE_参数错误, "");   //经验池不足
 		}
-		updateHeroExpPool(user, -amount, logSubType, logDec);
+		updateHeroExpPool(user, -amount, null, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 更新英雄经验池
 	 */
-	private void updateHeroExpPool(User user, int amount, int logSubType, String logDec){
+	private void updateHeroExpPool(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
 		int oamount = user.getHeroExpPool();
 		user.setHeroExpPool(getValue(user.getHeroExpPool(), amount));
 		Map<String, String> hash = new HashMap<>();
 		hash.put(UserTable.J_HEROEXPPOOL, String.valueOf(user.getHeroExpPool()));
-		userService.updateUser(user, hash, false);
+		userService.updateUser(user, hash, dbUp);
 		int samount = user.getHeroExpPool();
-		addLogger(SystemConstant.LOGGER_TYPE_HERO_EXP_POOL, logSubType, user.getUserId(), oamount, amount, samount, 0, logDec);
+		addLogger(SystemConstant.LOGGER_TYPE_HERO_EXP_POOL, logSubType, user, oamount, amount, samount, 0, logDec);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_HERO_EXP_POOL, 0, amount, 0);
+		}
 	}
 	
 	/**
 	 * 增加伙伴经验池上限
 	 */
-	private void addHeroExpPoolLimit(User user, int amount){
+	private void addHeroExpPoolLimit(User user, int amount, Reward reward, boolean dbUp){
 		Map<String,String> hash = new HashMap<>();
 		user.setAddExpPool(user.getAddExpPool() + amount);
 		hash.put(UserTable.J_ADDEXPPOOL, String.valueOf(user.getAddExpPool()));
-		userService.updateUser(user, hash, false);
+		userService.updateUser(user, hash, dbUp);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_ADD_HERO_POOL_EXP_LIMIT, 0, amount, 0);
+		}
 	}
 	
 	/**
 	 * 添加熔炼点
 	 */
-	private void addEternalSmelting(User user, int amount, int logSubType, String logDec){
-		updateEternalSmelting(user, null, amount, logSubType, logDec);
+	private void addEternalSmelting(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
+		updateSmelting(user, amount, reward, dbUp, logSubType, logDec);
 	}
 	
 	/**
 	 * 扣除熔炼点
 	 */
-	private void delEternalSmelting(User user, int amount, int logSubType, String logDec){
-		EternalSmelting smelting = userEternalService.gainEternalSmelting(user.getUserId()).get(0);
-		if(smelting.getVal() < amount){
+	private void delEternalSmelting(User user, int amount, boolean dbUp, int logSubType, String logDec){
+		if(user.getSmeltingExp() < amount){
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
-		updateEternalSmelting(user, smelting, -amount, logSubType, logDec);
+		updateSmelting(user, -amount, null, dbUp, logSubType, logDec);
 	}
 
 	/**
 	 * 更新熔炼点
+	 * @param hash 
 	 */
-	private void updateEternalSmelting(User user, EternalSmelting smelting, int amount, int logSubType, String logDec){
-		if(smelting == null){
-			smelting = userEternalService.gainEternalSmelting(user.getUserId()).get(0);
+	private void updateSmelting(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
+		user.setSmeltingExp(getValue(user.getSmeltingExp(), amount));
+		Map<String, String> hash = new HashMap<>();
+		hash.put(UserTable.J_SMELTINGEXP, String.valueOf(user.getSmeltingExp()));
+		userService.updateUser(user, hash, dbUp);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT, 0, amount, 0);
 		}
-		smelting.setVal(getValue(smelting.getVal(), amount));
-		userPropDAO.updateEternalSmelting(smelting);
 	}
 	
 	/**
 	 * 添加武魂熔炼池上限
 	 */
-	private void addSmeltingPoolLimit(User user, int amount){
-		EternalSmelting es = userPropDAO.queryEternalSmelting(user.getUserId(), 1);
-		es.setAddEternalVal(es.getAddEternalVal() + amount);
-		userPropDAO.updateEternalSmelting(es);
+	private void addSmeltingPoolLimit(User user, int amount, Reward reward, boolean dbUp){
+		user.setAddSmeltingVal(getValue(user.getAddSmeltingVal(), amount));
+		Map<String, String> hash = new HashMap<>();
+		hash.put(UserTable.J_ADDSMELTINGVAL, String.valueOf(user.getAddSmeltingVal()));
+		userService.updateUser(user, hash, dbUp);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_ADD_SMELTING_POOL_EXP_LIMIT, 0, amount, 0);
+		}
 	}
 	
 	/**
 	 * 添加上古石板
 	 */
-	private void addSlate(User user, int amount, int logSubType, String logDec){
-		updateSlate(user, amount, logSubType, logDec);
+	private void addSlate(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
+		updateSlate(user, amount, reward, dbUp, logSubType, logDec);
 	}
 	
 	/**
 	 * 扣除上古石板
 	 */
-	private void delSlate(User user, int amount, int logSubType, String logDec){
+	private void delSlate(User user, int amount, boolean dbUp, int logSubType, String logDec){
 		if(user.getSlate() < amount){
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
-		updateSlate(user, -amount, logSubType, logDec);
+		updateSlate(user, -amount, null, dbUp, logSubType, logDec);
 	}
 	
 	/**
 	 * 更新上古石板
 	 */
-	private void updateSlate(User user, int amount, int logSubType, String logDec){
+	private void updateSlate(User user, int amount, Reward reward, boolean dbUp, int logSubType, String logDec){
 		int oamount = user.getSlate();
 		user.setSlate(getValue(user.getSlate(), amount));
 		Map<String, String> hash = new HashMap<>();
 		hash.put(UserTable.J_SLATE, String.valueOf(user.getSlate()));
-		userService.updateUser(user, hash, false);
+		userService.updateUser(user, hash, dbUp);
 		int samount = user.getSlate();
-		addLogger(SystemConstant.LOGGER_TYPE_SLATE, logSubType, user.getUserId(), oamount, amount, samount, 0, logDec);
+		addLogger(SystemConstant.LOGGER_TYPE_SLATE, logSubType, user, oamount, amount, samount, 0, logDec);
+		if(reward != null && amount > 0){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_SLATE, 0, amount, 0);
+		}
 	}
 	
 	private int getValue(int oldValue, int addValue){
@@ -571,7 +636,7 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 	/**
 	 * 添加伙伴/英雄
 	 */
-	private List<UserHero> addUserHero(User user, int heroId, int amount, int level, int logSubType, String logDec){
+	private List<UserHero> addUserHero(User user, int heroId, int amount, int level, Reward reward, int logSubType, String logDec){
 		int oamount = user.getHeroSize();
 		List<UserHero> list = new ArrayList<>();
 		level = level <= 0 ? 1 : level;
@@ -584,13 +649,16 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 			userHero.setHeroId(heroId);
 			userHero.setCreateTime(new Date());
 			userHero.setUpdateTime(new Date());
-			keyIds += userHero.getId() + ",";
 			list.add(userHero);
 			userHeroService.addHero(user, userHero);
+			if(reward != null){
+				reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_HERO, heroId, 1, level);
+			}
+			keyIds += userHero.getId() + ",";
 		}
 		user.setHeroSize(user.getHeroSize() + amount);
 		keyIds = keyIds.substring(0, keyIds.length() - 1);
-		addLogger(SystemConstant.LOGGER_TYPE_HERO, logSubType, user.getUserId(), oamount, 1, user.getHeroSize(), heroId, logDec + " : ids[" + keyIds + "] : cfgIds [" + heroId +  "]"); 
+		addLogger(SystemConstant.LOGGER_TYPE_HERO, logSubType, user, oamount, 1, user.getHeroSize(), heroId, logDec + " : ids[" + keyIds + "] : cfgIds [" + heroId +  "]"); 
 //		UserHeroMap heroMap = userHeroMapDAO.queryUserHeroMap(user.getUserId(), heroId);
 //		if (heroMap == null) {
 //			heroMap = new UserHeroMap();
@@ -618,7 +686,7 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 		keyIds = keyIds.substring(0, keyIds.length() - 1);
 		user.setHeroSize(user.getHeroSize() - ids.size());
 		dataService.deleteHeros(user.getUserId(), ids);
-		addLogger(SystemConstant.LOGGER_TYPE_HERO, logSubType, user.getUserId(), oamount, -ids.size(), user.getHeroSize(), heroId, logDec + " : ids[" + keyIds + "] : cfgIds[" + heroId + "]"); 
+		addLogger(SystemConstant.LOGGER_TYPE_HERO, logSubType, user, oamount, -ids.size(), user.getHeroSize(), heroId, logDec + " : ids[" + keyIds + "] : cfgIds[" + heroId + "]"); 
 	}
 
 	/************************************* 装备 ************************************************/  //TODO 装备
@@ -626,7 +694,7 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 	/**
 	 * 添加装备
 	 */
-	private List<UserEquipment> addEquipments(User user, int eId, int amount, int level, int logSubType, String logDec){ 
+	private List<UserEquipment> addEquipments(User user, int eId, int amount, int level, Reward reward, int logSubType, String logDec){ 
 		int oamount = user.getEquipmentSize();
 		List<UserEquipment> list = new ArrayList<>();
 		Equipment econfig = GameCache.getEquipment(eId);
@@ -650,13 +718,20 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 			}
 		    eq.setAddAtk(random / 100d * 10000);
 			list.add(eq);
-			keyIds += eq.getUserEquipmentId() + ",";
+			if(reward != null){
+				reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT, eId, 1, 0);
+			}
 		}
 		userEquipmentService.updateUserEquipments(user, list, true);
-		keyIds = keyIds.substring(0, keyIds.length() - 1);
+		for(UserEquipment equip : list){
+			keyIds += equip.getUserEquipmentId() + ",";
+		}
+		if(keyIds.length() > 1){
+			keyIds = keyIds.substring(0, keyIds.length() - 1);
+		}
 		user.setEquipmentSize(user.getEquipmentSize() + amount);
 		
-		addLogger(SystemConstant.LOGGER_TYPE_EQUIPMENT, logSubType, user.getUserId(), oamount, amount, user.getEquipmentSize(), eId, logDec +" : ids[" + keyIds + "] : cfgIds[" + eId + "]"); 
+		addLogger(SystemConstant.LOGGER_TYPE_EQUIPMENT, logSubType, user, oamount, amount, user.getEquipmentSize(), eId, logDec +" : ids[" + keyIds + "] : cfgIds[" + eId + "]"); 
 		return list;
 	}
 
@@ -729,7 +804,7 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 		keyIds = keyIds.substring(0, keyIds.length() - 1);
 		user.setEquipmentSize(user.getEquipmentSize() - ids.size());
 		dataService.deleteEquips(user.getUserId(), ids);
-		addLogger(SystemConstant.LOGGER_TYPE_EQUIPMENT, logSubType, user.getUserId(), oamount, -ids.size(), user.getEquipmentSize(),  equipId, logDec + " : ids[" + keyIds + "] : cfgIds[" + equipId + "]");  
+		addLogger(SystemConstant.LOGGER_TYPE_EQUIPMENT, logSubType, user, oamount, -ids.size(), user.getEquipmentSize(),  equipId, logDec + " : ids[" + keyIds + "] : cfgIds[" + equipId + "]");  
 	}
 	
 
@@ -738,7 +813,7 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 	/**
 	 * 添加武魂
 	 */
-	private List<UserEternal> addEternals(User user, int eId, int amount, int logSubType, String logDec){
+	private List<UserEternal> addEternals(User user, int eId, int amount, Reward reward, int logSubType, String logDec){
 		int oamount = user.getEternalSize();
 		List<UserEternal> list = new ArrayList<UserEternal>();
 		Eternal econfig = GameCache.getEternal(eId);
@@ -747,11 +822,20 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 			UserEternal ue = UserEternal.createUserEternal(user.getUserId(), eId);
 			ue.setPropertySkillList(getEternalSkills(econfig));
 			list.add(ue);
+			if(reward != null){
+				reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL, eId, 1, 0);
+			}
 		}
 		user.setEternalSize(user.getEternalSize() + amount);
 		userEternalService.updateUserEternals(user, list, true);
+		for(UserEternal eternal : list){
+			keyIds += eternal.getUserEternalId() + ",";
+		}
+		if(keyIds.length() > 1){
+			keyIds = keyIds.substring(0, keyIds.length() - 1);
+		}
 		int samount = user.getEternalSize();
-		addLogger(SystemConstant.LOGGER_TYPE_ETERNAL, logSubType, user.getUserId(), oamount, amount, samount, eId, logDec + " : ids[" + keyIds + "] : cfgIds[" + eId + "]"); 
+		addLogger(SystemConstant.LOGGER_TYPE_ETERNAL, logSubType, user, oamount, amount, samount, eId, logDec + " : ids[" + keyIds + "] : cfgIds[" + eId + "]"); 
 		return list;
 	}
 	
@@ -856,7 +940,7 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 		user.setEternalSize(user.getEternalSize() - ids.size());
 		int samount = user.getEternalSize();
 		dataService.deleteEternals(user.getUserId(), ids);
-		addLogger(SystemConstant.LOGGER_TYPE_ETERNAL, logSubType, user.getUserId(), oamount, -ids.size(), samount, eternalId, logDec + " : ids["+ keyIds + "] : cfgIds[" + eternalId + "]"); 
+		addLogger(SystemConstant.LOGGER_TYPE_ETERNAL, logSubType, user, oamount, -ids.size(), samount, eternalId, logDec + " : ids["+ keyIds + "] : cfgIds[" + eternalId + "]"); 
 	}
 
 	/************************************* 道具 ************************************************/ //TODO 道具
@@ -864,7 +948,7 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 	/**
 	 * 添加道具
 	 */
-	private List<UserProp> addProp(User user,int propId, int amount, int logSubType, String logDec){
+	private List<UserProp> addProp(User user,int propId, int amount, Reward reward, int logSubType, String logDec){
 		List<UserProp> list = new ArrayList<>();
 		UserProp prop = userPropService.getUserPropByPropId(user, propId);
 		int type = 0;
@@ -879,8 +963,10 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 		userPropService.updateProp(user, prop, type);
 		list.add(prop);
 		int samount = prop.getNum();
-		addLogger(SystemConstant.LOGGER_TYPE_PROP, logSubType, user.getUserId(), oamount, amount, samount, propId, logDec);
-		
+		addLogger(SystemConstant.LOGGER_TYPE_PROP, logSubType, user, oamount, amount, samount, propId, logDec);
+		if(reward != null){
+			reward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_PROP, propId, amount, 0);
+		}
 		//增加累计获得道具数量
 		userService.increAddItemCount(user.getUserId(), amount);
 		//和原来事件做整合
@@ -899,7 +985,7 @@ public class UserIncomeServiceImpl extends BaseService implements UserIncomeServ
 			user.setPropSize(user.getPropSize() - 1);
 		}
 		int samount = prop.getNum();
-		addLogger(SystemConstant.LOGGER_TYPE_PROP, logSubType, user.getUserId(), oamount, -amount, samount, propId, logDec);
+		addLogger(SystemConstant.LOGGER_TYPE_PROP, logSubType, user, oamount, -amount, samount, propId, logDec);
 		return prop;
 	}
 }

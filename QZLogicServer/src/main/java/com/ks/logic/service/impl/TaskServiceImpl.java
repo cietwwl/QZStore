@@ -456,7 +456,7 @@ public class TaskServiceImpl extends BaseService implements TaskService {
 			throw new GameException(GameException.CODE_配置表数据不存在, "TaskSetting:"+taskId);
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_任务奖励);
-		effects.addItems(taskRewards, 0);
+		effects.appendGoods(taskRewards, 0);
 		int code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
@@ -517,7 +517,7 @@ public class TaskServiceImpl extends BaseService implements TaskService {
 			throw new GameException(GameException.CODE_配置表数据不存在, "");
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_任务活跃度宝箱奖励);
-		effects.addItems(taskBoxRewards, 0);
+		effects.appendGoods(taskBoxRewards, 0);
 		int code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");

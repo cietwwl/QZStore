@@ -7,6 +7,7 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.MessageEvent;
 
 import com.ks.action.logic.AdminAction;
+import com.ks.constant.SystemConstant;
 import com.ks.exceptions.GameException;
 import com.ks.protocol.web.HttpResult;
 import com.ks.rpc.RPCKernel;
@@ -24,7 +25,7 @@ public class StopServerAction extends AdminWorkAction{
 	@Override
 	public HttpResult done(ChannelHandlerContext ctx, MessageEvent e, Map<String, List<String>> parammaps, HttpResult result) {
 		int checkStop = HttpUtils.getParamInt("checkStop", parammaps);
-		if(checkStop == -101010){
+		if(checkStop == SystemConstant.STOP_SERVER_CODE){
 			List<ServerInfo> infos = WorldServerCache.getLogicServerInfos();
 			for(ServerInfo info : infos){
 				AdminAction adminAction = RPCKernel.getRemoteByServerId(info.getServerId(), AdminAction.class);

@@ -117,7 +117,7 @@ public class UserAchieveServiceImpl extends BaseService implements
 		List<AchieveAward> awards = GameCache.getAchieveAward(achieveId);
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_成就奖励);
 		for(AchieveAward award : awards){
-			effects.addItem(award.getType(), award.getGoodsId(), award.getNum(), award.getLevel());
+			effects.appendItem(award.getType(), award.getGoodsId(), award.getNum(), award.getLevel());
 		}
 		int code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){

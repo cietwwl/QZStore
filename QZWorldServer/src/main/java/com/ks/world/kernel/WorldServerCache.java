@@ -17,6 +17,7 @@ import com.ks.app.Application;
 import com.ks.game.model.Player;
 import com.ks.game.model.PlayerModel;
 import com.ks.logger.LoggerFactory;
+import com.ks.object.ChatMsg;
 import com.ks.rpc.RPCKernel;
 import com.ks.rpc.ServerInfo;
 import com.ks.world.action.WorldFightActionImpl;
@@ -45,8 +46,8 @@ public final class WorldServerCache implements Serializable{
 	private static final Map<PlayerModel , Lock> NAME_LOCK_MAP = new ConcurrentHashMap<>();
 	/**名称锁*/
 	private static final Lock NAME_LOCK = new ReentrantLock();
-//	/**用户编号锁*/
-//	private static final Map<Integer,Lock> USER_ID_LOCKS = new ConcurrentHashMap<>();
+	/**聊天缓存*/
+	private static final Map<Integer, List<ChatMsg>> charCache = new ConcurrentHashMap<>();
 	
 	public static void serverLock(){
 		serverLock.lock();
@@ -205,6 +206,10 @@ public final class WorldServerCache implements Serializable{
 		return logicServerInfos;
 	}
 	
+	public static List<ServerInfo> getGameServerInfos(){
+		return gameServerInfos;
+	}
+	
 	public static final void processGameServer(GameServerProcess gameProcess) throws Exception{
 		serverInfoLock.lock();
 		try{
@@ -350,22 +355,28 @@ public final class WorldServerCache implements Serializable{
 	public static Lock getServerInfoLock(){
 		return serverInfoLock;
 	}
-//	/**
-//	 * 
-//	 * @param userId
-//	 * @return
-//	 */
-//	public static final Lock getUserIdLock(int userId){
-//		Lock lock = USER_ID_LOCKS.get(userId);
-//		if(lock==null){
-//			synchronized (WorldServerCache.class) {
-//				if(lock==null){
-//					lock = new ReentrantLock();
-//					USER_ID_LOCKS.put(userId, lock);
-//				}
-//				lock = USER_ID_LOCKS.get(userId);
-//			}
-//		}
-//		return lock;
-//	}
+
+	public static void addChatMsg(ChatMsg msg){
+		List<ChatMsg> msgs = charCache.get(msg.getType());
+		if(msgs == null){
+			msgs = new ArrayList<>();
+			charCache.put(msg.getType(), msgs);
+		}
+		if(msgs.size() >= 100){
+			msgs.remove(0);
+		}
+		msgs.add(msg);
+	}
+	public static List<ChatMsg> getChatMsgs(int type, int time){
+		List<ChatMsg> list = new ArrayList<>();
+		List<ChatMsg> msgs = charCache.get(type);
+		if(msgs != null){
+			for(ChatMsg msg : msgs){
+				if(msg.getSenderTime() > time){
+					list.add(msg);
+				}
+			}
+		}
+		return list;
+	}
 }

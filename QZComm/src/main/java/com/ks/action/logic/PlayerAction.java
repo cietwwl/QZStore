@@ -1,5 +1,7 @@
 package com.ks.action.logic;
 
+import java.util.List;
+
 import com.ks.access.Transaction;
 import com.ks.protocol.vo.goods.GainAwardVO;
 import com.ks.protocol.vo.goods.GainGameAwardVO;
@@ -90,6 +92,13 @@ public interface PlayerAction{
 	 * @param guideStep
 	 */
 	void updateGuideStep(int userId,int guideStep);
+
+	/**
+	 * 获取引导
+	 * @param userId
+	 * @return
+	 */
+	List<Integer> getGuideSteps(int userId);
 	
 	/**
 	 * 购买金币

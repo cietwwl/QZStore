@@ -28,6 +28,7 @@ bean.setBuyStaminaCount(jrs.getByte("buyStaminaCount"));
 bean.setSigninDays(jrs.getString("signinDays"));
 bean.setFillSignin(jrs.getInt("fillSignin"));
 bean.setSumSigninDays(jrs.getString("sumSigninDays"));
+bean.setLastBlackRefreshTime(jrs.getInt("lastBlackRefreshTime"));
 bean.setBlackMarketGoods(jrs.getString("blackMarketGoods"));
 bean.setBlackMarketRefCount(jrs.getInt("blackMarketRefCount"));
 bean.setMallTotleBuyCount(jrs.getString("mallTotleBuyCount"));

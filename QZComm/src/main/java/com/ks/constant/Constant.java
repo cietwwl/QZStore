@@ -69,51 +69,59 @@ public class Constant{
 		SystemConstant.USER_HERO_ADD_CAPACITY_PRICE = getValue(cache.get("USER_HERO_ADD_CAPACITY_PRICE"));
 		/**27-扩充背包容量单次格子数*/
 		SystemConstant.USER_HERO_ADD_CAPACITY_NUMBER = getValue(cache.get("USER_HERO_ADD_CAPACITY_NUMBER"));
-		/**28-副本扫荡一次钻石消耗*/
+		/**28-背包格子上限*/
+		SystemConstant.USER_BACK_PACK_LIMIT = getValue(cache.get("USER_BACK_PACK_LIMIT"));
+		/**29-副本扫荡一次钻石消耗*/
 		SystemConstant.ZONE_SWEEP_PRICE = getValue(cache.get("ZONE_SWEEP_PRICE"));
-		/**29-竞技场每日挑战次数*/
+		/**30-竞技场每日挑战次数*/
 		SystemConstant.ARENA_DAILY_NUMBER = getValue(cache.get("ARENA_DAILY_NUMBER"));
-		/**30-购买一次竞技场挑战次数获得数量*/
+		/**31-购买一次竞技场挑战次数获得数量*/
 		SystemConstant.ARENA_BUY_NUMBER_ADD = getValue(cache.get("ARENA_BUY_NUMBER_ADD"));
-		/**31-可购买竞技场挑战次数*/
+		/**32-可购买竞技场挑战次数*/
 		SystemConstant.ARENA_BUY_NUMBER = getValue(cache.get("ARENA_BUY_NUMBER"));
-		/**32-竞技场可挑战次数上限*/
+		/**33-竞技场可挑战次数上限*/
 		SystemConstant.ARENA_MAX_NUMBER = getValue(cache.get("ARENA_MAX_NUMBER"));
-		/**33-竞技场商店可刷新次数*/
+		/**34-竞技场商店可刷新次数*/
 		SystemConstant.ARENA_MALL_REFRESH_NUMBER = getValue(cache.get("ARENA_MALL_REFRESH_NUMBER"));
-		/**34-清除冷却CD所需钻石*/
+		/**35-清除冷却CD所需钻石*/
 		SystemConstant.ARENA_CLEAR_CD_DIAMOND = getValue(cache.get("ARENA_CLEAR_CD_DIAMOND"));
-		/**35-竞技场获胜获得勇气值*/
+		/**36-竞技场获胜获得勇气值*/
 		SystemConstant.ARENA_WIN_AWARD_VALOUR = getValue(cache.get("ARENA_WIN_AWARD_VALOUR"));
-		/**36-竞技场开放等级*/
+		/**37-竞技场开放等级*/
 		SystemConstant.ARENA_OPEN_LEVEL = getValue(cache.get("ARENA_OPEN_LEVEL"));
-		/**37-武道会胜利积分*/
+		/**38-武道会胜利积分*/
 		SystemConstant.MARTIAL_WAY_WIN_SCORE = getValue(cache.get("MARTIAL_WAY_WIN_SCORE"));
-		/**38-武道会失败积分*/
+		/**39-武道会失败积分*/
 		SystemConstant.MARTIAL_WAY_LOSE_SCORE = getValue(cache.get("MARTIAL_WAY_LOSE_SCORE"));
-		/**39-武道大会开放等级*/
+		/**40-武道大会开放等级*/
 		SystemConstant.MARTIAL_WAY_OPEN_LEVEL = getValue(cache.get("MARTIAL_WAY_OPEN_LEVEL"));
-		/**40-武道大会每日参加次数*/
+		/**41-武道大会每日参加次数*/
 		SystemConstant.MARTIAL_WAY_DAILY_NUMBER = getValue(cache.get("MARTIAL_WAY_DAILY_NUMBER"));
-		/**41-武道大会购买获得次数*/
+		/**42-武道大会购买获得次数*/
 		SystemConstant.MARTIAL_WAY_BUY_GAIN_NUMBER = getValue(cache.get("MARTIAL_WAY_BUY_GAIN_NUMBER"));
-		/**42-武道大会最大购买次数*/
+		/**43-武道大会最大购买次数*/
 		SystemConstant.MARTIAL_WAY_MAX_BUY_NUMBER = getValue(cache.get("MARTIAL_WAY_MAX_BUY_NUMBER"));
-		/**43-金币召唤一次伙伴消耗*/
+		/**44-金币召唤一次伙伴消耗*/
 		SystemConstant.HERO_CALL_ONE_GOLD = getValue(cache.get("HERO_CALL_ONE_GOLD"));
-		/**44-金币召唤十次伙伴消耗*/
+		/**45-金币召唤十次伙伴消耗*/
 		SystemConstant.HERO_CALL_TEN_GOLD = getValue(cache.get("HERO_CALL_TEN_GOLD"));
-		/**45-钻石召唤一次伙伴消耗*/
+		/**46-钻石召唤一次伙伴消耗*/
 		SystemConstant.HERO_CALL_ONE_DIAMOND = getValue(cache.get("HERO_CALL_ONE_DIAMOND"));
-		/**46-钻石召唤十次伙伴消耗*/
+		/**47-免费金币召唤次数*/
+		SystemConstant.HERO_CALL_GOLD_FREE = getValue(cache.get("HERO_CALL_GOLD_FREE"));
+		/**48-免费金币召唤次数CD(秒)*/
+		SystemConstant.HERO_CALL_GOLD_FREE_CD = getValue(cache.get("HERO_CALL_GOLD_FREE_CD"));
+		/**49-免费钻石召唤次数CD（秒）*/
+		SystemConstant.HERO_CALL_DIAMOND_FREE_CD = getValue(cache.get("HERO_CALL_DIAMOND_FREE_CD"));
+		/**50-钻石召唤十次伙伴消耗*/
 		SystemConstant.HERO_CALL_TEN_DIAMOND = getValue(cache.get("HERO_CALL_TEN_DIAMOND"));
-		/**47-首次钻石召唤伙伴id*/
+		/**51-首次钻石召唤伙伴id*/
 		SystemConstant.HERO_FIRST_DIAMOND_CALL_ID = getValue(cache.get("HERO_FIRST_DIAMOND_CALL_ID"));
-		/**48-包子铺免费刷新次数*/
+		/**52-包子铺免费刷新次数*/
 		SystemConstant.TRIALS_BREAD_STORE_REFRESH_NUMBER = getValue(cache.get("TRIALS_BREAD_STORE_REFRESH_NUMBER"));
-		/**49-包子铺钻石刷新价格*/
+		/**53-包子铺钻石刷新价格*/
 		SystemConstant.TRIALS_BREAD_STORE_DIAMOND_REFRESH_PRICE = getValue(cache.get("TRIALS_BREAD_STORE_DIAMOND_REFRESH_PRICE"));
-		/**50-包子铺元素概率(10000表示100%)*/
+		/**54-包子铺元素概率(10000表示100%)*/
 		SystemConstant.TRIALS_BREAD_STORE_DIAMOND_ELEMENT_PROBABILITY = getValue(cache.get("TRIALS_BREAD_STORE_DIAMOND_ELEMENT_PROBABILITY"));
 			}
 

@@ -50,8 +50,8 @@ public class AdminActionImpl implements AdminAction{
 	}
 
 	@Override
-	public HttpResult addItems(int partner, String username, String items, HttpResult result) {
-		result.setCode(adminService.addItems(partner, username, items));
+	public HttpResult addItems(int partner, String username, String items, String delItems, HttpResult result) {
+		result.setCode(adminService.addItems(partner, username, items, delItems));
 		return result;
 	}
 

@@ -6,19 +6,19 @@ import java.util.List;
 import java.util.Map;
 
 import com.ks.constant.SystemConstant;
-import com.ks.db.cfg.Drop;
 import com.ks.db.model.UserBuff;
 import com.ks.model.fight.ai.BaseAI;
 import com.ks.model.fight.ai.MonsterAI;
+import com.ks.object.ItemEffect;
 import com.ks.protocol.Message;
+
+import lombok.Data;
+
 /**
- * 战场
- * @author ks
+ * 战斗
+ *
  */
-/**
- * 战场
- * @author ks
- */
+@Data
 public class Battle implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/**战场编号*/
@@ -56,7 +56,7 @@ public class Battle implements Serializable {
 	/**防守方替补*/
 	private FightModel defSub;
 	/**掉落*/
-	private List<Drop> drops;
+	private List<ItemEffect> drops;
 	/**获得的石板*/
 	private int slate;
 	/**战斗buff*/
@@ -104,174 +104,6 @@ public class Battle implements Serializable {
 			}
 		}
 		return false;
-	}
-	
-	public String getBattleId() {
-		return battleId;
-	}
-	public void setBattleId(String battleId) {
-		this.battleId = battleId;
-	}
-	public int getWidth() {
-		return width;
-	}
-	public void setWidth(int width) {
-		this.width = width;
-	}
-	public int getHeight() {
-		return height;
-	}
-	public void setHeight(int height) {
-		this.height = height;
-	}
-	public List<FightModel> getAttackers() {
-		return attackers;
-	}
-	public void setAttackers(List<FightModel> attackers) {
-		this.attackers = attackers;
-	}
-	public List<FightModel> getDefenders() {
-		return defenders;
-	}
-	public void setDefenders(List<FightModel> defenders) {
-		this.defenders = defenders;
-	}
-	public Map<Point, Grid> getGrids() {
-		return grids;
-	}
-	public void setGrids(Map<Point, Grid> grids) {
-		this.grids = grids;
-	}
-	public int getAttackUserId() {
-		return attackUserId;
-	}
-	public void setAttackUserId(int attackUserId) {
-		this.attackUserId = attackUserId;
-	}
-	public int getShotUserId() {
-		return shotUserId;
-	}
-	public void setShotUserId(int shotUserId) {
-		this.shotUserId = shotUserId;
-	}
-	public int getDefenderUserId() {
-		return defenderUserId;
-	}
-	public void setDefenderUserId(int defenderUserId) {
-		this.defenderUserId = defenderUserId;
-	}
-	public String getAttackAI() {
-		return attackAI;
-	}
-	public void setAttackAI(String attackAI) {
-		this.attackAI = attackAI;
-	}
-	public String getDefendAI() {
-		return defendAI;
-	}
-	public void setDefendAI(String defendAI) {
-		this.defendAI = defendAI;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	public FightModel getAttSub() {
-		return attSub;
-	}
-	public void setAttSub(FightModel attSub) {
-		this.attSub = attSub;
-	}
-	public FightModel getDefSub() {
-		return defSub;
-	}
-	public void setDefSub(FightModel defSub) {
-		this.defSub = defSub;
-	}
-	public int getBattleType() {
-		return battleType;
-	}
-	public void setBattleType(int battleType) {
-		this.battleType = battleType;
-	}
-	public int getZoneBattleId() {
-		return zoneBattleId;
-	}
-	public void setZoneBattleId(int zoneBattleId) {
-		this.zoneBattleId = zoneBattleId;
-	}
-	public int getBattleRoundId() {
-		return battleRoundId;
-	}
-	public void setBattleRoundId(int battleRoundId) {
-		this.battleRoundId = battleRoundId;
-	}
-	public List<Drop> getDrops() {
-		return drops;
-	}
-	public void setDrops(List<Drop> drops) {
-		this.drops = drops;
-	}
-	public boolean isDis() {
-		return dis;
-	}
-	public void setDis(boolean dis) {
-		this.dis = dis;
-	}
-	public int getSlate() {
-		return slate;
-	}
-	public void setSlate(int slate) {
-		this.slate = slate;
-	}
-	public List<UserBuff> getBuffs() {
-		return buffs;
-	}
-	public void setBuffs(List<UserBuff> buffs) {
-		this.buffs = buffs;
-	}
-	public int getRound() {
-		return round;
-	}
-	public void setRound(int round) {
-		this.round = round;
-	}
-	public int getMaxRound() {
-		return maxRound;
-	}
-	public void setMaxRound(int maxRound) {
-		this.maxRound = maxRound;
-	}
-	public boolean isRevive() {
-		return revive;
-	}
-
-	public void setRevive(boolean revive) {
-		this.revive = revive;
-	}
-
-	public String getMapId() {
-		return mapId;
-	}
-
-	public Map<Integer, Message> getBattleMessage() {
-		return battleMessage;
-	}
-
-	public void setBattleMessage(Map<Integer, Message> battleMessage) {
-		this.battleMessage = battleMessage;
-	}
-
-	public void setMapId(String mapId) {
-		this.mapId = mapId;
-	}
-	
-	
-	public boolean isGiveUpFight() {
-		return giveUpFight;
-	}
-
-	public void setGiveUpFight(boolean giveUpFight) {
-		this.giveUpFight = giveUpFight;
 	}
 
 	public boolean isEnd(){

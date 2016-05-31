@@ -17,7 +17,6 @@ import com.ks.app.Application;
 import com.ks.constant.SystemConstant;
 import com.ks.db.cfg.ActivityZone;
 import com.ks.db.cfg.BattleRound;
-import com.ks.db.cfg.Drop;
 import com.ks.db.cfg.Equipment;
 import com.ks.db.cfg.Eternal;
 import com.ks.db.cfg.EternalEffect;
@@ -31,6 +30,7 @@ import com.ks.db.cfg.Skill;
 import com.ks.db.cfg.SkillEffect;
 import com.ks.db.cfg.Zone;
 import com.ks.db.cfg.ZoneBattle;
+import com.ks.db.log.ZoneBattleLogger;
 import com.ks.db.model.AgainstRequst;
 import com.ks.db.model.Arena;
 import com.ks.db.model.ArenaLogger;
@@ -40,6 +40,7 @@ import com.ks.db.model.UserBuff;
 import com.ks.db.model.UserEquipment;
 import com.ks.db.model.UserEternal;
 import com.ks.db.model.UserHero;
+import com.ks.db.model.UserProp;
 import com.ks.db.model.UserStat;
 import com.ks.db.model.UserTeam;
 import com.ks.db.model.UserZone;
@@ -48,6 +49,7 @@ import com.ks.event.GameEvent;
 import com.ks.exceptions.GameException;
 import com.ks.logic.cache.GameCache;
 import com.ks.logic.event.ComputeFightingEvent;
+import com.ks.logic.event.GameLoggerEvent;
 import com.ks.logic.event.task.MartialWayFightEvent;
 import com.ks.logic.event.task.PassBattleEvent;
 import com.ks.logic.service.BaseService;
@@ -67,8 +69,11 @@ import com.ks.model.martial.MartialWay;
 import com.ks.model.skill.AbstractSkill;
 import com.ks.model.user.AssStat;
 import com.ks.model.user.UserBaseinfo;
+import com.ks.object.DropEffect;
+import com.ks.object.ItemEffect;
 import com.ks.object.ItemEffects;
 import com.ks.object.Reward;
+import com.ks.object.ValidObject;
 import com.ks.protocol.Message;
 import com.ks.protocol.MessageFactory;
 import com.ks.protocol.main.MainCMD;
@@ -114,7 +119,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 	}
 	@Override
 	public void computeFighting(int userId){
-		User user = userDAO.getUserFromCache(userId);
+		User user = userService.queryCacheUser(userId);
 		if(user != null){
 			UserTeam userTeam = userTeamService.queryUserTeam(userId);
 			if(userTeam != null){
@@ -333,7 +338,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 					arenaDAO.updateTodayMaxWins(arena.getMaxWinStreak(), userId);
 				}
 				int exp = GameCache.getArenaExpAward(user.getLevel());
-				effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_EXP, exp, SystemConstant.LOGGER_APPROACH_竞技场获得);
+				effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_EXP, exp, null, false, SystemConstant.LOGGER_APPROACH_竞技场获得);
 				al.setWinLos(1);
 			}else{
 				arena.setStreakWin(0);
@@ -467,8 +472,8 @@ public class FightServiceImpl extends BaseService implements FightService {
 			al.setWinLos(1);
 			exp=GameCache.getMartialWayExpAward(user.getLevel());
 			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_武道大会);
-			effects.addItem(SystemConstant.ITEM_EFFECT_TYPE_EXP, 0, exp, 0);
-			effectService.addIncome(user, effects);
+			effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_EXP, 0, exp, 0);
+			effectService.addIncome(user, effects, null);
 		}else{
 			score= SystemConstant.MARTIAL_WAY_LOSE_SCORE;
 			attWay.setScore((short) (attWay.getScore()+score));
@@ -801,8 +806,6 @@ public class FightServiceImpl extends BaseService implements FightService {
 		
 		execBattleProp(battle, round);//处理战场道具
 		
-		calFightBuff(battle, defenders, round);//计算战斗buff
-		
 		for(FightModel atk : attackers){//释放延迟技能和被动技能
 			if(atk.isReadySkill()){
 				FightAtkMode atkModel = atk.getAtkMode().peek();
@@ -959,7 +962,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 						
 						hurt *=restraint;//属性加成
 						
-						hurt = calReduceHurt((int)hurt,def,at, attack, null, null);//减少伤害
+						hurt = calReduceHurt((int)hurt,def,at, attack, null, null, null);//减少伤害
 						
 						if(attackType == SystemConstant.FIGHT_TYPE_暴击){
 							hurt *= at.getRealCrithurt();
@@ -972,7 +975,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 						List<SubHurtVO> subHurts = calSputtering(battle,at,defenders,hurt,def,round);
 						attack.setSubHurts(subHurts);
 						
-						absorbHurt = calAbsorb((int)hurt,def, attack, null, null);
+						absorbHurt = calAbsorb((int)hurt,def, attack, null, null, null);
 						
 						hurt -= absorbHurt;
 						
@@ -1013,6 +1016,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 		
 		List<ModeRotationVO> rotations = new ArrayList<>();
 		int nextShotUserId = battle.getShotUserId()==battle.getAttackUserId()?battle.getDefenderUserId():battle.getAttackUserId();
+		calFightBuff(battle, defenders, round);//计算战斗buff
 		for(FightModel fm : attackers){
 			fm.nextRound(nextShotUserId);
 		}
@@ -1095,8 +1099,8 @@ public class FightServiceImpl extends BaseService implements FightService {
 					FightModel fm  = BaseAI.getFightModel(g.getFightId(), defs);
 					if(fm!=null&&fm.getState() != SystemConstant.FIGHT_MODEL_STATE_死亡&&fm!=def){
 						SubHurtVO vo = MessageFactory.getMessage(SubHurtVO.class);
-						int h = calReduceHurt((int)hurt, fm, at, null, null, vo);
-						int absorbHurt = calAbsorb((int)h,fm, null, null, vo);
+						int h = calReduceHurt((int)hurt, fm, at, null, null, vo, null);
+						int absorbHurt = calAbsorb((int)h,fm, null, null, vo, null);
 						fm.setHp(fm.getHp()-h);
 						vo.setDefFightId(fm.getFightId());
 						vo.setAbsorbHurt(absorbHurt);
@@ -1506,53 +1510,54 @@ public class FightServiceImpl extends BaseService implements FightService {
 			AttackRoundVO round) {
 		for(FightModel def : defenders){//计算回血BUFF
 			for(FightBuff buff : def.getBuffs()){
-				switch (buff.getEffectId()) {
-				case SystemConstant.SKILL_EFFECT_ID_持续恢复:
-				case SystemConstant.SKILL_EFFECT_ID_GRID_ITEM_泉水:
-					int val = def.getMaxHp()*buff.getScore()/100+buff.getCons();
-					int hp = def.getHp()+val;
-					hp = hp>def.getMaxHp()?def.getMaxHp():hp;
-					def.setHp(hp);
-					
-					FightBuffAffectVO bfa = FightBuffAffectVO.create(def.getFightId(),buff.getEffectId(), AffectederVO.TYPE_RECOVER, val, 0,def.getHp());
-					round.getBuffAffects().add(bfa);
-					break;
-				default:
-					break;
+					switch (buff.getEffectId()) {
+					case SystemConstant.SKILL_EFFECT_ID_持续恢复:
+					case SystemConstant.SKILL_EFFECT_ID_GRID_ITEM_泉水:
+						int val = def.getMaxHp()*buff.getScore()/100+buff.getCons();
+						int hp = def.getHp()+val;
+						hp = hp>def.getMaxHp()?def.getMaxHp():hp;
+						def.setHp(hp);
+						
+						FightBuffAffectVO bfa = FightBuffAffectVO.create(def.getFightId(),buff.getEffectId(), AffectederVO.TYPE_RECOVER, val, 0,def.getHp());
+						round.getBuffAffects().add(bfa);
+						break;
+					default:
+						break;
+					}
 				}
-			}
 		}
 		
 		for(FightModel def : defenders){//计算伤害BUFF	
 			for(FightBuff buff : def.getBuffs()){
-				switch (buff.getEffectId()) {
-				case SystemConstant.SKILL_EFFECT_ID_持续伤害:
-				case SystemConstant.SKILL_EFFECT_ID_GRID_ITEM_陷阱:
-					int hurt = (int) (buff.getCons()+def.getMaxHp()*buff.getScore()/SystemConstant.PERCENT_BASE_DOUBLE);
-					hurt = calReduceHurt(buff.getCons(), def, null, null, null, null);
-					int absorbHurt = calAbsorb(hurt,def, null, null, null);
-					hurt -= absorbHurt;
-					List<ReleaseSkillVO> vos = buckleBlood(def, hurt,battle,round,defenders,battle.getAttackers()==defenders?battle.getDefenders():battle.getAttackers());
-					
-					FightBuffAffectVO bfa = FightBuffAffectVO.create(def.getFightId(),buff.getEffectId(), AffectederVO.TYPE_HURT, hurt, absorbHurt,def.getHp());
-					bfa.getRelSkill().addAll(vos);
-					
-					if(def.getHp()<=0){
-						execDeadFightModel(battle, round, def);
-						if(battle.getBattleType() == SystemConstant.FIGHT_TYPE_ZONE){
-							if(def.isNpc()){
-								List<DropVO> drops = gainMonsterDrop(battle, def);
-								bfa.setDrops(drops);
+					switch (buff.getEffectId()) {
+					case SystemConstant.SKILL_EFFECT_ID_持续伤害:
+					case SystemConstant.SKILL_EFFECT_ID_GRID_ITEM_陷阱:
+						int hurt = (int) (buff.getCons()+def.getMaxHp()*buff.getScore()/SystemConstant.PERCENT_BASE_DOUBLE);
+						FightBuffAffectVO bfa = FightBuffAffectVO.create(def.getFightId(),buff.getEffectId(), AffectederVO.TYPE_HURT, hurt, 0,def.getHp());
+						hurt = calReduceHurt(buff.getCons(), def, null, null, null, null, bfa);
+						int absorbHurt = calAbsorb(hurt,def, null, null, null, bfa);
+						hurt -= absorbHurt;
+						bfa.setAbsorbHurt(absorbHurt);
+						List<ReleaseSkillVO> vos = buckleBlood(def, hurt,battle,round,defenders,battle.getAttackers()==defenders?battle.getDefenders():battle.getAttackers());
+						
+						bfa.getRelSkill().addAll(vos);
+						
+						if(def.getHp()<=0){
+							execDeadFightModel(battle, round, def);
+							if(battle.getBattleType() == SystemConstant.FIGHT_TYPE_ZONE){
+								if(def.isNpc()){
+									List<DropVO> drops = gainMonsterDrop(battle, def);
+									bfa.setDrops(drops);
+								}
 							}
 						}
+						
+						round.getBuffAffects().add(bfa);
+						
+						break;
+					default:
+						break;
 					}
-					
-					round.getBuffAffects().add(bfa);
-					
-					break;
-				default:
-					break;
-				}
 			}
 		}
 	}
@@ -1787,30 +1792,12 @@ public class FightServiceImpl extends BaseService implements FightService {
 	private List<DropVO> gainMonsterDrop(Battle battle, FightModel def) {
 		Monster monster = GameCache.getMonster(def.getAssId());
 		List<DropVO> drops = new ArrayList<DropVO>();
-		for(Drop drop : monster.getDrops()){
-			int random = MathUtil.nextInt(10000);
-			if(drop.getRate()>random){//掉落
-				boolean flag = true;
-				if(drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO){
-					int count = 0;
-					for(Drop d : battle.getDrops()){
-						if(d.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO){
-							count ++ ;
-						}
-					}
-					if(count >= 5){//掉落英雄大于5
-						BattleRound nextRound = GameCache.getBattleRound(battle.getZoneBattleId(), battle.getBattleRoundId()+1);
-						flag = nextRound == null;
-					}
-				}
-				if(flag){//掉落
-					battle.getDrops().add(drop);
-					
-					DropVO vo = MessageFactory.getMessage(DropVO.class);
-					vo.init(drop);
-					drops.add(vo);
-				}
-			}
+		List<ItemEffect> items = getDropItems(monster.getDrops());
+		battle.getDrops().addAll(items);
+		for(ItemEffect item : items){
+			DropVO vo = MessageFactory.getMessage(DropVO.class);
+			vo.init(item.getType(), item.getId(), item.getValue1());
+			drops.add(vo);
 		}
 		return drops;
 	}
@@ -1853,7 +1840,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 			round.setSubFightBattleVO(sf);
 		}
 	}
-	private int calAbsorb(int hurt, FightModel def, AttackVO avo, AffectederVO afvo, SubHurtVO hvo) {
+	private int calAbsorb(int hurt, FightModel def, AttackVO avo, AffectederVO afvo, SubHurtVO hvo, FightBuffAffectVO fvo) {
 		int calAbsorb = 0;
 		Iterator<FightBuff> it = def.getBuffs().iterator();
 		while(it.hasNext()){
@@ -1877,6 +1864,8 @@ public class FightServiceImpl extends BaseService implements FightService {
 				afvo.addAtkEffectId(SystemConstant.SKILL_EFFECT_ID_护盾);
 			}else if(hvo != null){
 				hvo.addAtkEffectId(SystemConstant.SKILL_EFFECT_ID_护盾);
+			}else if(fvo != null){
+				fvo.addAtkEffectId(SystemConstant.SKILL_EFFECT_ID_护盾);
 			}
 		}
 		return calAbsorb;
@@ -2559,8 +2548,14 @@ public class FightServiceImpl extends BaseService implements FightService {
 		}
 		userZoneService.updateUserZoneBattle(userZoneBattle);
 		/**处理奖励*/
-		Reward reward = new Reward();
-		effectService.drop(user, userZoneBattle, battle, battle.getDrops(), reward, SystemConstant.LOGGER_APPROACH_副本掉落);
+		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_副本获得);
+		ItemEffects dropEffects = new ItemEffects(SystemConstant.LOGGER_APPROACH_副本掉落);
+		int goldAddition = getBattleAddition(battle, SystemConstant.SKILL_EFFECT_ID_金钱增加, SystemConstant.PROP_EFFECT_ID_金钱加成) + 1;
+		int expAddition = getBattleAddition(battle, SystemConstant.SKILL_EFFECT_ID_经验增加, SystemConstant.PROP_EFFECT_ID_经验加成) + 1;
+		Reward rewards = addFightRewards(effects, userZoneBattle, goldAddition, expAddition);
+		Reward drops = addDropRewards(user, battle, battle.getDrops(), dropEffects, new ValidObject(), goldAddition, expAddition);
+		effectService.addIncome(user, effects, null);
+		effectService.addIncome(user, dropEffects, null);
 		
 		fightDAO.deleteBattle(user.getFightId());
 		Map<String,String> hash = new HashMap<>();
@@ -2588,17 +2583,15 @@ public class FightServiceImpl extends BaseService implements FightService {
 		}
 		FightResultVO vo = MessageFactory.getMessage(FightResultVO.class);
 		vo.setStar(star);
-		vo.setHeros(reward.getHeros());
-		vo.setProps(reward.getProps());
-		vo.setEquips(reward.getEquips());
-		vo.setGold(reward.getGold());
-		vo.setExp(reward.getExp());
-		vo.setSmeltingPoint(reward.getSmeltingPoint());
-		vo.setHeroExp(reward.getHeroExp());
-		vo.setTotleGold(user.getGold());
+		vo.setRewards(rewards.getItemEffects());
+		vo.setDrops(drops.getItemEffects());
 		//抛出通过关卡事件
 		PassBattleEvent event = PassBattleEvent.valueOf(user, 1, zoneBattle.getBattleId(), 1, zone.getType());
 		TimerController.submitGameEvent(event);
+		ZoneBattleLogger logger = new ZoneBattleLogger(userId, zone.getZoneId(), battle.getZoneBattleId());
+		logger.setState(3);
+		logger.setBattleNum(1);
+		TimerController.submitGameEvent(new GameLoggerEvent(SystemConstant.LOG_EVENT_TYPE_BATTLE, logger));
 		return vo;
 	}
 	
@@ -2607,27 +2600,29 @@ public class FightServiceImpl extends BaseService implements FightService {
 	 */
 	public int getBattleAddition(Battle battle, int seId, int peId){
 		int addition = 0;
-		List<FightModel> mlist = battle.getAttackers();
-		if(mlist != null){
-			for(FightModel fm : mlist){
-				FightBuff target = null;
-				for(FightBuff buff : fm.getBuffs()){
-					if(buff.getEffectId() == seId && buff.getScore() > 0){
-						if(target == null || target.getScore() < buff.getScore()){
-							target = buff;
+		if(battle != null){
+			List<FightModel> mlist = battle.getAttackers();
+			if(mlist != null){
+				for(FightModel fm : mlist){
+					FightBuff target = null;
+					for(FightBuff buff : fm.getBuffs()){
+						if(buff.getEffectId() == seId && buff.getScore() > 0){
+							if(target == null || target.getScore() < buff.getScore()){
+								target = buff;
+							}
 						}
 					}
-				}
-				if(target != null){
-					addition += target.getScore();
+					if(target != null){
+						addition += target.getScore();
+					}
 				}
 			}
-		}
-		List<UserBuff> ulist = battle.getBuffs();
-		if(ulist != null){
-			for(UserBuff buff : battle.getBuffs()){
-				if(buff.getEffectId() == seId){
-					addition += buff.getVal();
+			List<UserBuff> ulist = battle.getBuffs();
+			if(ulist != null){
+				for(UserBuff buff : battle.getBuffs()){
+					if(buff.getEffectId() == seId){
+						addition += buff.getVal();
+					}
 				}
 			}
 		}
@@ -2704,7 +2699,6 @@ public class FightServiceImpl extends BaseService implements FightService {
 			Map<String,String> hash = new HashMap<>();
 			hash.put(UserTable.J_FIGHTID, "");
 			if(battle.getAttackUserId()!=0){
-//				userDAO.updateUserCache(battle.getAttackUserId(), hash);
 				userService.updateUser(user, hash, false);
 			}
 		}
@@ -2726,18 +2720,18 @@ public class FightServiceImpl extends BaseService implements FightService {
 			
 			return 0;
 		}else{
-//			ZoneBattle zbat = GameCache.getZoneBattle(battle.getZoneBattleId());
-//			if(zbat != null){
-//				Zone zone = GameCache.getZone(zbat.getZoneId());
-//				if(zone != null && zone.getType() == SystemConstant.ZONE_TYPE_TRIALS){
-//					userService.addTrialsCountNumber(user, zbat.getZoneId(), 1);
-//				}
-//			}
+			if(!battle.isEnd()){
+				ZoneBattle zbat = GameCache.getZoneBattle(battle.getZoneBattleId());
+				if(zbat != null){
+					ZoneBattleLogger logger = new ZoneBattleLogger(userId, zbat.getZoneId(), battle.getZoneBattleId());
+					logger.setState(2);
+					TimerController.submitGameEvent(new GameLoggerEvent(SystemConstant.LOG_EVENT_TYPE_BATTLE, logger));
+				}
+			}
 			fightDAO.deleteBattle(user.getFightId());
 			Map<String,String> hash = new HashMap<>();
 			hash.put(UserTable.J_FIGHTID, "");
 			if(battle.getAttackUserId()!=0){
-//				userDAO.updateUserCache(battle.getAttackUserId(), hash);
 				userService.updateUser(user, hash, false);
 			}
 		}
@@ -3229,11 +3223,11 @@ public class FightServiceImpl extends BaseService implements FightService {
 				restraint=restraint>1?1:restraint;
 			}
 			hurt = (int) (hurt*restraint);
-			hurt = calReduceHurt(hurt,fm,releaseModel, null, affVO, null);//计算减少伤害
+			hurt = calReduceHurt(hurt,fm,releaseModel, null, affVO, null, null);//计算减少伤害
 			if(immuneSkillHurt(fm)){
 				hurt = 0;
 			}
-			int absorbHurt = calAbsorb(hurt,fm, null, affVO, null);//计算吸收伤害
+			int absorbHurt = calAbsorb(hurt,fm, null, affVO, null, null);//计算吸收伤害
 			hurt -= absorbHurt;
 			List<ReleaseSkillVO> vos = buckleBlood(fm, hurt,battle,round,
 					battle.getAttackers().indexOf(fm)==-1?battle.getDefenders():battle.getAttackers(),
@@ -3288,7 +3282,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 	 * @param def 防守方
 	 * @return 最终伤害值
 	 */
-	private int calReduceHurt(int hurt, FightModel def,FightModel atk, AttackVO avo, AffectederVO afvo, SubHurtVO hvo) {
+	private int calReduceHurt(int hurt, FightModel def,FightModel atk, AttackVO avo, AffectederVO afvo, SubHurtVO hvo, FightBuffAffectVO fvo) {
 		double score = 0;
 		for(FightBuff buff : def.getBuffs()){
 			switch (buff.getEffectId()) {
@@ -3301,6 +3295,8 @@ public class FightServiceImpl extends BaseService implements FightService {
 					afvo.addAtkEffectId(buff.getEffectId());
 				}else if(hvo != null){
 					hvo.addAtkEffectId(buff.getEffectId());
+				}else if(fvo != null){
+					fvo.addAtkEffectId(buff.getEffectId());
 				}
 				break;
 			case SystemConstant.SKILL_EFFECT_ID_减伤:
@@ -3317,6 +3313,8 @@ public class FightServiceImpl extends BaseService implements FightService {
 					afvo.addAtkEffectId(buff.getEffectId());
 				}else if(hvo != null){
 					hvo.addAtkEffectId(buff.getEffectId());
+				}else if(fvo != null){
+					fvo.addAtkEffectId(buff.getEffectId());
 				}
 				break;
 			default:
@@ -3409,7 +3407,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 		battle.setAttackers(new ArrayList<FightModel>());
 		battle.setDefenders(new ArrayList<FightModel>());
 		battle.setGrids(new HashMap<Point, Grid>());
-		battle.setDrops(new ArrayList<Drop>());
+		battle.setDrops(new ArrayList<ItemEffect>());
 		
 		for(int x=1;x<=battle.getWidth();x++){
 			for(int y=1;y<=battle.getHeight();y++){
@@ -3687,9 +3685,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 				}
 			}else{
 				Map<String,String> hash = new HashMap<>();
-	//			hash.put("fightId", "");
 				hash.put(UserTable.J_FIGHTID, "");
-	//			userDAO.updateUserCache(userId, hash);
 				userService.updateUser(user, hash, false);
 			}
 		}
@@ -3878,7 +3874,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 	}
 	private Message getBattleMessage(int userId,Battle battle) {
 		if(battle!=null&&battle.isEnd()){
-			User user = userDAO.getUserFromCache(userId);
+			User user = userService.queryCacheUser(userId);
 			Message m = battle.getBattleMessage().remove(userId);
 			Map<String,String> hash = new HashMap<>();
 //			hash.put("fightId", "");
@@ -3897,7 +3893,7 @@ public class FightServiceImpl extends BaseService implements FightService {
 	@Override
 	public SweepAwardVO sweep(int userId, int battleId, int count) { 
 		User user = userService.getOnlineUser(userId);
-		if(count != 1 && count != 10){
+		if(count != 1 && count != 3 && count != 10){
 			throw new GameException(GameException.CODE_参数错误, "");
 		}else if(count == 10 && privilegeService.getPrivilegesValue(user, SystemConstant.PRIVILEGE_TYPE_OPEN_TEN_SWEEP) <= 0){
 			throw new GameException(GameException.CODE_权限不足, "");
@@ -3918,105 +3914,64 @@ public class FightServiceImpl extends BaseService implements FightService {
 				if(userZoneBattle.getChallengeCount() + count > 3){
 					throw new GameException(GameException.CODE_参数错误, "");
 				}
-				userZoneBattle.setChallengeCount(userZoneBattle.getChallengeCount()+count);
-				userZoneDAO.updateUserZoneBattle(userZoneBattle);
 			}
 		}
 		ItemEffects removes = new ItemEffects(SystemConstant.LOGGER_APPROACH_扫荡消耗);
-		removes.delItem(SystemConstant.ITEM_EFFECT_TYPE_STAMINA, 0, battle.getSp() * count);
+		removes.appendItem(SystemConstant.ITEM_EFFECT_TYPE_STAMINA, 0, battle.getSp() * count, 0);
 		int propAmount = userPropService.getPropAmount(user, SystemConstant.PROP_ID_扫荡券);
 		if(propAmount <= 0){
-			removes.delItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.ZONE_SWEEP_PRICE * count);
+			removes.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.ZONE_SWEEP_PRICE * count, 0);
 		}else{
 			int amount = count - propAmount;
 			if(amount > 0){
-				removes.delItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.ZONE_SWEEP_PRICE * amount);
+				removes.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.ZONE_SWEEP_PRICE * amount, 0);
 				if(propAmount > 0){
-					removes.delItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, SystemConstant.PROP_ID_扫荡券, propAmount);
+					removes.appendItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, SystemConstant.PROP_ID_扫荡券, propAmount, 0);
 				}
 			}else{
-				removes.delItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, SystemConstant.PROP_ID_扫荡券, count);
+				removes.appendItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, SystemConstant.PROP_ID_扫荡券, count, 0);
 			}
 		}
 		int code = effectService.validDels(user, removes);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
 		}
-		Map<Integer, List<Drop>> dMap = new HashMap<Integer, List<Drop>>();
-		List<SweepVO> sweeps = new ArrayList<SweepVO>();
+		userZoneBattle.setChallengeCount(userZoneBattle.getChallengeCount()+count);
+		ValidObject obj = new ValidObject();
+		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_扫荡获得);
+		SweepAwardVO sweeps = MessageFactory.getMessage(SweepAwardVO.class);
 		for(int i = 0; i < count; i++){
 			int round = 1;
-			int heroCount = 0;
 			BattleRound nextRound = GameCache.getBattleRound(battle.getBattleId(), round);
-			List<Drop> drops = new ArrayList<>();
+			List<ItemEffect> drops = null;
 			while(nextRound!=null){
 				for(int monsterId : nextRound.getMonsters()){
 					Monster monster = GameCache.getMonster(monsterId);
 					if(monster != null){
-						for(Drop drop : monster.getDrops()){
-							int random = MathUtil.nextInt(SystemConstant.PERCENT_BASE_INT);
-							if(random < drop.getRate()){//掉落
-								boolean flag = true;
-								if(drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO){
-									heroCount++;
-									if(heroCount >= 5){//掉落英雄大于5
-										BattleRound nr = GameCache.getBattleRound(battle.getBattleId(), round+1);
-										flag = nr == null;
-									}
-								}
-								if(flag){
-									boolean add = true;
-									if(drop.getType() != SystemConstant.ITEM_EFFECT_TYPE_HERO
-											&& drop.getType() != SystemConstant.ITEM_EFFECT_TYPE_PROP
-											&& drop.getType() != SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT
-											&& drop.getType() != SystemConstant.ITEM_EFFECT_TYPE_ETERNAL){
-										for(Drop old : drops){
-											if(old.getType() == drop.getType()){
-												old.setNum(old.getNum() + drop.getNum());
-												add = false;
-											}
-										}
-									}
-									if(add){
-										drops.add(drop.copy());
-									}
-								}
-							}
-						}
+						drops = getDropItems(monster.getDrops());
 					}
 				}
 				round++;
 				nextRound = GameCache.getBattleRound(battle.getBattleId(), round);
 			}
-			dMap.put(i, drops);
-		}
-		effectService.delIncome(user, removes);
-		SweepAwardVO saw = MessageFactory.getMessage(SweepAwardVO.class);
-		for(int i = 0; i < count; i++){
-			List<Drop> list = dMap.get(i);
-			Reward reward = new Reward();
+			Reward rewards = addFightRewards(effects, userZoneBattle, 1, 1);
+			Reward dropRrewards = addDropRewards(user, null, drops, effects, obj, 1, 1);
 			SweepVO vo = MessageFactory.getMessage(SweepVO.class);
-			vo.setDrops( new ArrayList<DropVO>());
-			if(!list.isEmpty()){
-				list = effectService.drop(user, userZoneBattle, null, list, reward, SystemConstant.LOGGER_APPROACH_扫荡获得);
-				for(Drop drop : list){
-					if(drop.isSuccessDrop()){
-						DropVO dvo = MessageFactory.getMessage(DropVO.class);
-						dvo.init(drop);
-						vo.getDrops().add(dvo);
-					}
-				}
-			}
-			vo.setExp(reward.getExp());
-			vo.setGold(reward.getGold());
-			sweeps.add(vo);
+			vo.setRewards(rewards.getItemEffects());
+			vo.setDrops(dropRrewards.getItemEffects());
+			sweeps.addSweep(vo);
 		}
-//		saw.setHeros(heros);
-		saw.setSweeps(sweeps);
+		userZoneDAO.updateUserZoneBattle(userZoneBattle);  
+		effectService.delIncome(user, removes);
+		effectService.addIncome(user, effects, null);
 		//抛出通过关卡事件
 		PassBattleEvent event = PassBattleEvent.valueOf(user, 2, battleId, count, zone.getType());
 		TimerController.submitGameEvent(event);
-		return saw;
+		ZoneBattleLogger logger = new ZoneBattleLogger(userId, zone.getZoneId(), battleId);
+		logger.setState(3);
+		logger.setBattleNum(count);
+		TimerController.submitGameEvent(new GameLoggerEvent(SystemConstant.LOG_EVENT_TYPE_BATTLE, logger));
+		return sweeps;
 	}
 	@Override
 	public FightVO watch(int userId, String fightId){
@@ -4035,6 +3990,157 @@ public class FightServiceImpl extends BaseService implements FightService {
 		User user = userService.getOnlineUser(userId);
 		Battle battle = fightDAO.getBattle(user.getFightId());
 		return battle;
+	}
+	
+	/**
+	 * 副本奖励
+	 */
+	private Reward addFightRewards(ItemEffects effects, UserZoneBattle userZoneBattle, int goldAddition, int expAddition){
+		Reward rewards = new Reward();
+		if(userZoneBattle != null){
+			ZoneBattle zoneBattle = GameCache.getZoneBattle(userZoneBattle.getZoneBattleId());
+			if(zoneBattle != null){
+				int gold = zoneBattle.getGold() * goldAddition;
+				int exp = zoneBattle.getExp() * expAddition;
+				if(userZoneBattle.getPassCount() == 1){
+					gold = zoneBattle.getFirstGold() * goldAddition;
+					exp = zoneBattle.getFirstExp() * expAddition;
+				}
+				effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, gold, 0);
+				rewards.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_GOLD, 0, gold, 0);
+				effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_EXP, 0, exp, 0);
+				rewards.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_EXP, 0, exp, 0);
+			}
+		}
+		return rewards;
+	}
+	
+	/**
+	 * 掉落奖励
+	 */
+	private Reward addDropRewards(User user, Battle battle, List<ItemEffect> items, ItemEffects dropEffects, ValidObject obj, int goldAddition, int expAddition){
+		Reward dropReward = new Reward();
+		if(items != null){
+			int code = GameException.CODE_正常;
+			for(ItemEffect effect : items){
+				try{
+					if(effect.getValue1() > 0){
+						if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO){
+							code = effectService.validSize(user, obj.getHeroSize() + effect.getValue1(), 0, 0, 0);
+							if(code == GameException.CODE_正常){
+								obj.setHeroSize(obj.getHeroSize() + effect.getValue1());
+							}
+						}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_PROP){
+							UserProp prop = userPropService.getUserPropByPropId(user, effect.getId());
+							if(prop == null){
+								code = effectService.validSize(user, 0, 0, 0, obj.getPropSize() + 1);
+								if(code == GameException.CODE_正常){
+									obj.setPropSize(obj.getPropSize() + 1);
+								}
+							}
+						}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL){
+							code = effectService.validSize(user, 0, obj.getEternalSize() + effect.getValue1(), 0, 0);
+							if(code == GameException.CODE_正常){
+								obj.setEternalSize(obj.getEternalSize() + effect.getValue1());
+							}
+						}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT){
+							code = effectService.validSize(user, 0, 0, obj.getEquipSize() + effect.getValue1(), 0);
+							if(code == GameException.CODE_正常){
+								obj.setEquipSize(obj.getEquipSize() + effect.getValue1());
+							}
+						}
+						if(code == GameException.CODE_正常){
+							int value = effect.getValue1();
+							int value2 = effect.getValue2();
+							if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_EXP){
+								value *= expAddition;
+							}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_GOLD){
+								value *= goldAddition;
+							}else if(effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO
+									|| effect.getType() == SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT){
+								value2 = value2 <= 0 ? 1 : value2;
+							}
+							dropEffects.appendItem(effect.getType(), effect.getId(), value, value2);
+							dropReward.addItemEffect(effect.getType(), effect.getId(), value, value2);
+						}
+					}
+				}catch(Exception e){}
+			}
+		}
+		if(battle != null){
+			if(battle.getSlate() > 0){
+				dropEffects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_SLATE, 0, battle.getSlate(), 0);
+				dropReward.addItemEffect(SystemConstant.ITEM_EFFECT_TYPE_SLATE, 0, battle.getSlate(), 0);
+			}
+		}
+		return dropReward;
+	}
+	
+	private List<ItemEffect> getDropItems(List<DropEffect> drops){
+		List<ItemEffect> list = new ArrayList<>();
+		if(drops != null){
+			for(DropEffect drop : drops){
+				if(drop.isDrop()){
+					List<Integer> types = new ArrayList<>();
+					List<ItemEffect> plist = new ArrayList<>();
+					int amount = drop.getAmount();
+					int probability = 0;
+					List<ItemEffect> items = drop.getItems();  //不要修改items
+					for(ItemEffect effect : items){
+						if(!types.contains(effect.getType())){
+							if(effect.getProbability() == SystemConstant.PERCENT_BASE_INT){
+								list.add(effectService.createEffect(effect.getType(), effect.getId(), effect.getValue1(), effect.getValue2(), effect.getLogSubType()));
+								types.add(effect.getType());
+								if(amount > 0){
+									amount--;
+									if(amount == 0){
+										break;
+									}
+								}
+							}else{
+								plist.add(effect);
+								probability += effect.getProbability();
+							}
+						}
+					}
+					if(amount > 0){
+						for(int i = 0; i < amount; i++){
+							if(probability > 0){
+								int random = MathUtil.nextInt(probability);
+								Iterator<ItemEffect> it = plist.iterator();
+								while(it.hasNext()){
+									ItemEffect effect = it.next();
+									if(random < effect.getProbability()){
+										it.remove();
+										probability -= effect.getProbability();
+										if(types.contains(effect.getType())){
+											random -= effect.getProbability();
+										}else{
+											list.add(effectService.createEffect(effect.getType(), effect.getId(), effect.getValue1(), effect.getValue2(), effect.getLogSubType()));
+											types.add(effect.getType());
+											break;
+										}
+									}else{
+										random -= effect.getProbability();
+									}
+								}
+							}
+						}
+					}else if(amount == -1){
+						for(ItemEffect effect : plist){
+							int random = MathUtil.nextInt(SystemConstant.PERCENT_BASE_INT);
+							if(random < effect.getProbability()){
+								if(!types.contains(effect.getType())){
+									list.add(effectService.createEffect(effect.getType(), effect.getId(), effect.getValue1(), effect.getValue2(), effect.getLogSubType()));
+									types.add(effect.getType());
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return effectService.mergeEffect(list, 1);
 	}
 	
 }

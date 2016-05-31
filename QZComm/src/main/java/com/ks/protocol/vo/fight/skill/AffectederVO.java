@@ -27,7 +27,7 @@ public abstract class AffectederVO extends Message {
 	
 	@FieldDesc(desc="战斗编号")
 	private int fightId;
-	@FieldDesc(desc="类型")
+	@FieldDesc(desc="类型[1为伤害,2回血]")
 	private int type;
 	@FieldDesc(desc="值")
 	private int val;

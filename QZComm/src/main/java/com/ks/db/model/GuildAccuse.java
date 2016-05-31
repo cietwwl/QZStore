@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import lombok.Data;
 
 import com.ks.access.DBBeanSet;
@@ -36,30 +38,13 @@ public class GuildAccuse implements Serializable {
 	/**修改时间*/
 	@DBFieldSet(dbfname="update_time")
 	private Date updateTime = new Date();
+	@JsonIgnore
 	private List<Integer> resperList;
 	private void initResperList(){
 		resperList = StringUtil.stringToList(resper);
 	}
 	private void initRespers(){
 		resper = StringUtil.listToString(resperList);
-	}
-	public int getGuildId() {
-		return guildId;
-	}
-	public void setGuildId(int guildId) {
-		this.guildId = guildId;
-	}
-	public int getOriginator() {
-		return originator;
-	}
-	public void setOriginator(int originator) {
-		this.originator = originator;
-	}
-	public String getPlayerName() {
-		return playerName;
-	}
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
 	}
 	public String getResper() {
 		initRespers();
@@ -68,18 +53,6 @@ public class GuildAccuse implements Serializable {
 	public void setResper(String resper) {
 		this.resper = resper;
 		initResperList();
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 	
 }

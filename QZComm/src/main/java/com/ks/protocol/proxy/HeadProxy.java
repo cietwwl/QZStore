@@ -5,6 +5,7 @@ public final class HeadProxy extends com.ks.protocol.vo.Head{
 		channelBuff.writeShort(getLength());
 		channelBuff.writeShort(getMainCmd());
 		channelBuff.writeShort(getSubCmd());
+		channelBuff.writeInt(getGuideId());
 		writeString(channelBuff,getSessionId());
 		channelBuff.writeShort(getCheckVal());
 		channelBuff.writeByte(isCompressed()?(byte)1:(byte)0);
@@ -13,6 +14,7 @@ public final class HeadProxy extends com.ks.protocol.vo.Head{
 		setLength(channelBuff.readShort());
 		setMainCmd(channelBuff.readShort());
 		setSubCmd(channelBuff.readShort());
+		setGuideId(channelBuff.readInt());
 		setSessionId(readString(channelBuff));
 		setCheckVal(channelBuff.readShort());
 		setCompressed(channelBuff.readByte()==1);

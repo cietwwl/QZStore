@@ -39,7 +39,7 @@ public interface MallService {
 	 * @param userId
 	 */
 	@Transaction
-	void refreshBlackMarket(int userId);
+	void refreshBlackMarket(int userId, boolean active);
 	/**
 	 * 
 	 * @return

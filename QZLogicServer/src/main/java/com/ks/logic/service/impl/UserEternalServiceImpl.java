@@ -12,7 +12,6 @@ import com.ks.constant.SystemConstant;
 import com.ks.db.cfg.BlowingRule;
 import com.ks.db.cfg.Equipment;
 import com.ks.db.cfg.Eternal;
-import com.ks.db.cfg.EternalSmelting;
 import com.ks.db.cfg.Hero;
 import com.ks.db.cfg.UserRule;
 import com.ks.db.model.User;
@@ -160,9 +159,9 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 		UserEternal ue = getUserEternal(user, userHero.getEternal());
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_拆下武魂);
 		if(retain){
-			effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, SystemConstant.PROP_ID_秘银棒, 1);
+			effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, SystemConstant.PROP_ID_秘银棒, 1, 0);
 		}else{
-			effects.delItem(ue);
+			effects.appendDelObj(ue);
 		}
 		int code = effectService.validDels(user, effects);
 		if(code != GameException.CODE_正常){
@@ -181,28 +180,12 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 	
 	@Override
 	public List<EternalSmeltingVO> gainEternalSmeltings(int userId) {
-		List<EternalSmelting> ess = gainEternalSmelting(userId);
+		User user = userService.getOnlineUser(userId);
 		List<EternalSmeltingVO> vos = new ArrayList<EternalSmeltingVO>();
-		for(EternalSmelting es : ess){
-			EternalSmeltingVO vo = MessageFactory.getMessage(EternalSmeltingVO.class);
-			vo.init(es);
-			vos.add(vo);
-		}
+		EternalSmeltingVO vo = MessageFactory.getMessage(EternalSmeltingVO.class);
+		vo.init(1, user.getSmeltingExp(), user.getAddSmeltingVal());
+		vos.add(vo);
 		return vos;
-	}
-
-	public List<EternalSmelting> gainEternalSmelting(int userId) {
-		List<EternalSmelting> ess = userPropDAO.queryEternalSmeltings(userId);
-		if(ess.size() == 0){
-			for(int i=1;i<=1;i++){
-				EternalSmelting es = new EternalSmelting();
-				es.setUserId(userId);
-				es.setType(i);
-				ess.add(es);
-			}
-			userPropDAO.addEternalSmeltings(ess);
-		}
-		return ess;
 	}
 	
 	private static final int[] ETERNAL_RATE = new int[]{70,90,100};
@@ -214,16 +197,10 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 		if(CheckUtil.isRepeatlist(equipmentIds)){
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
-		EternalSmelting es = userPropDAO.queryEternalSmelting(userId, type);
-		if(es == null){
-			throw new GameException(GameException.CODE_参数错误, "");
-		}
-		
 		User user = userService.getOnlineUser(userId);
-		
 		UserRule rule = GameCache.getUserRule(user.getLevel());
-		int limit = privilegeService.getPrivilegesValue(user, SystemConstant.PRIVILEGE_TYPE_ETERNAL_SMELTING_MAX_LIMIT) + rule.getEternalVal() + es.getAddEternalVal();
-		if(es.getVal() >= limit){
+		int limit = privilegeService.getPrivilegesValue(user, SystemConstant.PRIVILEGE_TYPE_ETERNAL_SMELTING_MAX_LIMIT) + rule.getEternalVal() + user.getAddSmeltingVal();
+		if(user.getSmeltingExp() >= limit){
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
 		int val = 0;
@@ -238,7 +215,7 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 			}
 			Equipment e  = GameCache.getEquipment(ue.getEquipmentId());
 			val += e.getEternalVal()*ue.getLevel();
-			effects.delItem(ue);
+			effects.appendDelObj(ue);
 		}
 		for(int eternalId : eternalIds){
 			UserEternal ue = getUserEternal(user, eternalId);
@@ -247,7 +224,7 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 			}
 			Eternal e  = GameCache.getEternal(ue.getEternalId());
 			val += e.getEternalVal();
-			effects.delItem(ue);
+			effects.appendDelObj(ue);
 		}
 		int code = effectService.validDels(user, effects);
 		if(code != GameException.CODE_正常){
@@ -255,7 +232,6 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 		}
 		effectService.delIncome(user, effects);
 		SmeltingVO s = MessageFactory.getMessage(SmeltingVO.class);
-		
 		int random = ThreadLocalRandom.current().nextInt(100);
 		for(int i=0;i<ETERNAL_RATE.length;i++){
 			if(ETERNAL_RATE[i]>random){
@@ -265,26 +241,25 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 			}
 		}
 		s.setGainPoint(val);
-		es.setVal(es.getVal()+val);
-		
-		userPropDAO.updateEternalSmelting(es);
+		ItemEffects adds = new ItemEffects(SystemConstant.LOGGER_APPROACH);
+		adds.appendItem(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT, 0, val, 0);
+		effectService.addIncome(user, adds, null);
 		
 		EternalSmeltingVO vo = MessageFactory.getMessage(EternalSmeltingVO.class);
-		vo.init(es);
+		vo.init(1, user.getSmeltingExp(), user.getAddSmeltingVal());
 		s.setEs(vo);
 		return s;
 	}
 
 	@Override
 	public UserEternal blowing(int userId, int type) {
-		EternalSmelting es = userPropDAO.queryEternalSmelting(userId, type);
-		if(es == null){
-			throw new GameException(GameException.CODE_参数错误, "");
-		}
-		if(es.getVal()< SystemConstant.ETERNAL_SMELTING_MAX_VAL[type-1]){
-			throw new GameException(GameException.CODE_参数错误, "");
-		}
 		User user = userService.getOnlineUser(userId);
+		ItemEffects dels = new ItemEffects(SystemConstant.LOGGER_APPROACH);
+		dels.appendItem(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL_SMELTING_POINT, 0, SystemConstant.ETERNAL_SMELTING_MAX_VAL[type-1], 0);
+		int code = effectService.validDels(user, dels);
+		if(code != GameException.CODE_正常){
+			throw new GameException(code, "");
+		}
 		List<BlowingRule> rules = GameCache.queryBlowingRule(type);
 		int propId = 0;
 		int random = (int) (Math.random()*10000);
@@ -297,21 +272,17 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 			}
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_开炉获得);
-		effects.addItem(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL, propId, 1, 1);
-		int code = effectService.validAdds(user, effects);
+		effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL, propId, 1, 1);
+		code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
 		}
+		effectService.delIncome(user, dels);
 		ItemEffect effect = new ItemEffect();
 		effect.setType(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL);
 		effect.setId(propId);
 		effect.setValue1(1);
-		UserEternal prop = (UserEternal) incomeService.addIncome(user, effect).get(0);
-		effectService.addIncome(user, effects);
-		es.setVal(es.getVal()- SystemConstant.ETERNAL_SMELTING_MAX_VAL[type-1]);
-		userPropDAO.updateEternalSmelting(es);
-		
-		return prop;
+		return (UserEternal) incomeService.addIncome(user, effect, null, false).get(0);
 	}
 
 	@Override
@@ -323,13 +294,13 @@ public class UserEternalServiceImpl extends BaseService implements UserEternalSe
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_出售武魂);
-		effects.delItem(ue);
+		effects.appendDelObj(ue);
 		int code = effectService.validDels(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
 		}
 		effectService.delIncome(user, effects);
-		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, e.getSellPrice(), SystemConstant.LOGGER_APPROACH_出售武魂获得);
+		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, e.getSellPrice(), null, false, SystemConstant.LOGGER_APPROACH_出售武魂获得);
 	}
 	
 }

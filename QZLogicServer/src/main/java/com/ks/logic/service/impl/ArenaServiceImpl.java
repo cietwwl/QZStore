@@ -176,7 +176,7 @@ public class ArenaServiceImpl extends BaseService implements ArenaService {
 			throw new GameException(GameException.CODE_参数错误, "");
 		}else{
 			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_清除竞技场CD时间);
-			effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.ARENA_CLEAR_CD_DIAMOND);
+			effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.ARENA_CLEAR_CD_DIAMOND, 0);
 			int code = effectService.validDels(user, effects);
 			if(code != GameException.CODE_正常){
 				throw new GameException(code, "");
@@ -199,7 +199,7 @@ public class ArenaServiceImpl extends BaseService implements ArenaService {
 		}else{
 			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_增加竞技场次数);
 			int dimaond = GameCache.getArenaBuy(stat.getArenaBuyCount() + 1).getBuyBattlePrice();
-			effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, dimaond);
+			effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, dimaond, 0);
 			int code = effectService.validDels(user, effects);
 			if(code != GameException.CODE_正常){
 				throw new GameException(code, "");
@@ -318,7 +318,7 @@ public class ArenaServiceImpl extends BaseService implements ArenaService {
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_刷新商场);
 		int dimaond = GameCache.getArenaBuy(stat.getArenaRefreshCount() + 1).getBuyRefreshPrice();
-		effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, dimaond);
+		effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, dimaond, 0);
 		int code = effectService.validDels(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
@@ -359,7 +359,7 @@ public class ArenaServiceImpl extends BaseService implements ArenaService {
 			throw new GameException(GameException.CODE_勇气点数不够, "");	
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_竞技场兑换);
-		effects.addItem(as.getType(), as.getGoodsId(), as.getNum(), as.getLevel());
+		effects.appendItem(as.getType(), as.getGoodsId(), as.getNum(), as.getLevel());
 		int code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");

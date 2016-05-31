@@ -28,8 +28,9 @@ public class AddItemsAction extends AdminWorkAction{
 		Long keyId = GameLockManager.getInstance().lockUser(username, partner);
 		try{
 			String items = HttpUtils.getParam("items", parammaps);
+			String delItems = HttpUtils.getParam("delItems", parammaps);
 			AdminAction action = RPCKernel.getRemoteByServerType(Application.LOGIC_SERVER, AdminAction.class);
-			return action.addItems(partner, username, items, result);
+			return action.addItems(partner, username, items, delItems, result);
 		}finally{
 			GameLockManager.getInstance().unlockKey(keyId);
 		}

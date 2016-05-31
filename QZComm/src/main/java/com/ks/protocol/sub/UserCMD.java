@@ -33,7 +33,7 @@ public interface UserCMD {
 	short SIGNIN = 12;
 	/**领取签到奖励*/
 	short DRAW_SUM_SIGNIN=13;
-	/**修改功能解锁*/
+	/**修改功能解锁（无用）*/
 	short UPDATE_FUN_UNLOCK=14;
 	/**升级声望*/
 	short LEVEL_UP_FAME=15;
@@ -45,6 +45,8 @@ public interface UserCMD {
 	short INCRE_EXPPOOL = 18;
 	/**提升熔炼池上限*/
 	short INCRE_ETERNALSMELTING = 19;
+	/**获取引导*/
+	short UPDATE_GUIDE_STEP_LIST = 20;
 	
 	
 	

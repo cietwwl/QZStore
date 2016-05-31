@@ -396,7 +396,7 @@ public class FriendServiceImpl extends BaseService implements FriendService {
 			}
 		}
 		if(state > 0){
-			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_STAMINA, state * 6, SystemConstant.LOGGER_APPROACH_好友赠送);
+			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_STAMINA, state * 6, null, false, SystemConstant.LOGGER_APPROACH_好友赠送);
 		}else{
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
@@ -453,7 +453,7 @@ public class FriendServiceImpl extends BaseService implements FriendService {
 		List<Integer> list = action.getOnlineUserIds();
 		List<Integer> userIds = new ArrayList<>();
 		for(Integer uid : list){
-			User other = userDAO.getUserFromCache(uid);
+			User other = userService.queryCacheUser(userId);
 			if(other != null && !ids.contains(uid) && other.getLevel() >= SystemConstant.FRIEND_OPEN_LEVEL){
 				userIds.add(uid);
 			}
@@ -555,7 +555,7 @@ public class FriendServiceImpl extends BaseService implements FriendService {
 			return 0;
 		}
 		User user = userService.getOnlineUser(userId);
-		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GP, stat.getHireGp(), SystemConstant.LOGGER_APPROACH_领取雇佣GP);
+		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GP, stat.getHireGp(), null, false, SystemConstant.LOGGER_APPROACH_领取雇佣GP);
 		
 		SQLOpt opt = new SQLOpt();
 		opt.putFieldOpt(UserStatTable.HIREGP, SQLOpt.EQUAL);

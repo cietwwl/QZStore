@@ -7,10 +7,13 @@ import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
 import com.ks.constant.SystemConstant;
 import com.ks.model.user.UserBaseinfo;
+
+import lombok.Data;
 /**
  * 公会
  * @author ks
  */
+@Data
 @DBBeanSet(tablename="t_guild", primaryKey={"guild_id"})
 public class Guild implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -56,74 +59,4 @@ public class Guild implements Serializable {
 		}
 		return SystemConstant.GUILD_LEVEL_EXP.length;
 	}
-	
-	/**
-	 * 获得总公会人数
-	 * @return 总公会人数
-	 */
-	public int getMaxMemberNum(){
-		return getGuildLevel()*5+15;
-	}
-	
-	public int getGuildId() {
-		return guildId;
-	}
-	public void setGuildId(int guildId) {
-		this.guildId = guildId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getMemberNum() {
-		return memberNum;
-	}
-	public void setMemberNum(int memberNum) {
-		this.memberNum = memberNum;
-	}
-	public int getExp() {
-		return exp;
-	}
-	public void setExp(int exp) {
-		this.exp = exp;
-	}
-	public int getSkillPoint() {
-		return skillPoint;
-	}
-	public void setSkillPoint(int skillPoint) {
-		this.skillPoint = skillPoint;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-	public int getState() {
-		return state;
-	}
-	public void setState(int state) {
-		this.state = state;
-	}
-	public int getCdrUserId() {
-		return cdrUserId;
-	}
-	public void setCdrUserId(int cdrUserId) {
-		this.cdrUserId = cdrUserId;
-	}
-	public UserBaseinfo getCdrBaseInfo() {
-		return cdrBaseInfo;
-	}
-	public void setCdrBaseInfo(UserBaseinfo cdrBaseInfo) {
-		this.cdrBaseInfo = cdrBaseInfo;
-	}
-	
 }

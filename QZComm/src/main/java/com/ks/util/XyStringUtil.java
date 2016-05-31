@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
 /**
@@ -312,6 +313,18 @@ public class XyStringUtil{
 		}
 		str = "'" + str + "'";
 		return str;
+	}
+	
+	public static void addValueToMap(String value, Map<Integer, Integer> addMap){
+		Map<Integer, Integer> map = XyStringUtil.parseMap(value, XyStringUtil.SPLIT_VERTICALLINE, XyStringUtil.SPLIT_UNDERLINE);
+		for(Entry<Integer, Integer> entry : map.entrySet()){
+			Integer val = addMap.get(entry.getKey());
+			if(val == null){
+				addMap.put(entry.getKey(), entry.getValue());
+			}else{
+				addMap.put(entry.getKey(), entry.getValue() + val);
+			}
+		}
 	}
 
 	public static void main(String args[]){

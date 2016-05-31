@@ -7,11 +7,14 @@ import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
 import com.ks.constant.SystemConstant;
 
+import lombok.Data;
+
 /**
  * 公会技能
  * 
  * @author ks
  */
+@Data
 @DBBeanSet(tablename="t_guild_skill", primaryKey={"guild_id","skill_id"})
 public class GuildSkill implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -65,45 +68,6 @@ public class GuildSkill implements Serializable {
 			}
 		}
 		return SystemConstant.GUILD_SKILL_LEVEL[SystemConstant.GUILD_SKILL_LEVEL.length-1][4];
-	}
-	public int getGuildId() {
-		return guildId;
-	}
-
-	public void setGuildId(int guildId) {
-		this.guildId = guildId;
-	}
-
-	public int getSkillId() {
-		return skillId;
-	}
-
-	public void setSkillId(int skillId) {
-		this.skillId = skillId;
-	}
-
-	public int getGp() {
-		return gp;
-	}
-
-	public void setGp(int gp) {
-		this.gp = gp;
-	}
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 
 }

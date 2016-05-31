@@ -21,6 +21,7 @@ public static final String HINDER="hinder";
 public static final String GROUP="group";
 public static final String SUBGROUP="subGroup";
 public static final String CONDITIONS="conditions";
+public static final String NAME="name";
 
 public static final String J_BATTLEID="battleId";
 public static final String J_ZONEID="zoneId";
@@ -40,6 +41,7 @@ public static final String J_HINDER="hinder";
 public static final String J_GROUP="group";
 public static final String J_SUBGROUP="subGroup";
 public static final String J_CONDITIONS="conditions";
+public static final String J_NAME="name";
 
 public ZoneBattleTable(){
 mapper=new DBRowMapper_ZoneBattle();
@@ -100,6 +102,9 @@ return bean.getSubGroup();
 if(CONDITIONS.equals(fname)){
 return bean.getConditions();
 }
+if(NAME.equals(fname)){
+return bean.getName();
+}
 return null;
 }
 @Override
@@ -128,6 +133,7 @@ bean.setHinder(StringUtil.getHinder(rs.getString("hinder")));
 bean.setGroup(rs.getInt("group"));
 bean.setSubGroup(rs.getInt("subGroup"));
 bean.setConditions(rs.getString("conditions"));
+bean.setName(rs.getString("name"));
 return bean;
 }
 }

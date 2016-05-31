@@ -17,7 +17,7 @@ public class ArenaServiceTestCase extends BaseTestCase {
 	@Test
 	public void testAward(){
 //		new ArenaActionImpl().arenaAward();
-		
-		ServiceFactory.getService(MallService.class).refreshBlackMarket(762);
+//		
+//		ServiceFactory.getService(MallService.class).refreshBlackMarket(762);
 	}
 }

@@ -5,6 +5,9 @@ import java.util.List;
 import com.ks.constant.SystemConstant;
 import com.ks.util.MathUtil;
 
+import lombok.Data;
+
+@Data
 public class DropEffect {
 	private int amount;   //获得数量（-1为全随机）
 	private int probability;  //分组概率
@@ -13,24 +16,6 @@ public class DropEffect {
 	public DropEffect(int amount, int probability, List<ItemEffect> items){
 		this.amount = amount;
 		this.probability = probability;
-		this.items = items;
-	}
-	public int getAmount(){
-		return amount;
-	}
-	public void setAmount(int amount){
-		this.amount = amount;
-	}
-	public int getProbability(){
-		return probability;
-	}
-	public void setProbability(int probability){
-		this.probability = probability;
-	}
-	public List<ItemEffect> getItems(){
-		return items;
-	}
-	public void setItems(List<ItemEffect> items){
 		this.items = items;
 	}
 	public int getItemSize(int type){
@@ -45,6 +30,22 @@ public class DropEffect {
 			}
 		}
 		return size > amount ?  amount : size;
+	}
+	public int getMaxItemSize(int type){
+		int size = 0;
+		for(ItemEffect effect : items){
+			if(effect.getType() == type){
+				if(type != SystemConstant.ITEM_EFFECT_TYPE_PROP){
+					if(effect.getValue1() > size){
+						size = effect.getValue1();
+					}
+				}else{
+					size = 1;
+					break;
+				}
+			}
+		}
+		return size > amount ? amount : size;
 	}
 	public boolean isDrop(){
 		boolean drop = probability == SystemConstant.PERCENT_BASE_INT;

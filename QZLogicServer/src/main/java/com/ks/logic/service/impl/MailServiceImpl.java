@@ -114,28 +114,28 @@ public class MailServiceImpl extends BaseService implements MailService {
 		User user = userService.getOnlineUser(userId);
 		Collection<Mail> mails = getMails(user);
 		List<MailVO> vos = new ArrayList<MailVO>();
-		for(Mail mail : mails){
+		Iterator<Mail> it = mails.iterator();
+		while(it.hasNext()){
+			Mail mail = it.next();
+			boolean delete = false;
+			long time = System.currentTimeMillis() - mail.getCreateTime().getTime();
 			if(mail.getState() == SystemConstant.MAIL_STATE_READ){
-				if(mail.getGoodses()==null||mail.getGoodsList().size()==0){
-					if((System.currentTimeMillis()-mail.getCreateTime().getTime())>3*24*60*60*1000l){
-						mailDAO.deleteMail(mail.getMailId(), userId);
-						continue;
-					}
+				if(mail.getGoodses() == null || mail.getGoodses().length() == 0 || mail.getGoodsList().isEmpty()){
+					delete = time >= 3*24*60*60*1000l;
 				}else{
-					if((System.currentTimeMillis()-mail.getCreateTime().getTime())>7*24*60*60*1000l){
-						deleteMailData(userId, mail.getMailId());
-						continue;
-					}
+					delete = time >= 7*24*60*60*1000l;
 				}
 			}else{
-				if((System.currentTimeMillis()-mail.getCreateTime().getTime())>30*24*60*60*1000l){
-					deleteMailData(userId, mail.getMailId());
-					continue;
-				}
+				delete = time >= 30*24*60*60*1000l;
 			}
-			MailVO vo = MessageFactory.getMessage(MailVO.class);
-			vo.init(mail);
-			vos.add(vo);
+			if(delete){
+				it.remove();
+				deleteMailData(userId, mail.getMailId());
+			}else{
+				MailVO vo = MessageFactory.getMessage(MailVO.class);
+				vo.init(mail);
+				vos.add(vo);
+			}
 		}
 		return vos;
 	}
@@ -153,7 +153,7 @@ public class MailServiceImpl extends BaseService implements MailService {
 		User user = userService.getOnlineUser(userId);
 		Mail mail = getMail(user, mailId);
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_邮件获得);
-		effects.addItems(mail.getGoodsList(), 0);
+		effects.appendGoods(mail.getGoodsList(), 0);
 		int code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");

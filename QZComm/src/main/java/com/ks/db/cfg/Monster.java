@@ -5,10 +5,14 @@ import java.util.List;
 
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
+import com.ks.object.DropEffect;
+
+import lombok.Data;
 /**
  * 怪物
  * @author ks
  */
+@Data
 @DBBeanSet(tablename="t_monster", createDeleteSql=false, createInsertSql=false, createSelectSql=false, createUpdateSql=false)
 public class Monster implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -53,97 +57,6 @@ public class Monster implements Serializable {
 	/**怪物攻击方式*/
 	private List<MonsterAtkMode> modes;
 	/**怪物掉落*/
-	private List<Drop> drops;
-	
-	public int getMonsterId() {
-		return monsterId;
-	}
-	public void setMonsterId(int monsterId) {
-		this.monsterId = monsterId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getEle() {
-		return ele;
-	}
-	public void setEle(int ele) {
-		this.ele = ele;
-	}
-	public int getAbility() {
-		return ability;
-	}
-	public void setAbility(int ability) {
-		this.ability = ability;
-	}
-	public int getHp() {
-		return hp;
-	}
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-	public int getAtk() {
-		return atk;
-	}
-	public void setAtk(int atk) {
-		this.atk = atk;
-	}
-	public int getAtkCount() {
-		return atkCount;
-	}
-	public void setAtkCount(int atkCount) {
-		this.atkCount = atkCount;
-	}
-	public int getCritRate() {
-		return critRate;
-	}
-	public void setCritRate(int critRate) {
-		this.critRate = critRate;
-	}
-	public int getCritHit() {
-		return critHit;
-	}
-	public void setCritHit(int critHit) {
-		this.critHit = critHit;
-	}
-	public int getDodgeRate() {
-		return dodgeRate;
-	}
-	public void setDodgeRate(int dodgeRate) {
-		this.dodgeRate = dodgeRate;
-	}
-	public int getCapSkillId() {
-		return capSkillId;
-	}
-	public void setCapSkillId(int capSkillId) {
-		this.capSkillId = capSkillId;
-	}
-	public int getBodyType() {
-		return bodyType;
-	}
-	public void setBodyType(int bodyType) {
-		this.bodyType = bodyType;
-	}
-	public List<MonsterAtkMode> getModes() {
-		return modes;
-	}
-	public void setModes(List<MonsterAtkMode> modes) {
-		this.modes = modes;
-	}
-	public int getEleLv() {
-		return eleLv;
-	}
-	public void setEleLv(int eleLv) {
-		this.eleLv = eleLv;
-	}
-	public List<Drop> getDrops() {
-		return drops;
-	}
-	public void setDrops(List<Drop> drops) {
-		this.drops = drops;
-	}
+	private List<DropEffect> drops;
 	
 }

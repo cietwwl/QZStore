@@ -1,5 +1,6 @@
 package com.ks.manager;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -76,5 +77,9 @@ public class PlayerManager {
 	 */
 	public static void leaveChatChannel(int channelId,Channel channel){
 		chatChannelGroup.get(channelId).remove(channel);
+	}
+	
+	public static Collection<ChannelGroup> getChatChannels(){
+		return chatChannelGroup.values();
 	}
 }

@@ -17,6 +17,7 @@ import com.ks.db.cfg.PropEffect;
 import com.ks.db.cfg.Signin;
 import com.ks.db.cfg.SumSignin;
 import com.ks.db.cfg.UserRule;
+import com.ks.db.log.ActiveLogger;
 import com.ks.db.log.LoginLogger;
 import com.ks.db.log.OnlineReportLogger;
 import com.ks.db.log.RegistLossLogger;
@@ -27,6 +28,7 @@ import com.ks.db.model.GuildMember;
 import com.ks.db.model.User;
 import com.ks.db.model.UserEquipment;
 import com.ks.db.model.UserEternal;
+import com.ks.db.model.UserGuideStep;
 import com.ks.db.model.UserHero;
 import com.ks.db.model.UserProp;
 import com.ks.db.model.UserRecord;
@@ -35,6 +37,7 @@ import com.ks.db.model.UserTeam;
 import com.ks.exceptions.GameException;
 import com.ks.logic.cache.GameCache;
 import com.ks.logic.cache.UserCache;
+import com.ks.logic.event.GameLoggerEvent;
 import com.ks.logic.event.task.FrameLevelUpEvent;
 import com.ks.logic.service.BaseService;
 import com.ks.logic.service.UserService;
@@ -132,6 +135,50 @@ public final class UserServiceImpl extends BaseService implements UserService {
 		return stat;
 	}
 	
+	/******************************************************* guide step *********************************************************/
+	
+	private void updateUserGuideStep(User user, UserGuideStep step, boolean add){
+		if(add){
+			userGuideStepDao.addUserGuideStep(step);
+		}else{
+			userGuideStepDao.updateUserGuideStep(step);
+		}
+		userGuideStepDao.setUserGuideStepCache(step);
+	}
+	private UserGuideStep loadUserGuideStepCache(User user){
+		UserGuideStep step = user.getUserGuideStep();
+		if(step == null){
+			step = userGuideStepDao.queryUserGuideStepsCache(user.getUserId());
+		}
+		return step;
+	}
+	
+	public List<Integer> getUserGuideIds(User user){
+		UserGuideStep step = user.getUserGuideStep();
+		if(step == null){
+			step = userGuideStepDao.queryUserGuideStepsCache(user.getUserId());
+			if(step == null){
+				step = userGuideStepDao.queryUserGuideStep(user.getUserId());
+				if(step != null){
+					userGuideStepDao.setUserGuideStepCache(step);
+					user.setUserGuideStep(step);
+				}
+			}
+		}
+		if(step != null){
+			return step.getGuideList();
+		}
+		return new ArrayList<>();
+	}
+	
+	public UserGuideStep getUserGuideStep(User user){
+		UserGuideStep step = loadUserGuideStepCache(user);
+		if(step == null){
+			return userGuideStepDao.queryUserGuideStep(user.getUserId());
+		}
+		return step;
+	}
+	
 	/***************************************************logic****************************************************************/
 	@Override
 	public LoginResultVO userLogin(LoginVO login) {
@@ -151,7 +198,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 
 	@Override
 	public void logout(int userId) {
-		User user = userDAO.getUserFromCache(userId);
+		User user = queryCacheUser(userId);
 		if (user != null) {
 			user.setOnline(0);
 			int time = (int) ((System.currentTimeMillis() - user.getLastLoginTime().getTime()) / 1000);
@@ -179,6 +226,9 @@ public final class UserServiceImpl extends BaseService implements UserService {
 			userDAO.updateUserBaseinfo(baseInfo);
 			LoginLogger logger = new LoginLogger(user.getUserId(), user.getPlayerName(), 3);
 			gameLoggerDAO.addLoginLogger(logger);
+			ActiveLogger alogger = new ActiveLogger(user.getPartner(), user.getUserId(), user.getUsername(), user.getPlayerName());
+			alogger.setTotalOnlineTime(user.getDailyOnlineTime());
+			TimerController.submitGameEvent(new GameLoggerEvent(SystemConstant.LOG_EVENT_TYPE_ACTICE, alogger));
 		}
 	}
 	@Override
@@ -203,7 +253,6 @@ public final class UserServiceImpl extends BaseService implements UserService {
 		UserRule rule = GameCache.getUserRule(user.getLevel());
 		user.setStamina(rule.getStamina());
 		userDAO.addUser(user);
-		userDAO.updateUserLevel(user.getLevel(), user.getUserId());
 
 		boolean hasHero = false;
 		for (int id : SystemConstant.INIT_HEROS) {
@@ -215,8 +264,8 @@ public final class UserServiceImpl extends BaseService implements UserService {
 		// 初始化英雄是否合法
 		if (hasHero) {
 			ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_注册赠送);
-			effects.addItem(SystemConstant.ITEM_EFFECT_TYPE_HERO, register.getInitHeroId(), 1, 1);
-			effectService.addIncome(user, effects);
+			effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_HERO, register.getInitHeroId(), 1, 1);
+			effectService.addIncome(user, effects, null);
 		} else {
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
@@ -231,62 +280,53 @@ public final class UserServiceImpl extends BaseService implements UserService {
 	}
 	
 	@Override
-	public UserInfoVO gainUserInfo(final int userId) {
-		Date lastTime = null;
+	public UserInfoVO gainUserInfo(int userId) {
+		User user = queryCacheUser(userId);
 		Map<String, String> hash = new HashMap<>();
-		User user = userDAO.getUserFromCache(userId);
-		if (user == null) {
-			user = userDAO.findUserByUserId(userId);
-			if (user == null) {
-				throw new GameException(GameException.CODE_参数错误, "");
-			}
-			lastTime = user.getLastLoginTime();
-			user.setLastLoginTime(XyTimeUtil.getNowDate());
-			userDAO.addUserCache(user);
-		}else{
-			lastTime = user.getLastLoginTime();
-			user.setLastLoginTime(XyTimeUtil.getNowDate());
-			hash.put(UserTable.J_LASTLOGINTIME, String.valueOf(user.getLastLoginTime().getTime()));
+		boolean cache = user == null;
+		if(cache){
+			user = getUser(userId);
 		}
 		if(user.getBanLoginTime() > XyTimeUtil.getNowSecond()){
 			throw new GameException(GameException.CODE_您已被封号, "");
+		}else if(user.getBanChatTime() > XyTimeUtil.getNowSecond()){
+			WorldChatAction action = RPCKernel.getRemoteByServerType(Application.WORLD_SERVER, WorldChatAction.class);
+			action.banChat(user.getUserId(), user.getBanChatTime());
 		}
-		checkStamina(user);
-		privilegeService.resetDate(user, lastTime);  
-		if(DateUtil.isBeforeToDay(user.getLastLoginTime())){
-			user.setDailyOnlineTime(0);
-			hash.put(UserTable.J_DAILYONLINETIME, String.valueOf(user.getDailyOnlineTime()));
-		}
-		user.setOnline(1);
-		user.setAccessTime(XyTimeUtil.getNowSecond());
-		hash.put(UserTable.J_ONLINE, String.valueOf(user.getOnline()));
-		hash.put(UserTable.J_ACCESSTIME, String.valueOf(user.getAccessTime()));
-		updateUser(user, hash, true);
-
+		//初始化缓存
+		mailService.initMails(userId);
 		Collection<UserHero> heros = userHeroService.initUserHeros(userId);
 		Collection<UserProp> userProps = userPropService.initProps(userId);
 		Collection<UserEquipment> userEquipments = userEquipmentService.initUserEquipment(userId);
 		Collection<UserEternal> eternals = userEternalService.initUserEternal(userId);
-		mailService.initMails(userId);
 		UserRecord userRecord = userDAO.getUserRecord(userId);
 		UserInfoVO userInfo = MessageFactory.getMessage(UserInfoVO.class);
 		userInfo.init(user, heros, userProps, userEquipments, eternals, userRecord.getFirstRechargeList());
-
-		GuildMember guildMember = guildMemberDAO.queryGuildMember(userId);
-		if (guildMember != null) {
-			if (guildMember.getProperty() == SystemConstant.GUILD_MEMBER_会长) {
-				guildAccuseDAO.deleteGuildAccuse(guildMember.getGuildId());
-			}
+		//初始化数据
+		setUserOnline(userId);
+		Date lastTime = user.getLastLoginTime();
+		user.setOnline(1);
+		user.setAccessTime(XyTimeUtil.getNowSecond());
+		user.setLastLoginTime(XyTimeUtil.getNowDate());
+		privilegeService.resetDate(user, lastTime);  
+		if(DateUtil.isBeforeToDay(lastTime) || lastTime.getTime() == user.getCreateTime().getTime()){
+			user.setDailyOnlineTime(0);
+			hash.put(UserTable.J_DAILYONLINETIME, String.valueOf(user.getDailyOnlineTime()));
+			gameLoggerDAO.addActiveLogger(new ActiveLogger(user.getPartner(), user.getUserId(), user.getUsername(), user.getPlayerName()));
 		}
-		userDAO.updateUserLevel(user.getLevel(), user.getUserId());
-		
-		if(user.getBanChatTime() > XyTimeUtil.getNowSecond()){
-			WorldChatAction action = RPCKernel.getRemoteByServerType(Application.WORLD_SERVER, WorldChatAction.class);
-			action.banChat(user.getUserId(), user.getBanChatTime());
+		if(cache){
+			userDAO.addUserCache(user);  
+		}else{
+			hash.put(UserTable.J_LASTLOGINTIME, String.valueOf(user.getLastLoginTime().getTime()));
+			hash.put(UserTable.J_ONLINE, String.valueOf(user.getOnline()));
+			hash.put(UserTable.J_ACCESSTIME, String.valueOf(user.getAccessTime()));
 		}
-		LoginLogger logger = new LoginLogger(user.getUserId(), user.getPlayerName(), 2);
-		gameLoggerDAO.addLoginLogger(logger);
+		checkStamina(user);
+		fightService.checkFight(userId);
+		updateUser(user, hash, true);   //第三个参数为true添加到缓存，所有修改到user的数据不要置于之下
 		fightService.computeFightingEvent(user.getUserId());
+		userDAO.updateUserLevel(user.getLevel(), user.getUserId());
+		gameLoggerDAO.addLoginLogger(new LoginLogger(user.getUserId(), user.getPlayerName(), 2));
 		return userInfo;
 	}
 
@@ -332,11 +372,28 @@ public final class UserServiceImpl extends BaseService implements UserService {
 			if(add){
 				stat = UserStat.createUserStat(user.getUserId());
 			}
-			if(stat.getBlackMarketGoodsList().isEmpty()){
+			boolean emptyGoods = stat.getBlackMarketGoodsList().isEmpty();
+			boolean flushGoods = false;
+			if(!emptyGoods){
+				Date now = XyTimeUtil.getNowDate();
+				Date flu = XyTimeUtil.getDate(stat.getLastBlackRefreshTime());
+				for(int hour : SystemConstant.MALL_BLACK_MARKET_REFRESH_HOURS){
+					Date date = XyTimeUtil.getDate(hour, 0, 0);
+					if(XyTimeUtil.before(date, now) && XyTimeUtil.before(flu, date)){
+						flushGoods = true;
+						break;
+					}
+				}
+			}
+			if(emptyGoods || flushGoods){
 				stat.setBlackMarketGoodsList(mallService.createBlackMarketGoods());
+				stat.setLastBlackRefreshTime(XyTimeUtil.getNowSecond());
 				if(!add){
 					SQLOpt opt = new SQLOpt();
 					opt.putFieldOpt(UserStatTable.BLACKMARKETGOODS, SQLOpt.EQUAL);
+					if(flushGoods){
+						opt.putFieldOpt(UserStatTable.LASTBLACKREFRESHTIME, SQLOpt.EQUAL);
+					}
 					userService.updateUserStat(stat, opt);
 				}
 			}
@@ -396,7 +453,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 	@Override
 	public User getUser(int userId, User dbUser) {
 		User user = null;
-		if(userId > 0){
+		if(userId > 0 || dbUser != null){
 			user = UserCache.getUser(userId);
 			if(user == null){
 				user = userDAO.getUserFromCache(userId);
@@ -431,14 +488,13 @@ public final class UserServiceImpl extends BaseService implements UserService {
 						user.setLastRegainStaminaTime(new Date(System.currentTimeMillis() - (time % SystemConstant.USER_REGAIN_STAMINA_TIME)));
 					}
 				}
-				effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_STAMINA, stamina, SystemConstant.LOGGER_APPROACH_自动回体);
+				effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_STAMINA, stamina, null, false, SystemConstant.LOGGER_APPROACH_自动回体);
 			}
 		} else {
 			user.setLastRegainStaminaTime(new Date());
 		}
 		Map<String, String> hash = new HashMap<>();
 		hash.put(UserTable.J_LASTREGAINSTAMINATIME, String.valueOf(user.getLastRegainStaminaTime().getTime()));
-//		userDAO.updateUserCache(user.getUserId(), hash);
 		updateUser(user, hash, false);
 	}
 	
@@ -511,13 +567,28 @@ public final class UserServiceImpl extends BaseService implements UserService {
 	@Override
 	public void updateGuideStep(int userId, int guideStep) {
 		User user = getOnlineUser(userId);
-		if (user.getGuideStep() > guideStep) {
-			throw new GameException(GameException.CODE_参数错误, "");
+		UserGuideStep step = getUserGuideStep(user);
+		boolean add = step == null;
+		if(add){
+			step = new UserGuideStep();
+			step.setId(userId);
 		}
-		user.setGuideStep(guideStep);
-		Map<String, String> hash = new HashMap<>();
-		hash.put(UserTable.J_GUIDESTEP, String.valueOf(guideStep));
-		updateUser(user, hash, false);
+		if(!step.hasGuide(guideStep)){
+			step.addGuideId(guideStep);
+			updateUserGuideStep(user, step, add);
+			if(user.getGuideStep() < guideStep){
+				user.setGuideStep(guideStep);
+				Map<String, String> hash = new HashMap<>();
+				hash.put(UserTable.J_GUIDESTEP, String.valueOf(guideStep));
+				updateUser(user, hash, false);
+			}
+		}
+	}
+	
+	@Override
+	public List<Integer> getGuideSteps(int userId){
+		User user = getOnlineUser(userId);
+		return getUserGuideIds(user);
 	}
 
 	@Override
@@ -531,7 +602,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 			stat.setBuyGoldCount(++b);
 			int price = MathUtil.getBuyGoldPrice(b);
 			effectService.delIncome(user, SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, price, SystemConstant.LOGGER_APPROACH_购买金币);
-			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, SystemConstant.USER_BUY_GOLD_GAIN, SystemConstant.LOGGER_APPROACH_购买金币获得);
+			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_GOLD, SystemConstant.USER_BUY_GOLD_GAIN, null, false, SystemConstant.LOGGER_APPROACH_购买金币获得);
 			SQLOpt opt = new SQLOpt();
 			opt.putFieldOpt(UserStatTable.BUYGOLDCOUNT, SQLOpt.EQUAL);
 //			userStatDAO.updateUserStat(opt, stat);
@@ -550,7 +621,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 			stat.setBuyStaminaCount(++b);
 			int price = MathUtil.getBuyStaminaPrice(b);
 			effectService.delIncome(user, SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, price, SystemConstant.LOGGER_APPROACH_购买体力);
-			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_STAMINA, SystemConstant.USER_BUY_STAMINA_GAIN, SystemConstant.LOGGER_APPROACH_购买体力获得);
+			effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_STAMINA, SystemConstant.USER_BUY_STAMINA_GAIN, null, false, SystemConstant.LOGGER_APPROACH_购买体力获得);
 			SQLOpt opt = new SQLOpt();
 			opt.putFieldOpt(UserStatTable.BUYSTAMINACOUNT, SQLOpt.EQUAL);
 //			userStatDAO.updateUserStat(opt, stat);
@@ -574,9 +645,9 @@ public final class UserServiceImpl extends BaseService implements UserService {
 			}
 			UserProp prop = userPropService.getUserPropByPropId(user, SystemConstant.PROP_ID_补签卡);
 			if(prop == null || prop.getNum() < 1){
-				effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.USER_SIGNIN_DIAMOND);
+				effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, SystemConstant.USER_SIGNIN_DIAMOND, 0);
 			}else{
-				effects.delItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, SystemConstant.PROP_ID_补签卡, 1);
+				effects.appendItem(SystemConstant.ITEM_EFFECT_TYPE_PROP, SystemConstant.PROP_ID_补签卡, 1, 0);
 			}
 		}
 		int code = effectService.validDels(user, effects);
@@ -586,7 +657,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 		Signin aw = GameCache.getSignin(day);
 		if(aw != null){
 			ItemEffects adds = new ItemEffects(SystemConstant.LOGGER_APPROACH_签到获得);
-			adds.addItem(aw.getType(), aw.getGoodsId(), aw.getNum(), aw.getLevel());
+			adds.appendItem(aw.getType(), aw.getGoodsId(), aw.getNum(), aw.getLevel());
 			code = effectService.validAdds(user, adds);
 			if(code != GameException.CODE_正常){
 				throw new GameException(code, "");
@@ -600,14 +671,14 @@ public final class UserServiceImpl extends BaseService implements UserService {
 			opt.putFieldOpt(UserStatTable.SIGNINDAYS, SQLOpt.EQUAL);
 			userService.updateUserStat(stat, opt);
 			effectService.delIncome(user, effects);
-			return effectService.addGainAwardVo(user, effects);
+			return effectService.addGainAwardVo(user, adds);
 		}else{
 			throw new GameException(GameException.CODE_参数错误, "");
 		}
 	}
 
 	@Override
-	public GainAwardVO drawSumSignin(int userId, int sumDay) {  //TODO
+	public GainAwardVO drawSumSignin(int userId, int sumDay) {  
 		User user = getOnlineUser(userId);
 		UserStat stat = getUserStat(userId);
 
@@ -627,7 +698,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 			mult = 2;
 		}
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_签到获得);
-		effects.addItems(goodses, mult);
+		effects.appendGoods(goodses, mult);
 		int code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");
@@ -640,7 +711,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 	}
 
 	@Override
-	public void updateFunUnlock(int userId, int funUnlock) {
+	public void updateFunUnlock(int userId, int funUnlock) {  //TODO无用
 		User user = getOnlineUser(userId);
 		user.setFunUnlock(user.getFunUnlock() | funUnlock);
 		Map<String, String> hash = new HashMap<>();
@@ -661,7 +732,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_升级名望奖励);
 		List<Goods> goodses = GameCache.getFameAward(user.getFame());
 		if(goodses != null){
-			effects.addItems(goodses, 0);
+			effects.appendGoods(goodses, 0);
 			int code = effectService.validAdds(user, effects);
 			if(code != GameException.CODE_正常){
 				throw new GameException(code, "");
@@ -691,7 +762,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 
 		stat.setSlateGainTime(new Date(System.currentTimeMillis() - time % (60 * 60 * 1000)));
 
-		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_SLATE, slate, SystemConstant.LOGGER_APPROACH_免费领取);
+		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_SLATE, slate, null, false, SystemConstant.LOGGER_APPROACH_免费领取);
 
 		SQLOpt opt = new SQLOpt();
 		opt.putFieldOpt(UserStatTable.SLATEGAINTIME, SQLOpt.EQUAL);
@@ -832,7 +903,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 		}
 		
 		effectService.delIncome(user, SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, 50 * times, SystemConstant.LOGGER_APPROACH_增加经验池上限);
-		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_ADD_HERO_POOL_EXP_LIMIT, needEffect.getVal() * times, SystemConstant.LOGGER_APPROACH_增加经验池上限);
+		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_ADD_HERO_POOL_EXP_LIMIT, needEffect.getVal() * times, null, false, SystemConstant.LOGGER_APPROACH_增加经验池上限);
 		
 	}
 
@@ -857,7 +928,7 @@ public final class UserServiceImpl extends BaseService implements UserService {
 			throw new GameException(GameException.CODE_配置表数据不存在, "");
 		}
 		effectService.delIncome(user, SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, 0, 50 * times, SystemConstant.LOGGER_APPROACH_增加熔炼池上限);
-		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_ADD_SMELTING_POOL_EXP_LIMIT, needEffect.getVal() * times, SystemConstant.LOGGER_APPROACH_增加熔炼池上限);
+		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_ADD_SMELTING_POOL_EXP_LIMIT, needEffect.getVal() * times, null, false, SystemConstant.LOGGER_APPROACH_增加熔炼池上限);
 	}
 
 	@Override
@@ -877,22 +948,23 @@ public final class UserServiceImpl extends BaseService implements UserService {
 
 	@Override
 	public void heard(int userId) {
-		User user = getUser(userId);
-		user.setAccessTime(XyTimeUtil.getNowSecond());
-		Map<String, String> hash = new HashMap<>();
-		hash.put(UserTable.J_ACCESSTIME, String.valueOf(user.getAccessTime()));
-//		userDAO.updateUserCache(userId, hash);
-		updateUser(user, hash, false);
+		User user = queryCacheUser(userId);
+		if(user != null){
+			user.setAccessTime(XyTimeUtil.getNowSecond());
+			Map<String, String> hash = new HashMap<>();
+			hash.put(UserTable.J_ACCESSTIME, String.valueOf(user.getAccessTime()));
+			updateUser(user, hash, false);
+		}
 	}
 	
 	@Override
-	public void recharge(User user, int diamond, int logType){
-		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, diamond, logType);
+	public void recharge(User user, int diamond, boolean dbUp, int logType){
+		effectService.addIncome(user, SystemConstant.ITEM_EFFECT_TYPE_DIAMOND, diamond, null, dbUp, logType);
 		user.setChargeDiamond(user.getChargeDiamond() + diamond);
 		Map<String, String> hash = new HashMap<String, String>();
 		hash.put(UserTable.J_CHARGEDIAMOND, String.valueOf(user.getChargeDiamond()));
 		vipService.updateVip(user, user.getVip());
-		updateUser(user, hash, false);
+		updateUser(user, hash, dbUp);
 		UserBaseinfo info = getUserBaseInfo(user.getUserId());
 		if(info != null){
 			info.setVip(user.getVip());
@@ -914,7 +986,6 @@ public final class UserServiceImpl extends BaseService implements UserService {
 		List<User> list = userDAO.loadDBFightings(start, end);
 		while(!list.isEmpty()){
 			for(User user : list){
-				System.err.println(user.getLevel());
 				userDAO.updateFighting(user.getFighting(), user.getUserId());
 			}
 			start = end;

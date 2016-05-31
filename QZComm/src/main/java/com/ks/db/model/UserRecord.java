@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import lombok.Data;
 
 import com.ks.access.DBBeanSet;
@@ -37,10 +39,13 @@ public class UserRecord {
 	/**试练副本挑战ids*/
 	@DBFieldSet(dbfname="trialsIds")
 	private String trialsIds = "";
-	
+	@JsonIgnore
 	private List<Integer> sysMailList = new ArrayList<>();
+	@JsonIgnore
 	private Map<Integer, CommonReward> commonRewardMap = new HashMap<Integer, CommonReward>();
+	@JsonIgnore
 	private List<Integer> firstRechargeList = new ArrayList<>();
+	@JsonIgnore
 	private List<Integer> trialsIdList = new ArrayList<>();
 	
 	public int getId(){

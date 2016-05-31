@@ -1,11 +1,16 @@
 package com.ks.protocol.vo;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import com.ks.protocol.AbstractHead;
 
 /**
  * UUID包头
  * @author ks
  */
+@EqualsAndHashCode(callSuper=true)
+@Data
 public class Head extends AbstractHead {
 
 	private static final long serialVersionUID = 1L;
@@ -16,6 +21,8 @@ public class Head extends AbstractHead {
 	private short mainCmd;
 	/**子命令*/
 	private short subCmd;
+	/**引导*/
+	private int guideId;
 	/**session编号*/
 	private String sessionId = new String(new byte[36]);
 	/**效验字段*/
@@ -26,42 +33,6 @@ public class Head extends AbstractHead {
 		this.mainCmd=mainCmd;
 		this.subCmd = subCmd;
 		checkVal = 0;
-	}
-	public String getSessionId() {
-		return sessionId;
-	}
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
-	}
-	public short getCheckVal() {
-		return checkVal;
-	}
-	public void setCheckVal(short checkVal) {
-		this.checkVal = checkVal;
-	}
-	public short getLength() {
-		return length;
-	}
-	public void setLength(short length) {
-		this.length = length;
-	}
-	public short getMainCmd() {
-		return mainCmd;
-	}
-	public void setMainCmd(short mainCmd) {
-		this.mainCmd = mainCmd;
-	}
-	public short getSubCmd() {
-		return subCmd;
-	}
-	public void setSubCmd(short subCmd) {
-		this.subCmd = subCmd;
-	}
-	public boolean isCompressed() {
-		return compressed;
-	}
-	public void setCompressed(boolean compressed) {
-		this.compressed = compressed;
 	}
 	
 }

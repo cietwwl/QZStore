@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import lombok.Data;
 
 import com.ks.access.DBBeanSet;
@@ -40,8 +42,9 @@ public class UserTeam implements Serializable {
 	@DBFieldSet(dbfname="update_time")
 	@JedisFieldSet
 	private Date updateTime = new Date();
-	
+	@JsonIgnore
 	private List<Integer> heroList;
+	@JsonIgnore
 	private List<Integer> posList;
 	private void initHeroList(){
 		heroList = StringUtil.stringToList1(heros);
@@ -54,12 +57,6 @@ public class UserTeam implements Serializable {
 	}
 	private void initPos(){
 		pos = StringUtil.listToString(posList);
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 	public String getHeros() {
 		initHeros();
@@ -76,18 +73,6 @@ public class UserTeam implements Serializable {
 	public void setPos(String pos) {
 		this.pos = pos;
 		initPosList();
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
 	}
 	
 }

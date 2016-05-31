@@ -27,6 +27,7 @@ public static final String BUYSTAMINACOUNT="buy_stamina_count";
 public static final String SIGNINDAYS="signin_days";
 public static final String FILLSIGNIN="fill_signin";
 public static final String SUMSIGNINDAYS="sum_signin_days";
+public static final String LASTBLACKREFRESHTIME="last_black_refresh_time";
 public static final String BLACKMARKETGOODS="black_market_goods";
 public static final String BLACKMARKETREFCOUNT="black_market_ref_count";
 public static final String MALLTOTLEBUYCOUNT="mall_totle_buy_count";
@@ -72,6 +73,7 @@ public static final String J_BUYSTAMINACOUNT="buyStaminaCount";
 public static final String J_SIGNINDAYS="signinDays";
 public static final String J_FILLSIGNIN="fillSignin";
 public static final String J_SUMSIGNINDAYS="sumSigninDays";
+public static final String J_LASTBLACKREFRESHTIME="lastBlackRefreshTime";
 public static final String J_BLACKMARKETGOODS="blackMarketGoods";
 public static final String J_BLACKMARKETREFCOUNT="blackMarketRefCount";
 public static final String J_MALLTOTLEBUYCOUNT="mallTotleBuyCount";
@@ -172,6 +174,9 @@ return bean.getFillSignin();
 if(SUMSIGNINDAYS.equals(fname)){
 return bean.getSumSigninDays();
 }
+if(LASTBLACKREFRESHTIME.equals(fname)){
+return bean.getLastBlackRefreshTime();
+}
 if(BLACKMARKETGOODS.equals(fname)){
 return bean.getBlackMarketGoods();
 }
@@ -264,6 +269,7 @@ bean.setBuyStaminaCount(rs.getByte("buy_stamina_count"));
 bean.setSigninDays(rs.getString("signin_days"));
 bean.setFillSignin(rs.getInt("fill_signin"));
 bean.setSumSigninDays(rs.getString("sum_signin_days"));
+bean.setLastBlackRefreshTime(rs.getInt("last_black_refresh_time"));
 bean.setBlackMarketGoods(rs.getString("black_market_goods"));
 bean.setBlackMarketRefCount(rs.getInt("black_market_ref_count"));
 bean.setMallTotleBuyCount(rs.getString("mall_totle_buy_count"));

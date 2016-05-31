@@ -14,13 +14,12 @@ import com.ks.constant.SystemConstant;
 import com.ks.db.cfg.ActivityZone;
 import com.ks.db.cfg.BattleRound;
 import com.ks.db.cfg.BreadStoreRule;
-import com.ks.db.cfg.Drop;
 import com.ks.db.cfg.Monster;
 import com.ks.db.cfg.Zone;
 import com.ks.db.cfg.ZoneAward;
 import com.ks.db.cfg.ZoneBattle;
+import com.ks.db.log.ZoneBattleLogger;
 import com.ks.db.model.User;
-import com.ks.db.model.UserProp;
 import com.ks.db.model.UserRecord;
 import com.ks.db.model.UserStat;
 import com.ks.db.model.UserZone;
@@ -28,10 +27,12 @@ import com.ks.db.model.UserZoneBattle;
 import com.ks.exceptions.GameException;
 import com.ks.logic.cache.GameCache;
 import com.ks.logic.dao.UserZoneDAO;
+import com.ks.logic.event.GameLoggerEvent;
 import com.ks.logic.service.BaseService;
 import com.ks.logic.service.UserZoneService;
 import com.ks.model.fight.Battle;
 import com.ks.model.user.AssStat;
+import com.ks.object.DropEffect;
 import com.ks.object.ItemEffects;
 import com.ks.protocol.MessageFactory;
 import com.ks.protocol.vo.fight.FightVO;
@@ -43,6 +44,7 @@ import com.ks.protocol.vo.zone.UserZoneVO;
 import com.ks.table.UserRecordTable;
 import com.ks.table.UserStatTable;
 import com.ks.table.UserTable;
+import com.ks.timer.TimerController;
 import com.ks.util.DateUtil;
 import com.ks.util.MathUtil;
 import com.ks.util.XyStringUtil;
@@ -226,7 +228,7 @@ public class UserZoneServiceImpl extends BaseService implements UserZoneService 
 					}
 					userService.validTrialsNumber(user, userService.getUserStat(user.getUserId()), zone.getZoneId(), 1);
 				}
-				validBackpack(user, zoneBattle);
+				validBackpack(user, zoneBattle);//校验背包
 			}
 		}
 		if(zone.getZoneId() == SystemConstant.ZONE_ID_GOD_WEALTH || zone.getZoneId() == SystemConstant.ZONE_ID_ANIMA_TEMPLE){
@@ -346,7 +348,9 @@ public class UserZoneServiceImpl extends BaseService implements UserZoneService 
 		
 		FightVO vo = MessageFactory.getMessage(FightVO.class);
 		vo.init(battle);
-		
+		ZoneBattleLogger logger = new ZoneBattleLogger(userId, zone.getZoneId(), battleId);
+		logger.setState(1);
+		TimerController.submitGameEvent(new GameLoggerEvent(SystemConstant.LOG_EVENT_TYPE_BATTLE, logger));
 		return vo;
 	}
 	
@@ -365,20 +369,12 @@ public class UserZoneServiceImpl extends BaseService implements UserZoneService 
 		while(nextRound != null){
 			for(int monsterId : nextRound.getMonsters()){
 				Monster monster = GameCache.getMonster(monsterId);
-				if(monster != null){
-					for(Drop drop : monster.getDrops()){
-						if(drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_HERO){
-							heroSize += drop.getNum();
-						}else if(drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_PROP){
-							UserProp prop = userPropService.getUserPropByPropId(user, drop.getAssId());
-							if(prop == null){
-								propSize ++;
-							}
-						}else if(drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_ETERNAL){
-							eternalSize += drop.getNum();
-						}else if(drop.getType() == SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT){
-							equipSize += drop.getNum();
-						}
+				if(monster != null && monster.getDrops() != null){
+					for(DropEffect effect : monster.getDrops()){
+						heroSize += effect.getMaxItemSize(SystemConstant.ITEM_EFFECT_TYPE_HERO);
+						propSize += effect.getMaxItemSize(SystemConstant.ITEM_EFFECT_TYPE_PROP);
+						eternalSize += effect.getMaxItemSize(SystemConstant.ITEM_EFFECT_TYPE_ETERNAL);
+						equipSize += effect.getMaxItemSize(SystemConstant.ITEM_EFFECT_TYPE_EQUIPMENT);
 					}
 				}
 			}
@@ -499,7 +495,7 @@ public class UserZoneServiceImpl extends BaseService implements UserZoneService 
 		User user = userService.getOnlineUser(userId);
 		int mult = activityService.getMultNumByZoneId(zoneId);
 		ItemEffects effects = new ItemEffects(SystemConstant.LOGGER_APPROACH_副本星数奖励);
-		effects.addItems(awards, mult);
+		effects.appendGoods(awards, mult);
 		int code = effectService.validAdds(user, effects);
 		if(code != GameException.CODE_正常){
 			throw new GameException(code, "");

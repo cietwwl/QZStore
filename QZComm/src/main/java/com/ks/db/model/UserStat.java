@@ -59,9 +59,6 @@ public class UserStat implements Serializable{
 	@DBFieldSet(dbfname="exit_guild_time")
 	@JedisFieldSet
 	private Date exitGuildTime = new Date();
-//	/**最后刷新时间*/
-//	@DBFieldSet(dbfname="last_ref_time")
-//	private Date lastRefTime = new Date();
 	/**创建时间*/
 	@DBFieldSet(dbfname="create_time")
 	@JedisFieldSet
@@ -137,6 +134,10 @@ public class UserStat implements Serializable{
 	@DBFieldSet(dbfname="sum_signin_days")
 	@JedisFieldSet
 	private String sumSigninDays;
+	/**上一次黑市自动刷新时间*/
+	@DBFieldSet(dbfname="last_black_refresh_time")
+	@JedisFieldSet
+	private int lastBlackRefreshTime;
 	/**黑市道具*/
 	@DBFieldSet(dbfname="black_market_goods")
 	@JedisFieldSet

@@ -1,5 +1,7 @@
 package com.ks.logic.action;
 
+import java.util.List;
+
 import com.ks.action.logic.PlayerAction;
 import com.ks.db.model.User;
 import com.ks.db.model.UserStat;
@@ -20,7 +22,7 @@ public final class PlayerActionImpl implements PlayerAction {
 
 	private static UserService userService = ServiceFactory.getService(UserService.class);
 
-	@Override
+	@Override	
 	public LoginResultVO userLogin(LoginVO login) {
 		return userService.userLogin(login);
 	}
@@ -37,9 +39,7 @@ public final class PlayerActionImpl implements PlayerAction {
 
 	@Override
 	public UserInfoVO gainUserInfo(int userId) {
-		UserInfoVO info = userService.gainUserInfo(userId);
-		userService.getUserBaseInfo(userId);
-		return info;
+		return userService.gainUserInfo(userId);
 	}
 
 	@Override
@@ -82,6 +82,11 @@ public final class PlayerActionImpl implements PlayerAction {
 	@Override
 	public void updateGuideStep(int userId, int guideStep) {
 		userService.updateGuideStep(userId, guideStep);
+	}
+
+	@Override
+	public List<Integer> getGuideSteps(int userId){
+		return userService.getGuideSteps(userId);
 	}
 
 	@Override

@@ -5,10 +5,13 @@ import java.util.Date;
 
 import com.ks.access.DBBeanSet;
 import com.ks.access.DBFieldSet;
+
+import lombok.Data;
 /**
  * 大区配置
  * @author ks
  */
+@Data
 @DBBeanSet(tablename="t_area_config", primaryKey={"id"})
 public class AreaConfig implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,29 +28,5 @@ public class AreaConfig implements Serializable {
 	/**修改时间*/
 	@DBFieldSet(dbfname="update_time")
 	private Date updateTime = new Date();
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public int getValue() {
-		return value;
-	}
-	public void setValue(int value) {
-		this.value = value;
-	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
 	
 }

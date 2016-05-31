@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import lombok.Data;
 
 import com.ks.access.DBBeanSet;
@@ -37,6 +39,7 @@ public class FriendReco implements Serializable {
 	@JedisFieldSet
 	private Date updateTime = new Date();
 	/**推荐好友*/
+	@JsonIgnore
 	private List<Integer> recoFriendList;
 	private void initRecoFriendList(){
 		recoFriendList = StringUtil.stringToList(recoFriends);
